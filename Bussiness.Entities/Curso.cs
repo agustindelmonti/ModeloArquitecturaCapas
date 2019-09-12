@@ -10,8 +10,8 @@ namespace Business.Entities
     {
         public int AnioCalendario { get; set; }
         public int Cupo { get; set; }
-        public int IdComision { get; set; }
-        public int IdMateria { get; set; }
+        public Comision Comision { get; set; }
+        public Materia Materia{ get; set; }
         public string Descripcion { get; set; }
 
     }

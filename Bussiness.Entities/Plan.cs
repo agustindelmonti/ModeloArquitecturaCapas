@@ -9,7 +9,7 @@ namespace Business.Entities
     public class Plan : BusinessEntity
     {
         public string Descripcion { get; set; }
-        public int IdEspecialidad { get; set; }
+        public Especialidad Especialidad { get; set; }
 
     }
 }
