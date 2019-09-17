@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Desktop", "UI.Desktop\UI.Desktop.csproj", "{C1505A8E-FAF6-4985-A1EC-7DBF1EF62174}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Database", "Data.Database\Data.Database.csproj", "{18D1C50F-58E0-4D94-B05B-4A95A146E6BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Consola", "UI.Console\UI.Consola.csproj", "{43D4245D-E52D-4A71-8676-1576B84AF1D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academia", "Academia\Academia.csproj", "{02613115-3EB5-442A-AE55-2E47B30A4751}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{43D4245D-E52D-4A71-8676-1576B84AF1D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D4245D-E52D-4A71-8676-1576B84AF1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43D4245D-E52D-4A71-8676-1576B84AF1D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02613115-3EB5-442A-AE55-2E47B30A4751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02613115-3EB5-442A-AE55-2E47B30A4751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02613115-3EB5-442A-AE55-2E47B30A4751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02613115-3EB5-442A-AE55-2E47B30A4751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
