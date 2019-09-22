@@ -1,0 +1,74 @@
+﻿@model Academia.Models.ModuloUsuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ModuloUsuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Modulo.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modulo.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.NombreUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.NombreUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermiteBaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermiteBaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermiteModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermiteModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermiteAlta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermiteAlta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermiteConsulta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermiteConsulta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ModuloUsuarioID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

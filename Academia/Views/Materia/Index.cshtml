@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Academia.Models.Materia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Plan.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HsSemanales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HsTotales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plan.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HsSemanales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HsTotales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MateriaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MateriaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MateriaID })
+        </td>
+    </tr>
+}
+
+</table>

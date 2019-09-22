@@ -1,0 +1,50 @@
+﻿@model Academia.Models.DocenteCurso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DocenteCurso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.CursoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curso.CursoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocenteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocenteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DocenteCursoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

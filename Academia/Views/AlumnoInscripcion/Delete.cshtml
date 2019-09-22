@@ -1,4 +1,4 @@
-﻿@model Academia.Models.Usuario
+﻿@model Academia.Models.AlumnoInscripcion
 
 @{
     ViewBag.Title = "Delete";
@@ -8,9 +8,17 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Usuario</h4>
+    <h4>AlumnoInscripcion</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso.CursoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curso.CursoID)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Persona.Nombre)
         </dt>
@@ -20,27 +28,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NombreUsuario)
+            @Html.DisplayNameFor(model => model.Condicion)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NombreUsuario)
+            @Html.DisplayFor(model => model.Condicion)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Clave)
+            @Html.DisplayNameFor(model => model.Nota)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Clave)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Habilitado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Habilitado)
+            @Html.DisplayFor(model => model.Nota)
         </dd>
 
         <dt>

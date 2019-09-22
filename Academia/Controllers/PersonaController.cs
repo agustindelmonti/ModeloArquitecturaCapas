@@ -11,112 +11,112 @@ using Academia.Models;
 
 namespace Academia.Controllers
 {
-    public class UsuarioController : Controller
+    public class PersonaController : Controller
     {
         private AcademiaContext db = new AcademiaContext();
 
-        // GET: Usuario
+        // GET: Persona
         public ActionResult Index()
         {
-            var usuarios = db.Usuarios.Include(u => u.Persona);
-            return View(usuarios.ToList());
+            var personas = db.Personas.Include(p => p.Plan);
+            return View(personas.ToList());
         }
 
-        // GET: Usuario/Details/5
+        // GET: Persona/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
+            Persona persona = db.Personas.Find(id);
+            if (persona == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(persona);
         }
 
-        // GET: Usuario/Create
+        // GET: Persona/Create
         public ActionResult Create()
         {
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre");
+            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion");
             return View();
         }
 
-        // POST: Usuario/Create
+        // POST: Persona/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,PersonaID,State")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,TipoPersona,PlanID,State")] Persona persona)
         {
             if (ModelState.IsValid)
             {
-                db.Usuarios.Add(usuario);
+                db.Personas.Add(persona);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", usuario.PersonaID);
-            return View(usuario);
+            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", persona.PlanID);
+            return View(persona);
         }
 
-        // GET: Usuario/Edit/5
+        // GET: Persona/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
+            Persona persona = db.Personas.Find(id);
+            if (persona == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", usuario.PersonaID);
-            return View(usuario);
+            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", persona.PlanID);
+            return View(persona);
         }
 
-        // POST: Usuario/Edit/5
+        // POST: Persona/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,PersonaID,State")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,TipoPersona,PlanID,State")] Persona persona)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
+                db.Entry(persona).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", usuario.PersonaID);
-            return View(usuario);
+            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", persona.PlanID);
+            return View(persona);
         }
 
-        // GET: Usuario/Delete/5
+        // GET: Persona/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
+            Persona persona = db.Personas.Find(id);
+            if (persona == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(persona);
         }
 
-        // POST: Usuario/Delete/5
+        // POST: Persona/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuario usuario = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuario);
+            Persona persona = db.Personas.Find(id);
+            db.Personas.Remove(persona);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
