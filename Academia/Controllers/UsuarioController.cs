@@ -49,7 +49,7 @@ namespace Academia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,PersonaID,State")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,CambioClave,PersonaID,State")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace Academia.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,PersonaID,State")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,CambioClave,PersonaID,State")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

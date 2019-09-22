@@ -11,7 +11,7 @@ namespace Academia.Models {
         public string NombreUsuario { get; set; }
         public string Clave { get; set; }
         public bool Habilitado { get; set; }
-        public bool CambioClave;
+        public bool CambioClave { get; set; }
 
         // Foreign Keys
         public int PersonaID { get; set; }
