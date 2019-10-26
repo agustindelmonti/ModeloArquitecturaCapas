@@ -49,7 +49,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PlanID,Descripcion,EspecialidadID,State")] Plan plan)
+        public ActionResult Create([Bind(Include = "Descripcion,EspecialidadID,State")] Plan plan)
         {
             if (ModelState.IsValid)
             {

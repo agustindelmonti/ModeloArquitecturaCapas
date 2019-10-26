@@ -50,7 +50,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AlumnoInscripcionID,Condicion,Nota,PersonaID,CursoID,State")] AlumnoInscripcion alumnoInscripcion)
+        public ActionResult Create([Bind(Include = "Condicion,Nota,PersonaID,CursoID,State")] AlumnoInscripcion alumnoInscripcion)
         {
             if (ModelState.IsValid)
             {
