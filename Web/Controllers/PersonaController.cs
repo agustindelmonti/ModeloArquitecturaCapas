@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Data;
 using Entities;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -129,5 +130,21 @@ namespace Web.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // GET: Persona/Horario/5
+        public ActionResult Horario(int? id)
+        {
+            //Persona persona = db.Personas.Find(id);
+
+            
+            HashSet<BloqueCursado> Bloques = new HashSet<BloqueCursado>()
+            {
+                new BloqueCursado("7:15", "8:00", DayOfWeek.Friday),
+                new BloqueCursado("7:15", "8:00", DayOfWeek.Friday)
+            };
+
+            return View(Bloques);
+        }
+
     }
 }

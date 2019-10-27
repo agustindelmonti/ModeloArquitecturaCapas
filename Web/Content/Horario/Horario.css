@@ -1,0 +1,32 @@
+﻿html,
+body {
+    font-family: Lato, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.timetable-title {
+    color: #3f3f3f;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 0 !important;
+    margin: 18px 32px 18px 0 !important;
+    font-weight: 700;
+    display: inline-block !important;
+    float: left;
+}
+
+.div{
+    display: block
+}
+
+header {
+    width: 100%;
+    height: 48px;
+    background-color: #ddd;
+}
+
+
+
+

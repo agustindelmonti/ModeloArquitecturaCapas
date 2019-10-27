@@ -1,0 +1,154 @@
+﻿/*
+    Estilos especificos de la Tabla de Horarios 
+*/
+ol {
+    list-style: none;
+}
+
+.timetable {
+    display: flex;
+}
+
+.block {
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    height: 4.0em; /* Overwritten in inline style */
+    position: relative;
+}
+
+.nowMarker {
+    position: absolute;
+    border-bottom: 2px solid #ff7f6e;
+    z-index: 100;
+    width: 100%;
+    top: -2px;
+    transition: top 2s ease-in-out;
+}
+
+.timings {
+    float: left;
+    margin: 1em 0 0 0;
+    padding: 0 13px 0 0;
+    width: 3em;
+    height: 68em;
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.week {
+    margin: 0;
+    display: -webkit-flex;
+    display: flex;
+    overflow-x: auto;
+    padding: 0;
+    width: 100%;
+
+    border: 1px solid #ddd;
+}
+
+.day {
+    position: relative;
+    padding: 0;
+    min-width: calc(100.5% / 3);
+    transition: min-width 0.2s ease-in-out;
+}
+
+.name {
+    display: block;
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+    position: relative;
+   
+    font-size: 14px;
+    background: #e8e8e8;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+/*Configuracion celular//*/
+@media (min-width: 768px) {
+    
+    .day{
+    min-width: calc(100.5% / 6);
+    transition: min-width 0.2s ease-in-out;
+    }
+}
+
+
+.hour {
+    position: absolute;
+    height: 4em;
+    text-indent: 3px;
+    width: 100%;
+    color: white;
+}
+
+.hour__08 {
+    top: 3em;
+}
+
+.hour__09 {
+    top: 7em;
+}
+
+.hour__10 {
+    top: 11em;
+}
+
+.hour__11 {
+    top: 15em;
+}
+
+.hour__12 {
+    top: 19em;
+}
+
+.hour__13 {
+    top: 23em;
+}
+
+.hour__14 {
+    top: 27em;
+}
+
+.hour__15 {
+    top: 31em;
+}
+
+.hour__16 {
+    top: 35em;
+}
+
+.hour--two {
+    height: 8em;
+}
+
+.hour--three {
+    height: 12em;
+}
+
+.class1 {
+    background: #3498db;
+}
+
+.class2 {
+    background: #27ae60;
+}
+
+.class3 {
+    background: #e74c3c;
+}
+
+.class4 {
+    background: #e67e22;
+}
+
+.class5 {
+    background: #1abc9c;
+}
