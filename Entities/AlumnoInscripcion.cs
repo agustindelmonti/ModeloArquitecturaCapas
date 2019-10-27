@@ -12,11 +12,11 @@ namespace Entities {
         public int Nota { get; set; }
 
         // Foreign Keys
-        public int PersonaID { get; set; }
+        public int AlumnoID { get; set; }
         public int CursoID { get; set; }
 
         // Navegation Properties
-        public virtual Persona Persona { get; set; }
+        public virtual Persona Alumno { get; set; }
         public virtual Curso Curso { get; set; }
     }
 }

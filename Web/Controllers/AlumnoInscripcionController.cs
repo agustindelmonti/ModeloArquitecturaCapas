@@ -18,7 +18,7 @@ namespace Web.Controllers
         // GET: AlumnoInscripcion
         public ActionResult Index()
         {
-            var alumnoInscripciones = db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Persona);
+            var alumnoInscripciones = db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Alumno);
             return View(alumnoInscripciones.ToList());
         }
 
@@ -60,7 +60,7 @@ namespace Web.Controllers
             }
 
             ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", alumnoInscripcion.CursoID);
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
+            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.AlumnoID);
             return View(alumnoInscripcion);
         }
 
@@ -77,7 +77,7 @@ namespace Web.Controllers
                 return HttpNotFound();
             }
             ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", alumnoInscripcion.CursoID);
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
+            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.AlumnoID);
             return View(alumnoInscripcion);
         }
 
@@ -95,7 +95,7 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", alumnoInscripcion.CursoID);
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
+            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.AlumnoID);
             return View(alumnoInscripcion);
         }
 

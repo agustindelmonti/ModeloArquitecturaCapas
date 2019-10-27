@@ -9,8 +9,9 @@ namespace Entities {
         // Attributes
         public int EspecialidadID { get; set; }
         public string Descripcion { get; set; }
+        public string Alias { get; set; }
 
         // Navegation Properties
-        public virtual ICollection<Plan> Planes { get; set; }
+        public virtual ICollection<Materia> Materias { get; set; }
     }
 }

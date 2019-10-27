@@ -18,7 +18,7 @@ namespace Web.Controllers
         // GET: Plan
         public ActionResult Index()
         {
-            var planes = db.Planes.Include(p => p.Especialidad);
+            var planes = db.Planes.Include(p => p.Materias);
             return View(planes.ToList());
         }
 

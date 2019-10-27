@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using Data;
 using Entities;
-using Web.Models;
 
 namespace Web.Controllers
 {
@@ -136,14 +135,17 @@ namespace Web.Controllers
         {
             //Persona persona = db.Personas.Find(id);
 
-            
-            HashSet<BloqueCursado> Bloques = new HashSet<BloqueCursado>()
-            {
-                new BloqueCursado("7:15", "8:00", DayOfWeek.Friday),
-                new BloqueCursado("7:15", "8:00", DayOfWeek.Friday)
-            };
+            List<BloqueCursado> Bloques = new List<BloqueCursado>();
 
-            return View(Bloques);
+            for (int j = 0; j < 6; j++) 
+            {
+                for (int i = 8; i < 24; i++)
+                {
+                    BloqueCursado bloque = new BloqueCursado(new TimeSpan(i,0,0), new TimeSpan(i+1, 0, 0),(DayOfWeek) j, BloqueCursado.Tipo.No_Definido);
+                }
+            }
+
+            return View();
         }
 
     }

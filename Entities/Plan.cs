@@ -15,7 +15,6 @@ namespace Entities {
 
         // Navegation Properties
         public virtual ICollection<Persona> Personas { get; set; }
-        public virtual Especialidad Especialidad { get; set; }
         public virtual ICollection<Materia> Materias { get; set; }
 
     }

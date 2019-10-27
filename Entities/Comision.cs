@@ -9,7 +9,6 @@ namespace Entities {
         // Attributes
         public int ComisionID { get; set; }
         public string Descripcion { get; set; }
-        public int AnioEspecialidad { get; set; }
         
         // Foreign Keys
         public int PlanID { get; set; }
@@ -17,6 +16,7 @@ namespace Entities {
         // Navegation Properties
         public virtual ICollection<Curso> Cursos { get; set; }
         public virtual Plan Plan { get; set; }
-        
+        public Especialidad Especialidad { get; set; }
+
     }
 }
