@@ -7,15 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
-using Data;
 using Entities;
 
 namespace Web.Controllers
 {
     public class EspecialidadController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
-
         EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Especialidad
@@ -113,15 +110,6 @@ namespace Web.Controllers
         {
             EspecialidadLogic.Remove(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Data.Repositories
 
         public IEnumerable<Comision> GetAll()
         {
-            return db.Comisiones.ToList();
+            return db.Comisiones.Include(c => c.Plan).ToList();
         }
     }
 }

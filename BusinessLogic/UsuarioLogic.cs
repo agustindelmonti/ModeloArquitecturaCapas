@@ -2,6 +2,7 @@
 using Data.Persistance;
 using Data.Repositories;
 using Entities;
+using System;
 using System.Collections.Generic;
 
 namespace BusinessLogic
@@ -19,5 +20,13 @@ namespace BusinessLogic
 
         //CRUD
         public IEnumerable<Usuario> GetAll() => UsuarioRepository.GetAll();
+
+        public Usuario Find(int? id) => UsuarioRepository.GetById(id);
+
+        public void Add(Usuario usuario) => UsuarioRepository.Add(usuario);
+
+        public void Update(Usuario usuario) => UsuarioRepository.Update(usuario);
+
+        public void Delete(int id) => UsuarioRepository.Delete(id);
     }
 }

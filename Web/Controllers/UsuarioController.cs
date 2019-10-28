@@ -6,20 +6,21 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class UsuarioController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        UsuarioLogic UsuarioLogic = new UsuarioLogic();
+        PersonaLogic PersonaLogic = new PersonaLogic();
 
         // GET: Usuario
         public ActionResult Index()
         {
-            var usuarios = db.Usuarios.Include(u => u.Persona);
-            return View(usuarios.ToList());
+            IEnumerable<Usuario> usuarios = UsuarioLogic.GetAll();
+            return View(usuarios);
         }
 
         // GET: Usuario/Details/5
@@ -29,7 +30,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuarios.Find(id);
+            Usuario usuario = UsuarioLogic.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace Web.Controllers
         // GET: Usuario/Create
         public ActionResult Create()
         {
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre");
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre");
             return View();
         }
 
@@ -53,12 +54,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Usuarios.Add(usuario);
-                db.SaveChanges();
+                UsuarioLogic.Add(usuario);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
             return View(usuario);
         }
 
@@ -69,12 +69,12 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuarios.Find(id);
+            Usuario usuario = UsuarioLogic.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
             return View(usuario);
         }
 
@@ -87,11 +87,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
-                db.SaveChanges();
+                UsuarioLogic.Update(usuario);
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
             return View(usuario);
         }
 
@@ -102,7 +101,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Usuario usuario = db.Usuarios.Find(id);
+            Usuario usuario = UsuarioLogic.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
@@ -115,19 +114,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuario usuario = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuario);
-            db.SaveChanges();
+            UsuarioLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

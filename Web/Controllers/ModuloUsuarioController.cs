@@ -6,20 +6,22 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class ModuloUsuarioController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        ModuloUsuarioLogic ModuloUsuarioLogic = new ModuloUsuarioLogic();
+        ModuloLogic ModuloLogic = new ModuloLogic();
+        UsuarioLogic UsuarioLogic = new UsuarioLogic();
 
         // GET: ModuloUsuario
         public ActionResult Index()
         {
-            var moduloUsuarios = db.ModuloUsuarios.Include(m => m.Modulo).Include(m => m.Usuario);
-            return View(moduloUsuarios.ToList());
+            var moduloUsuarios = ModuloUsuarioLogic.GetAll();
+            return View(moduloUsuarios);
         }
 
         // GET: ModuloUsuario/Details/5
@@ -29,7 +31,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ModuloUsuario moduloUsuario = db.ModuloUsuarios.Find(id);
+            ModuloUsuario moduloUsuario = ModuloUsuarioLogic.Find(id);
             if (moduloUsuario == null)
             {
                 return HttpNotFound();
@@ -40,8 +42,8 @@ namespace Web.Controllers
         // GET: ModuloUsuario/Create
         public ActionResult Create()
         {
-            ViewBag.ModuloID = new SelectList(db.Modulos, "ModuloID", "Descripcion");
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "UsuarioID", "NombreUsuario");
+            ViewBag.ModuloID = new SelectList(ModuloLogic.GetAll(), "ModuloID", "Descripcion");
+            ViewBag.UsuarioID = new SelectList(UsuarioLogic.GetAll(), "UsuarioID", "NombreUsuario");
             return View();
         }
 
@@ -54,13 +56,12 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ModuloUsuarios.Add(moduloUsuario);
-                db.SaveChanges();
+                ModuloUsuarioLogic.Add(moduloUsuario);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ModuloID = new SelectList(db.Modulos, "ModuloID", "Descripcion", moduloUsuario.ModuloID);
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "UsuarioID", "NombreUsuario", moduloUsuario.UsuarioID);
+            ViewBag.ModuloID = new SelectList(ModuloLogic.GetAll(), "ModuloID", "Descripcion", moduloUsuario.ModuloID);
+            ViewBag.UsuarioID = new SelectList(UsuarioLogic.GetAll(), "UsuarioID", "NombreUsuario", moduloUsuario.UsuarioID);
             return View(moduloUsuario);
         }
 
@@ -71,13 +72,13 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ModuloUsuario moduloUsuario = db.ModuloUsuarios.Find(id);
+            ModuloUsuario moduloUsuario = ModuloUsuarioLogic.Find(id);
             if (moduloUsuario == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ModuloID = new SelectList(db.Modulos, "ModuloID", "Descripcion", moduloUsuario.ModuloID);
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "UsuarioID", "NombreUsuario", moduloUsuario.UsuarioID);
+            ViewBag.ModuloID = new SelectList(ModuloLogic.GetAll(), "ModuloID", "Descripcion", moduloUsuario.ModuloID);
+            ViewBag.UsuarioID = new SelectList(UsuarioLogic.GetAll(), "UsuarioID", "NombreUsuario", moduloUsuario.UsuarioID);
             return View(moduloUsuario);
         }
 
@@ -90,12 +91,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(moduloUsuario).State = EntityState.Modified;
-                db.SaveChanges();
+                ModuloUsuarioLogic.Update(moduloUsuario);
                 return RedirectToAction("Index");
             }
-            ViewBag.ModuloID = new SelectList(db.Modulos, "ModuloID", "Descripcion", moduloUsuario.ModuloID);
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "UsuarioID", "NombreUsuario", moduloUsuario.UsuarioID);
+            ViewBag.ModuloID = new SelectList(ModuloLogic.GetAll(), "ModuloID", "Descripcion", moduloUsuario.ModuloID);
+            ViewBag.UsuarioID = new SelectList(UsuarioLogic.GetAll(), "UsuarioID", "NombreUsuario", moduloUsuario.UsuarioID);
             return View(moduloUsuario);
         }
 
@@ -106,7 +106,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ModuloUsuario moduloUsuario = db.ModuloUsuarios.Find(id);
+            ModuloUsuario moduloUsuario = ModuloUsuarioLogic.Find(id);
             if (moduloUsuario == null)
             {
                 return HttpNotFound();
@@ -119,19 +119,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ModuloUsuario moduloUsuario = db.ModuloUsuarios.Find(id);
-            db.ModuloUsuarios.Remove(moduloUsuario);
-            db.SaveChanges();
+            ModuloUsuarioLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

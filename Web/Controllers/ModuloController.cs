@@ -6,19 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class ModuloController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        ModuloLogic ModuloLogic = new ModuloLogic();
 
         // GET: Modulo
         public ActionResult Index()
         {
-            return View(db.Modulos.ToList());
+            IEnumerable<Modulo> modulos = ModuloLogic.GetAll();
+            return View(modulos);
         }
 
         // GET: Modulo/Details/5
@@ -28,7 +29,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Modulo modulo = db.Modulos.Find(id);
+            Modulo modulo = ModuloLogic.Find(id);
             if (modulo == null)
             {
                 return HttpNotFound();
@@ -51,8 +52,7 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Modulos.Add(modulo);
-                db.SaveChanges();
+                ModuloLogic.Add(modulo);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +66,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Modulo modulo = db.Modulos.Find(id);
+            Modulo modulo = ModuloLogic.Find(id);
             if (modulo == null)
             {
                 return HttpNotFound();
@@ -83,8 +83,7 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(modulo).State = EntityState.Modified;
-                db.SaveChanges();
+                ModuloLogic.Update(modulo);
                 return RedirectToAction("Index");
             }
             return View(modulo);
@@ -97,7 +96,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Modulo modulo = db.Modulos.Find(id);
+            Modulo modulo = ModuloLogic.Find(id);
             if (modulo == null)
             {
                 return HttpNotFound();
@@ -110,19 +109,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Modulo modulo = db.Modulos.Find(id);
-            db.Modulos.Remove(modulo);
-            db.SaveChanges();
+            ModuloLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

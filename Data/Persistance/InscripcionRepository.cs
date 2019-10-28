@@ -1,7 +1,7 @@
 ﻿using Data.Persistence;
 using Data.Repositories;
 using Entities;
-using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +16,11 @@ namespace Data.Persistance
         public InscripcionRepository(AcademiaContext context) : base(context)
         {
             db = context;
+        }
+
+        public IEnumerable<AlumnoInscripcion> GetInscripcionesWithCursoAndPersona()
+        {
+            return db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Persona).ToList();
         }
     }
 }

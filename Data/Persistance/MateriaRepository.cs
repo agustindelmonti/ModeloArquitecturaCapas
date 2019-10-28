@@ -5,8 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Data.Persistance
 {
@@ -21,7 +20,7 @@ namespace Data.Persistance
 
         public IEnumerable<Materia> GetAll()
         {
-            return db.Materias.ToList();
+            return db.Materias.Include(m => m.Plan);
         }
 
     }

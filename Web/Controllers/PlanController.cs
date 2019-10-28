@@ -6,20 +6,21 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class PlanController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        PlanLogic PlanLogic = new PlanLogic();
+        EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Plan
         public ActionResult Index()
         {
-            var planes = db.Planes.Include(p => p.Especialidad);
-            return View(planes.ToList());
+            IEnumerable<Plan> planes = PlanLogic.GetAll();
+            return View(planes);
         }
 
         // GET: Plan/Details/5
@@ -29,7 +30,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Plan plan = db.Planes.Find(id);
+            Plan plan = PlanLogic.Find(id);
             if (plan == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace Web.Controllers
         // GET: Plan/Create
         public ActionResult Create()
         {
-            ViewBag.EspecialidadID = new SelectList(db.Especialidades, "EspecialidadID", "Descripcion");
+            ViewBag.EspecialidadID = new SelectList(EspecialidadLogic.GetAll(), "EspecialidadID", "Descripcion");
             return View();
         }
 
@@ -53,12 +54,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Planes.Add(plan);
-                db.SaveChanges();
+                PlanLogic.Add(plan);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EspecialidadID = new SelectList(db.Especialidades, "EspecialidadID", "Descripcion", plan.EspecialidadID);
+            ViewBag.EspecialidadID = new SelectList(EspecialidadLogic.GetAll(), "EspecialidadID", "Descripcion", plan.EspecialidadID);
             return View(plan);
         }
 
@@ -69,12 +69,12 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Plan plan = db.Planes.Find(id);
+            Plan plan = PlanLogic.Find(id);
             if (plan == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.EspecialidadID = new SelectList(db.Especialidades, "EspecialidadID", "Descripcion", plan.EspecialidadID);
+            ViewBag.EspecialidadID = new SelectList(EspecialidadLogic.GetAll(), "EspecialidadID", "Descripcion", plan.EspecialidadID);
             return View(plan);
         }
 
@@ -87,11 +87,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(plan).State = EntityState.Modified;
-                db.SaveChanges();
+                PlanLogic.Update(plan);
                 return RedirectToAction("Index");
             }
-            ViewBag.EspecialidadID = new SelectList(db.Especialidades, "EspecialidadID", "Descripcion", plan.EspecialidadID);
+            ViewBag.EspecialidadID = new SelectList(EspecialidadLogic.GetAll(), "EspecialidadID", "Descripcion", plan.EspecialidadID);
             return View(plan);
         }
 
@@ -102,7 +101,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Plan plan = db.Planes.Find(id);
+            Plan plan = PlanLogic.Find(id);
             if (plan == null)
             {
                 return HttpNotFound();
@@ -115,19 +114,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Plan plan = db.Planes.Find(id);
-            db.Planes.Remove(plan);
-            db.SaveChanges();
+            PlanLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

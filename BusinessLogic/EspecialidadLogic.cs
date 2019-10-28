@@ -21,7 +21,7 @@ namespace BusinessLogic
         }
 
         //CRUD
-        public object GetAll() => EspecialidadRepository.GetAll();
+        public IEnumerable<Especialidad> GetAll() => EspecialidadRepository.GetAll();
 
         public Especialidad Find(int? id) => EspecialidadRepository.GetById(id);
 

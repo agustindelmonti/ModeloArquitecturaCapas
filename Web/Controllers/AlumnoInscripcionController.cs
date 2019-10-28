@@ -6,20 +6,22 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class AlumnoInscripcionController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        InscripcionLogic InscripcionLogic = new InscripcionLogic();
+        CursoLogic CursoLogic = new CursoLogic();
+        PersonaLogic PersonaLogic = new PersonaLogic();
 
         // GET: AlumnoInscripcion
         public ActionResult Index()
         {
-            var alumnoInscripciones = db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Persona);
-            return View(alumnoInscripciones.ToList());
+            IEnumerable<AlumnoInscripcion> alumnoInscripciones = InscripcionLogic.GetInscripcionesWithCursoAndPersona();
+            return View(alumnoInscripciones);
         }
 
         // GET: AlumnoInscripcion/Details/5
@@ -29,7 +31,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AlumnoInscripcion alumnoInscripcion = db.AlumnoInscripciones.Find(id);
+            AlumnoInscripcion alumnoInscripcion = InscripcionLogic.Find(id);
             if (alumnoInscripcion == null)
             {
                 return HttpNotFound();
@@ -40,8 +42,8 @@ namespace Web.Controllers
         // GET: AlumnoInscripcion/Create
         public ActionResult Create()
         {
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID");
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre");
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID");
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre");
             return View();
         }
 
@@ -54,13 +56,12 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AlumnoInscripciones.Add(alumnoInscripcion);
-                db.SaveChanges();
+                InscripcionLogic.Add(alumnoInscripcion);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", alumnoInscripcion.CursoID);
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID", alumnoInscripcion.CursoID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
             return View(alumnoInscripcion);
         }
 
@@ -71,13 +72,13 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AlumnoInscripcion alumnoInscripcion = db.AlumnoInscripciones.Find(id);
+            AlumnoInscripcion alumnoInscripcion = InscripcionLogic.Find(id);
             if (alumnoInscripcion == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", alumnoInscripcion.CursoID);
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID", alumnoInscripcion.CursoID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
             return View(alumnoInscripcion);
         }
 
@@ -90,12 +91,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(alumnoInscripcion).State = EntityState.Modified;
-                db.SaveChanges();
+                InscripcionLogic.Update(alumnoInscripcion);
                 return RedirectToAction("Index");
             }
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", alumnoInscripcion.CursoID);
-            ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID", alumnoInscripcion.CursoID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", alumnoInscripcion.PersonaID);
             return View(alumnoInscripcion);
         }
 
@@ -106,7 +106,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AlumnoInscripcion alumnoInscripcion = db.AlumnoInscripciones.Find(id);
+            AlumnoInscripcion alumnoInscripcion = InscripcionLogic.Find(id);
             if (alumnoInscripcion == null)
             {
                 return HttpNotFound();
@@ -119,19 +119,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AlumnoInscripcion alumnoInscripcion = db.AlumnoInscripciones.Find(id);
-            db.AlumnoInscripciones.Remove(alumnoInscripcion);
-            db.SaveChanges();
+            InscripcionLogic.Remove(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

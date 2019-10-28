@@ -19,7 +19,7 @@ namespace Data.Repositories
 
         public IEnumerable<Persona> GetAll()
         {
-            return db.Personas.ToList();
+            return db.Personas.Include(p => p.Plan).ToList();
         }
     }
 }

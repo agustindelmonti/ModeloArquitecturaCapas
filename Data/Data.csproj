@@ -51,12 +51,15 @@
   <ItemGroup>
     <Compile Include="AcademiaContext.cs" />
     <Compile Include="AcademiaInitializer.cs" />
+    <Compile Include="Persistance\DocenteCursoRepository.cs" />
     <Compile Include="Persistance\ComisionRepository.cs" />
     <Compile Include="Persistance\EspecialidadRepository.cs" />
     <Compile Include="Persistance\CursoRepository.cs" />
     <Compile Include="Persistance\InscripcionRepository.cs" />
     <Compile Include="Persistance\MateriaRepository.cs" />
+    <Compile Include="Persistance\ModuloUsuarioRepository.cs" />
     <Compile Include="Persistance\PersonaRepository.cs" />
+    <Compile Include="Persistance\ModuloRepository.cs" />
     <Compile Include="Persistance\PlanRepository.cs" />
     <Compile Include="Persistance\Repository.cs" />
     <Compile Include="Persistance\UsuarioRepository.cs" />
@@ -66,7 +69,10 @@
     <Compile Include="Repositories\IEspecialidadRepository.cs" />
     <Compile Include="Repositories\IInscripcionRepository.cs" />
     <Compile Include="Repositories\IMateriaRepository.cs" />
+    <Compile Include="Repositories\IModuloUsuarioRepository.cs" />
     <Compile Include="Repositories\IPersonaRepository.cs" />
+    <Compile Include="Repositories\IDocenteCursoRepository.cs" />
+    <Compile Include="Repositories\IModuloRepository.cs" />
     <Compile Include="Repositories\IPlanRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUsuarioRepository.cs" />

@@ -9,17 +9,17 @@ using System;
 
 namespace Data.Repositories
 {
-    public class PlanRepository : Repository<Plan>, IPlanRepository
+    public class ModuloRepository : Repository<Modulo>, IModuloRepository
     {
         private AcademiaContext db;
 
-        public PlanRepository(AcademiaContext context) : base(context) {
+        public ModuloRepository(AcademiaContext context) : base(context) {
             db = context;
         }
 
-        public IEnumerable<Plan> GetAll()
+        public IEnumerable<Modulo> GetAll()
         {
-            return db.Planes.Include(p => p.Especialidad).ToList();
+            return db.Modulos.ToList();
         }
     }
 }
