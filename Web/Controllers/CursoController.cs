@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using BusinessLogic;
 using Data;
 using Entities;
 
@@ -13,13 +14,13 @@ namespace Web.Controllers
 {
     public class CursoController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        CursoLogic CursoLogic = new CursoLogic();
+        MateriaLogic MateriaLogic = new MateriaLogic();
 
         // GET: Curso
         public ActionResult Index()
         {
-            var cursos = db.Cursos.Include(c => c.Materia);
-            return View(cursos.ToList());
+            return View(CursoLogic.GetAll());
         }
 
         // GET: Curso/Details/5
@@ -29,7 +30,9 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
+
+            Curso curso = CursoLogic.Find(id);
+
             if (curso == null)
             {
                 return HttpNotFound();
@@ -40,7 +43,7 @@ namespace Web.Controllers
         // GET: Curso/Create
         public ActionResult Create()
         {
-            ViewBag.MateriaID = new SelectList(db.Materias, "MateriaID", "Descripcion");
+            ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion");
             return View();
         }
 
@@ -53,12 +56,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Cursos.Add(curso);
-                db.SaveChanges();
+                CursoLogic.Add(curso);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MateriaID = new SelectList(db.Materias, "MateriaID", "Descripcion", curso.MateriaID);
+            ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion", curso.MateriaID);
             return View(curso);
         }
 
@@ -69,12 +71,12 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
+            Curso curso = CursoLogic.Find(id);
             if (curso == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MateriaID = new SelectList(db.Materias, "MateriaID", "Descripcion", curso.MateriaID);
+            ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion", curso.MateriaID);
             return View(curso);
         }
 
@@ -87,11 +89,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(curso).State = EntityState.Modified;
-                db.SaveChanges();
+                CursoLogic.Update(curso);
                 return RedirectToAction("Index");
             }
-            ViewBag.MateriaID = new SelectList(db.Materias, "MateriaID", "Descripcion", curso.MateriaID);
+            ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion", curso.MateriaID);
             return View(curso);
         }
 
@@ -102,7 +103,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
+            Curso curso = CursoLogic.Find(id);
             if (curso == null)
             {
                 return HttpNotFound();
@@ -115,19 +116,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Curso curso = db.Cursos.Find(id);
-            db.Cursos.Remove(curso);
-            db.SaveChanges();
+            CursoLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

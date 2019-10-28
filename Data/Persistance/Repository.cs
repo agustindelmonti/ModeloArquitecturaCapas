@@ -15,7 +15,7 @@ namespace Data.Persistence
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected DbContext Context { get; }
+        protected DbContext Context { get; set;}
         private DbSet<TEntity> _entities;
 
         public Repository(DbContext _context)
@@ -60,20 +60,23 @@ namespace Data.Persistence
             return query.OrderBy(orderByExp).ToList();
         }
 
-        public void Insert(TEntity entity)
+        public void Add(TEntity entity)
         {
             _entities.Add(entity);
+            Context.SaveChanges();
         }
 
-        public void InsertRange(IEnumerable<TEntity> entities)
+        public void AddRange(IEnumerable<TEntity> entities)
         {
             _entities.AddRange(entities);
+            Context.SaveChanges();
         }
 
         public void Delete(object id)
         {
             TEntity entityToDelete = _entities.Find(id);
             Delete(entityToDelete);
+            Context.SaveChanges();
         }
 
         public void Delete(TEntity entity)
@@ -84,6 +87,7 @@ namespace Data.Persistence
             }
 
             _entities.Remove(entity);
+            Context.SaveChanges();
         }
 
         public void DeleteRange(IEnumerable<TEntity> entities)
@@ -97,12 +101,14 @@ namespace Data.Persistence
                 }
             }
             _entities.RemoveRange(entities);
+            Context.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
             _entities.Attach(entity);
             Context.Entry(entity).State = EntityState.Modified;
+            Context.SaveChanges();
         }
     }
 }
