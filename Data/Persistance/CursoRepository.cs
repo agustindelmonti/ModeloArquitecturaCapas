@@ -22,6 +22,16 @@ namespace Data.Repositories
             return db.Cursos.Include(c => c.Materia).ToList();
         }
 
-        public Curso Find(int? id) => db.Cursos.Find(id);  
+        public Curso Find(int? id) => db.Cursos.Find(id);
+
+        public IEnumerable<Persona> GetDocentesCurso(Curso curso)
+        {
+            return db.Personas.Where(c => c.CursosDelDocente == curso).ToList();
+        }
+
+        public IEnumerable<Persona> GetAlumnosInscriptosCurso(Curso curso)
+        {
+            return db.Personas.Where(c => c.AlumnoInscripciones == curso).ToList();
+        }
     }
 }

@@ -17,6 +17,8 @@ namespace BusinessLogic
             CursoRepository = new CursoRepository(Context);
         }
 
+        public IEnumerable<Persona> GetDocentesCurso(Curso curso) => CursoRepository.GetDocentesCurso(curso);
+
         //CRUD
         public IEnumerable<Curso> GetAll() => CursoRepository.GetAll();
 

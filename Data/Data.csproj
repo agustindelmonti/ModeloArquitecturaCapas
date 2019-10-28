@@ -59,6 +59,7 @@
     <Compile Include="Repositories\ICursoRepository.cs" />
     <Compile Include="Repositories\IEspecialidadRepository.cs" />
     <Compile Include="Repositories\IMateriaRepository.cs" />
+    <Compile Include="Repositories\IPersonaRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
