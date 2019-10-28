@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    interface IMateriaRepository : IRepository<Materia>
+    interface IEspecialidadRepository : IRepository<Especialidad>
     {
-        IEnumerable<Materia> GetAll();
+        IEnumerable<Especialidad> GetAll();
     }
 }

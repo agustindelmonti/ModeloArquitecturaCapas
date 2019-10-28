@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Data</RootNamespace>
     <AssemblyName>Data</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,7 +51,15 @@
   <ItemGroup>
     <Compile Include="AcademiaContext.cs" />
     <Compile Include="AcademiaInitializer.cs" />
+    <Compile Include="Persistance\EspecialidadRepository.cs" />
+    <Compile Include="Persistance\CursoRepository.cs" />
+    <Compile Include="Persistance\MateriaRepository.cs" />
+    <Compile Include="Persistance\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ICursoRepository.cs" />
+    <Compile Include="Repositories\IEspecialidadRepository.cs" />
+    <Compile Include="Repositories\IMateriaRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
