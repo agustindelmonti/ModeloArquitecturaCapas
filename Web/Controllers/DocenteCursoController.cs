@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class DocenteCursoController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        DocenteCursoLogic DocenteLogic = new DocenteCursoLogic();
+        CursoLogic CursoLogic = new CursoLogic();
 
         // GET: DocenteCurso
         public ActionResult Index()
         {
-            var docenteCursos = db.DocenteCursos.Include(d => d.Curso);
-            return View(docenteCursos.ToList());
+            IEnumerable<DocenteCurso> docenteCursos = DocenteLogic.GetAll();
+            return View(docenteCursos);
         }
 
         // GET: DocenteCurso/Details/5
@@ -29,7 +28,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocenteCurso docenteCurso = db.DocenteCursos.Find(id);
+            DocenteCurso docenteCurso = DocenteLogic.Find(id);
             if (docenteCurso == null)
             {
                 return HttpNotFound();
@@ -40,7 +39,7 @@ namespace Web.Controllers
         // GET: DocenteCurso/Create
         public ActionResult Create()
         {
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID");
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID");
             return View();
         }
 
@@ -53,12 +52,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.DocenteCursos.Add(docenteCurso);
-                db.SaveChanges();
+                DocenteLogic.Add(docenteCurso);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", docenteCurso.CursoID);
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID", docenteCurso.CursoID);
             return View(docenteCurso);
         }
 
@@ -69,12 +67,12 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocenteCurso docenteCurso = db.DocenteCursos.Find(id);
+            DocenteCurso docenteCurso = DocenteLogic.Find(id);
             if (docenteCurso == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", docenteCurso.CursoID);
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID", docenteCurso.CursoID);
             return View(docenteCurso);
         }
 
@@ -87,11 +85,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(docenteCurso).State = EntityState.Modified;
-                db.SaveChanges();
+                DocenteLogic.Update(docenteCurso);
                 return RedirectToAction("Index");
             }
-            ViewBag.CursoID = new SelectList(db.Cursos, "CursoID", "CursoID", docenteCurso.CursoID);
+            ViewBag.CursoID = new SelectList(CursoLogic.GetAll(), "CursoID", "CursoID", docenteCurso.CursoID);
             return View(docenteCurso);
         }
 
@@ -102,7 +99,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocenteCurso docenteCurso = db.DocenteCursos.Find(id);
+            DocenteCurso docenteCurso = DocenteLogic.Find(id);
             if (docenteCurso == null)
             {
                 return HttpNotFound();
@@ -115,19 +112,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DocenteCurso docenteCurso = db.DocenteCursos.Find(id);
-            db.DocenteCursos.Remove(docenteCurso);
-            db.SaveChanges();
+            DocenteLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

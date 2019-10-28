@@ -6,20 +6,21 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class MateriaController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        MateriaLogic MateriaLogic = new MateriaLogic(); 
+        PlanLogic PlanLogic = new PlanLogic();
 
         // GET: Materia
         public ActionResult Index()
         {
-            var materias = db.Materias.Include(m => m.Plan);
-            return View(materias.ToList());
+            IEnumerable<Materia> materias = MateriaLogic.GetAll();
+            return View(materias);
         }
 
         // GET: Materia/Details/5
@@ -29,7 +30,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Materia materia = db.Materias.Find(id);
+            Materia materia = MateriaLogic.Find(id);
             if (materia == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace Web.Controllers
         // GET: Materia/Create
         public ActionResult Create()
         {
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion");
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion");
             return View();
         }
 
@@ -53,12 +54,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Materias.Add(materia);
-                db.SaveChanges();
+                MateriaLogic.Add(materia);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", materia.PlanID);
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", materia.PlanID);
             return View(materia);
         }
 
@@ -69,12 +69,12 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Materia materia = db.Materias.Find(id);
+            Materia materia = MateriaLogic.Find(id);
             if (materia == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", materia.PlanID);
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", materia.PlanID);
             return View(materia);
         }
 
@@ -87,11 +87,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(materia).State = EntityState.Modified;
-                db.SaveChanges();
+                MateriaLogic.Update(materia);
                 return RedirectToAction("Index");
             }
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", materia.PlanID);
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", materia.PlanID);
             return View(materia);
         }
 
@@ -102,7 +101,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Materia materia = db.Materias.Find(id);
+            Materia materia = MateriaLogic.Find(id);
             if (materia == null)
             {
                 return HttpNotFound();
@@ -115,19 +114,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Materia materia = db.Materias.Find(id);
-            db.Materias.Remove(materia);
-            db.SaveChanges();
+            MateriaLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
