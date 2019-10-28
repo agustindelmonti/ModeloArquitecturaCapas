@@ -51,16 +51,25 @@
   <ItemGroup>
     <Compile Include="AcademiaContext.cs" />
     <Compile Include="AcademiaInitializer.cs" />
+    <Compile Include="Persistance\ComisionRepository.cs" />
     <Compile Include="Persistance\EspecialidadRepository.cs" />
     <Compile Include="Persistance\CursoRepository.cs" />
+    <Compile Include="Persistance\InscripcionRepository.cs" />
     <Compile Include="Persistance\MateriaRepository.cs" />
+    <Compile Include="Persistance\PersonaRepository.cs" />
+    <Compile Include="Persistance\PlanRepository.cs" />
     <Compile Include="Persistance\Repository.cs" />
+    <Compile Include="Persistance\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IComisionRepository.cs" />
     <Compile Include="Repositories\ICursoRepository.cs" />
     <Compile Include="Repositories\IEspecialidadRepository.cs" />
+    <Compile Include="Repositories\IInscripcionRepository.cs" />
     <Compile Include="Repositories\IMateriaRepository.cs" />
     <Compile Include="Repositories\IPersonaRepository.cs" />
+    <Compile Include="Repositories\IPlanRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IUsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
