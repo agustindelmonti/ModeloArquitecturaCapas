@@ -1,0 +1,58 @@
+﻿@model Entities.Materia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Materia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plan.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plan.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HsSemanales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HsSemanales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HsTotales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HsTotales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MateriaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
