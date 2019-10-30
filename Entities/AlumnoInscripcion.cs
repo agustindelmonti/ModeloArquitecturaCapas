@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BusinessLogic.Validations;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,9 @@ namespace Entities {
     public class AlumnoInscripcion : BusinessEntity {
         // Attributes
         public int AlumnoInscripcionID { get; set; }
+        [CondicionRange]
         public string Condicion { get; set; }
+        [Range(1,10)]
         public int Nota { get; set; }
 
         // Foreign Keys

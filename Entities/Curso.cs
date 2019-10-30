@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace Entities {
     public class Curso : BusinessEntity {
         // Attributes
         public int CursoID { get; set; }
+        [Display(Name = "Número de comisión")]
         public int AnioCalendario { get; set; }
         public int Cupo { get; set; }
 
