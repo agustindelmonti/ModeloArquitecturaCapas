@@ -14,7 +14,7 @@ namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        public AccountManager accountManager = new AccountManager();
+       private UsuarioLogic UsuarioLogic = new UsuarioLogic();
 
         // GET: /Login
         public ActionResult Login() {
@@ -26,16 +26,19 @@ namespace Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login([Bind(Include = "NombreUsuario,Clave")] Usuario usuario) {
+
             if (ModelState.IsValid) {
-                AccountManager acountManager = new AccountManager();
-                bool found = acountManager.ValidateUser(usuario);
 
-
-                if (found) {
-                    FormsAuthentication.RedirectFromLoginPage(usuario.NombreUsuario, true);
+                try
+                {
+                    Usuario u = UsuarioLogic.AuthCredentials(usuario);
+                    FormsAuthentication.RedirectFromLoginPage(u.NombreUsuario, true);
+                }
+                catch (UserAuthenticationException e)
+                {
+                    ViewBag.LoginError = e.Message;
                 }
             }
-            ViewBag.LoginError = "Usuario y/o contraseña incorrecta";
             return View();
         }
 

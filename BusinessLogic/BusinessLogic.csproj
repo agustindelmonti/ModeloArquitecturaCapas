@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountManager.cs" />
     <Compile Include="CursoLogic.cs" />
     <Compile Include="EspecialidadLogic.cs" />
     <Compile Include="InscripcionLogic.cs" />
@@ -62,6 +61,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{1F3C2221-D7A7-4C45-929E-6E2302EEEDB5}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

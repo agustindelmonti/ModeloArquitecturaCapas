@@ -9,13 +9,24 @@ namespace BusinessLogic
 {
     public class UsuarioLogic
     {
-        public UsuarioRepository UsuarioRepository { get; set; }
+        public IUsuarioRepository UsuarioRepository { get; set; }
         private readonly AcademiaContext Context;
 
         public UsuarioLogic()
         {
             Context = new AcademiaContext();
             UsuarioRepository= new UsuarioRepository(Context);
+        }
+
+        public Usuario AuthCredentials(Usuario usuario)
+        {
+            Usuario usuarioBuscar = UsuarioRepository.FindByUsernameAndPassword(usuario.NombreUsuario, usuario.Clave);
+            if (usuarioBuscar is null)
+            {
+                throw new UserAuthenticationException("Usuario y/o contraseña incorrecta");
+            }
+            return usuarioBuscar;
+         
         }
 
         //CRUD
