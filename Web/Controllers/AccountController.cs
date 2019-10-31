@@ -7,15 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Data;
 using Entities;
-using Logic;
+using BusinessLogic;
 
 namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        public AccountManager accountManager = new AccountManager();
 
         // GET: /Login
         public ActionResult Login() {
@@ -50,16 +49,5 @@ namespace Web.Controllers
             return RedirectToAction("login", "account");
         }
 
-
-
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

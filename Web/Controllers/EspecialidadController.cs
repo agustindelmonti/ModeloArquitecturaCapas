@@ -6,19 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class EspecialidadController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Especialidad
         public ActionResult Index()
         {
-            return View(db.Especialidades.ToList());
+            return View(EspecialidadLogic.GetAll());
         }
 
         // GET: Especialidad/Details/5
@@ -28,7 +28,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Especialidad especialidad = db.Especialidades.Find(id);
+            Especialidad especialidad = EspecialidadLogic.Find(id);
             if (especialidad == null)
             {
                 return HttpNotFound();
@@ -51,8 +51,7 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Especialidades.Add(especialidad);
-                db.SaveChanges();
+                EspecialidadLogic.Add(especialidad);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +65,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Especialidad especialidad = db.Especialidades.Find(id);
+            Especialidad especialidad = EspecialidadLogic.Find(id);
             if (especialidad == null)
             {
                 return HttpNotFound();
@@ -83,8 +82,7 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(especialidad).State = EntityState.Modified;
-                db.SaveChanges();
+                EspecialidadLogic.Update(especialidad);
                 return RedirectToAction("Index");
             }
             return View(especialidad);
@@ -97,7 +95,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Especialidad especialidad = db.Especialidades.Find(id);
+            Especialidad especialidad = EspecialidadLogic.Find(id);
             if (especialidad == null)
             {
                 return HttpNotFound();
@@ -110,19 +108,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Especialidad especialidad = db.Especialidades.Find(id);
-            db.Especialidades.Remove(especialidad);
-            db.SaveChanges();
+            EspecialidadLogic.Remove(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

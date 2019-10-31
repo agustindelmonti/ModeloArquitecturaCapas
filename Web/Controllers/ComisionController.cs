@@ -6,20 +6,21 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using BusinessLogic;
 using Entities;
 
 namespace Web.Controllers
 {
     public class ComisionController : Controller
     {
-        private AcademiaContext db = new AcademiaContext();
+        ComisionLogic ComisionLogic = new ComisionLogic();
+        PlanLogic PlanLogic = new PlanLogic();
 
         // GET: Comision
         public ActionResult Index()
         {
-            var comisiones = db.Comisiones.Include(c => c.Plan);
-            return View(comisiones.ToList());
+            IEnumerable<Comision> comisiones = ComisionLogic.GetAll();
+            return View(comisiones);
         }
 
         // GET: Comision/Details/5
@@ -29,7 +30,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comision comision = db.Comisiones.Find(id);
+            Comision comision = ComisionLogic.Find(id);
             if (comision == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace Web.Controllers
         // GET: Comision/Create
         public ActionResult Create()
         {
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion");
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion");
             return View();
         }
 
@@ -53,12 +54,11 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Comisiones.Add(comision);
-                db.SaveChanges();
+                ComisionLogic.Add(comision);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", comision.PlanID);
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", comision.PlanID);
             return View(comision);
         }
 
@@ -69,12 +69,12 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comision comision = db.Comisiones.Find(id);
+            Comision comision = ComisionLogic.Find(id);
             if (comision == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", comision.PlanID);
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", comision.PlanID);
             return View(comision);
         }
 
@@ -87,11 +87,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comision).State = EntityState.Modified;
-                db.SaveChanges();
+                ComisionLogic.Update(comision);
                 return RedirectToAction("Index");
             }
-            ViewBag.PlanID = new SelectList(db.Planes, "PlanID", "Descripcion", comision.PlanID);
+            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", comision.PlanID);
             return View(comision);
         }
 
@@ -102,7 +101,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comision comision = db.Comisiones.Find(id);
+            Comision comision = ComisionLogic.Find(id);
             if (comision == null)
             {
                 return HttpNotFound();
@@ -115,19 +114,8 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comision comision = db.Comisiones.Find(id);
-            db.Comisiones.Remove(comision);
-            db.SaveChanges();
+            ComisionLogic.Delete(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
