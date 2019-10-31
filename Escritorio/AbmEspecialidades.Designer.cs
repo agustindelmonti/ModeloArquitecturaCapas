@@ -81,9 +81,9 @@
             // bntCancelar
             // 
             this.bntCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntCancelar.Location = new System.Drawing.Point(407, 354);
+            this.bntCancelar.Location = new System.Drawing.Point(388, 354);
             this.bntCancelar.Name = "bntCancelar";
-            this.bntCancelar.Size = new System.Drawing.Size(75, 30);
+            this.bntCancelar.Size = new System.Drawing.Size(94, 30);
             this.bntCancelar.TabIndex = 3;
             this.bntCancelar.Text = "Cancelar";
             this.bntCancelar.UseVisualStyleBackColor = true;
@@ -117,13 +117,13 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // EspecialidadDesktop
+            // AbmEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 387);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "EspecialidadDesktop";
+            this.Name = "AbmEspecialidades";
             this.Text = "EspecialidadDesktop";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

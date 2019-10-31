@@ -7,25 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entities;
 using BusinessLogic;
+using Entities;
 
 namespace Escritorio
 {
-    public partial class ListaUsuarios : Form
+    public partial class ListaPersonas : Form
     {
-        public ListaUsuarios()
+        public ListaPersonas()
         {
             InitializeComponent();
-            dgvUsuarios.AutoGenerateColumns = false;
-            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.MultiSelect = false;
+            dgvPersonas.AutoGenerateColumns = false;
+            dgvPersonas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPersonas.MultiSelect = false;
         }
 
         public void Listar()
         {
-            UsuarioLogic ul = new UsuarioLogic();
-            this.dgvUsuarios.DataSource = ul.GetAll();
+            PersonaLogic per = new PersonaLogic();
+            this.dgvPersonas.DataSource = per.GetAll();
         }
 
         private void Usuarios_Load(object sender, EventArgs e)
@@ -45,18 +45,18 @@ namespace Escritorio
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            AbmUsuarios formUsuario = new AbmUsuarios(ManejadorForm.ModoForm.Alta);
-            formUsuario.ShowDialog();
+            AbmPersonas formPersonas = new AbmPersonas(ManejadorForm.ModoForm.Alta);
+            formPersonas.ShowDialog();
             this.Listar();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvUsuarios.SelectedRows.Count == 1)
+            if (this.dgvPersonas.SelectedRows.Count == 1)
             {
-                int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).UsuarioID;
-                AbmUsuarios formUsuario = new AbmUsuarios(ID, ManejadorForm.ModoForm.Baja);
-                formUsuario.ShowDialog();
+                int ID = ((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).PersonaID;
+                AbmPersonas formPersonas = new AbmPersonas(ID, ManejadorForm.ModoForm.Baja);
+                formPersonas.ShowDialog();
                 this.Listar();
             }
 
@@ -65,11 +65,11 @@ namespace Escritorio
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            if (this.dgvUsuarios.SelectedRows.Count == 1)
+            if (this.dgvPersonas.SelectedRows.Count == 1)
             {
-                int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).UsuarioID;
-                AbmUsuarios formUsuario = new AbmUsuarios(ID, ManejadorForm.ModoForm.Modificacion);
-                formUsuario.ShowDialog();
+                int ID = ((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).PersonaID;
+                AbmPersonas formPersonas = new AbmPersonas(ID, ManejadorForm.ModoForm.Modificacion);
+                formPersonas.ShowDialog();
                 this.Listar();
             }
         }

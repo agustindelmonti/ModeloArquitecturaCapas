@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Escritorio
 {
-    public partial class Login : Form
+    public partial class ListaComisiones : Form
     {
-        public Login()
+        public ListaComisiones()
         {
             InitializeComponent();
-        }
-
-
-        private void btnInciar_Click(object sender, EventArgs e)
-        {
-            //Menu a = new Menu();
-            //a.ShowDialog();
         }
     }
 }

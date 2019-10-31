@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
+using BusinessLogic;
 
 namespace Escritorio
 {
@@ -20,20 +22,20 @@ namespace Escritorio
 
         private void Usuarios_Click(object sender, EventArgs e)
         {
-            Usuarios u = new Usuarios();
-            u.ShowDialog();
+            //Usuario u = new Usuario();
+            //u.ShowDialog();
         }
 
         private void btnPlanes_Click(object sender, EventArgs e)
         {
-            Plan p = new Plan();
-            p.ShowDialog();
+            //Escritorio.Plan p = new Escritorio.Plan();
+            //p.ShowDialog();
         }
 
         private void btnEspecialidades_Click(object sender, EventArgs e)
         {
-            UI.Desktop.Especialidad esp = new UI.Desktop.Especialidad();
-            esp.ShowDialog();
+            //Escritorio.Especialidad esp = new Escritorio.Especialidad();
+            //esp.ShowDialog();
         }
     }
 }

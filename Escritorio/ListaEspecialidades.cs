@@ -22,12 +22,10 @@ namespace Escritorio
             dvgEspecialidades.MultiSelect = false;
         }
 
-
-
         public void Listar()
         {
             EspecialidadLogic el = new EspecialidadLogic();
-            this.dvgEspecialidades.DataSource = el.GetAll();
+            dvgEspecialidades.DataSource = (List<Especialidad>)el.GetAll();
         }
 
         private void Especialidad_Load(object sender, EventArgs e)
@@ -47,8 +45,8 @@ namespace Escritorio
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            AbmEspecialidades formEspecialidad = new AbmEspecialidades(ManejadorForm.ModoForm.Alta);
-            formEspecialidad.ShowDialog();
+            AbmEspecialidades abmEspecialidad = new AbmEspecialidades(ManejadorForm.ModoForm.Alta);
+            abmEspecialidad.ShowDialog();
             this.Listar();
         }
 
@@ -57,12 +55,10 @@ namespace Escritorio
             if (this.dvgEspecialidades.SelectedRows.Count == 1)
             {
                 int ID = ((Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem).EspecialidadID;
-                AbmEspecialidades formEspecialidad = new AbmEspecialidades(ID, ManejadorForm.ModoForm.Baja);
-                formEspecialidad.ShowDialog();
+                AbmEspecialidades abmEspecialidad = new AbmEspecialidades(ID, ManejadorForm.ModoForm.Baja);
+                abmEspecialidad.ShowDialog();
                 this.Listar();
             }
-
-
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -70,8 +66,8 @@ namespace Escritorio
             if (this.dvgEspecialidades.SelectedRows.Count == 1)
             {
                 int ID = ((Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem).EspecialidadID;
-                AbmEspecialidades formEspecialidad = new AbmEspecialidades(ID, ManejadorForm.ModoForm.Modificacion);
-                formEspecialidad.ShowDialog();
+                AbmEspecialidades abmEspecialidad = new AbmEspecialidades(ID, ManejadorForm.ModoForm.Modificacion);
+                abmEspecialidad.ShowDialog();
                 this.Listar();
             }
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Escritorio
 {
-    public partial class AbmAlumnos : ManejadorForm
+    public partial class ListaCursos : Form
     {
-        public AbmAlumnos()
+        public ListaCursos()
         {
             InitializeComponent();
         }

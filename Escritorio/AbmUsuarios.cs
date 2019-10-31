@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLogic;
 using Entities;
+using BusinessLogic;
 using System.Text.RegularExpressions;
 
+//probar que ande
 namespace Escritorio
 {
     public partial class AbmUsuarios : ManejadorForm
@@ -18,90 +19,72 @@ namespace Escritorio
         public AbmUsuarios()
         {
             InitializeComponent();
+
+            PersonaLogic per = new PersonaLogic();
+            List<Persona> listaper = (List<Persona>)per.GetAll();
+            cbPersona.DataSource = listaper;
+            cbPersona.DisplayMember = "Apellido" + " " + "Nombre";
         }
 
-        public Entities.Usuario UsuarioActual { get; set; }
+        public Usuario UsuarioActual { get; set; }
 
         public AbmUsuarios(ModoForm modo) : this()
         {
-            this.Modo = modo;
+            Modo = modo;
         }
+
 
         public AbmUsuarios(int ID, ModoForm modo) : this()
         {
-            this.Modo = modo;
+            Modo = modo;
             UsuarioLogic us = new UsuarioLogic();
-            this.UsuarioActual = us.Find(ID);
+            UsuarioActual = us.Find(ID);
             MapearDeDatos();
         }
 
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.UsuarioActual.UsuarioID.ToString();
-            this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
-            this.txtNombre.Text = this.UsuarioActual.NombreUsuario;
-            this.txtApellido.Text = this.UsuarioActual.a;
-            this.txtEmail.Text = this.UsuarioActual.Email;
-            this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
-            this.txtClave.Text = this.UsuarioActual.Clave;
-            this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
-
-            if (this.Modo == ModoForm.Baja)
+            txtID.Text = UsuarioActual.UsuarioID.ToString();
+            chkHabilitado.Checked = UsuarioActual.Habilitado;
+            txtUsuario.Text = UsuarioActual.NombreUsuario;
+            txtClave.Text = UsuarioActual.Clave;
+            txtConfirmarClave.Text = UsuarioActual.Clave;
+            cbPersona.SelectedItem = UsuarioActual.Persona;//esto no creo que ande
+            if (Modo == ModoForm.Baja)
             {
-                this.btnAceptar.Text = "Eliminar";
+                btnAceptar.Text = "Eliminar";
             }
-
-            if (this.Modo == ModoForm.Consulta)
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
-                this.btnAceptar.Text = "Aceptar";
-            }
-
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
-            {
-                this.btnAceptar.Text = "Guardar";
+                btnAceptar.Text = "Guardar";
             }
         }
 
 
-
         public override void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
 
-                if (this.Modo == ModoForm.Alta)
+                if (Modo == ModoForm.Alta)
                 {
                     Usuario usu = new Usuario();
-                    this.UsuarioActual = usu;
-                    this.UsuarioActual.State = BusinessEntity.States.New;
+                    UsuarioActual = usu;
                 }
                 else
                 {
-                    //int id = 0;
-                    //if (!int.TryParse("asdasd", out id))
-                    //{
-                    //    MessageBox.Show("Debe ingrear un int");
-                    //}
-                    //Convert.ToInt32("1244");
-                    this.UsuarioActual.ID = int.Parse(this.txtID.Text);
-                    this.UsuarioActual.State = BusinessEntity.States.Modified;
+                    UsuarioActual.UsuarioID = int.Parse(txtID.Text);
                 }
 
-                this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                this.UsuarioActual.Nombre = this.txtNombre.Text;
-                this.UsuarioActual.Apellido = this.txtApellido.Text;
-                this.UsuarioActual.Email = this.txtEmail.Text;
-                this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
-                this.UsuarioActual.Clave = this.txtClave.Text;
-                this.UsuarioActual.Clave = this.txtConfirmarClave.Text;
+                UsuarioActual.Habilitado = chkHabilitado.Checked;
+                UsuarioActual.NombreUsuario = txtUsuario.Text;
+                UsuarioActual.Clave = txtClave.Text;
+                UsuarioActual.Persona = (Persona) cbPersona.SelectedItem;
+                UsuarioActual.CambioClave = chkCambiaClave.Checked;
             }
-            if (this.Modo == ModoForm.Consulta)
+            else if (Modo == ModoForm.Baja)
             {
-                this.UsuarioActual.State = BusinessEntity.States.Unmodified;
-            }
-            else if (this.Modo == ModoForm.Baja)
-            {
-                this.UsuarioActual.State = BusinessEntity.States.Deleted;
+                UsuarioActual.State = BusinessEntity.States.Deleted;
             }
         }
 
@@ -110,67 +93,56 @@ namespace Escritorio
         {
             MapearADatos();
             UsuarioLogic us = new UsuarioLogic();
-            us.Save(this.UsuarioActual);
-        }
+            if (Modo == ModoForm.Alta)
+            {
+                us.Add(UsuarioActual);
+            }
+            else if (Modo == ModoForm.Modificacion)
+            {
+                us.Update(UsuarioActual);
 
+            }
+            else if (Modo == ModoForm.Baja)
+            {
+                us.Delete(UsuarioActual.UsuarioID);
+            }
+        }
 
         public override bool Validar()
         {
-
-            if (string.IsNullOrEmpty(this.txtNombre.Text))
+            if (string.IsNullOrEmpty(cbPersona.Text))
             {
-                Notificar("ERROR!", "Debe ingresar Nombre", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notificar("ERROR!", "Debe seleccionar una persona propietaria de este usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            if (string.IsNullOrEmpty(this.txtApellido.Text))
-            {
-                Notificar("ERROR!", "Debe ingresar Apellido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (string.IsNullOrEmpty(this.txtEmail.Text))
-            {
-                Notificar("ERROR!", "Debe ingresar Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (string.IsNullOrEmpty(this.txtUsuario.Text))
+            if (string.IsNullOrEmpty(txtUsuario.Text))
             {
                 Notificar("ERROR!", "Debe ingresar un Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (string.IsNullOrEmpty(this.txtClave.Text))
+            if (string.IsNullOrEmpty(txtClave.Text))
             {
                 Notificar("ERROR!", "Debe ingresar una Clave", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (string.IsNullOrEmpty(this.txtConfirmarClave.Text))
+            if (string.IsNullOrEmpty(txtConfirmarClave.Text))
             {
                 Notificar("ERROR!", "Debe ingresar la Clave nuevamente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (this.txtConfirmarClave.Text != this.txtClave.Text)
-            {
-                Notificar("ERROR!", "La clave no coincide", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if ((this.txtClave.Text).Length < 8)
+            if ((txtClave.Text).Length < 8)
             {
                 Notificar("ERROR!", "La clave debe contener 8 caraceres como minimo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (!Regex.IsMatch(this.txtEmail.Text, expresion))
+            if (txtConfirmarClave.Text != txtClave.Text)
             {
-                Notificar("ERROR!", "El Email no es valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notificar("ERROR!", "La clave no coincide", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
             return true;
         }
-
-
-
-
 
 
         private void btnAceptar_Click(object sender, EventArgs e)

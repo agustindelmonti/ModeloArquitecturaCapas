@@ -18,7 +18,8 @@ namespace Escritorio
         }
 
 
-        public enum ModoForm { Alta, Baja, Modificacion, Consulta }
+
+        public enum ModoForm { Alta, Baja, Modificacion }
 
         public ModoForm Modo { get; set; }
 

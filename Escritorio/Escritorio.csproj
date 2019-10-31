@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +36,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbmAlumnos.cs">
+    <Compile Include="AbmPersonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmAlumnos.Designer.cs">
-      <DependentUpon>AbmAlumnos.cs</DependentUpon>
+    <Compile Include="AbmPersonas.Designer.cs">
+      <DependentUpon>AbmPersonas.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmEspecialidades.cs">
       <SubType>Form</SubType>
@@ -82,6 +92,18 @@
     <Compile Include="ListaAlumnos.Designer.cs">
       <DependentUpon>ListaAlumnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaComisiones.Designer.cs">
+      <DependentUpon>ListaComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaCursos.Designer.cs">
+      <DependentUpon>ListaCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListaEspecialidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +121,12 @@
     </Compile>
     <Compile Include="ListaPlanes.Designer.cs">
       <DependentUpon>ListaPlanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaPersonas.Designer.cs">
+      <DependentUpon>ListaPersonas.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaUsuarios.cs">
       <SubType>Form</SubType>
@@ -138,8 +166,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AbmEspecialidades.resx">
+      <DependentUpon>AbmEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmMaterias.resx">
+      <DependentUpon>AbmMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPersonas.resx">
+      <DependentUpon>AbmPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPlanes.resx">
+      <DependentUpon>AbmPlanes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmUsuarios.resx">
+      <DependentUpon>AbmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListaEspecialidades.resx">
       <DependentUpon>ListaEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaMaterias.resx">
+      <DependentUpon>ListaMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaPersonas.resx">
+      <DependentUpon>ListaPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaPlanes.resx">
+      <DependentUpon>ListaPlanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaUsuarios.resx">
       <DependentUpon>ListaUsuarios.cs</DependentUpon>
@@ -156,6 +208,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BusinessLogic.EspecialidadLogic.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -180,4 +234,12 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
 </Project>

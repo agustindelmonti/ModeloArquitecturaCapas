@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BusinessLogic;
-
+//agregar opcion de seleccionar planes en los q esta esta especialidad
+//reparar el update (probar alta y baja x las dudas)
 namespace Escritorio
 {
     public partial class AbmEspecialidades : ManejadorForm
@@ -23,77 +24,55 @@ namespace Escritorio
         public Especialidad EspecialidadActual { get; set; }
 
 
-
-
         public AbmEspecialidades(ModoForm modo) : this()
         {
-            this.Modo = modo;
+            Modo = modo;
         }
 
 
         public AbmEspecialidades(int ID, ModoForm modo) : this()
         {
-            this.Modo = modo;
+            Modo = modo;
             EspecialidadLogic es = new EspecialidadLogic();
-            this.EspecialidadActual = es.Find(ID);
+            EspecialidadActual = es.Find(ID);
             MapearDeDatos();
         }
 
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.EspecialidadActual.EspecialidadID.ToString();
-            this.txtDescripcion.Text = this.EspecialidadActual.Descripcion;
+            txtID.Text = EspecialidadActual.EspecialidadID.ToString();
+            txtDescripcion.Text = EspecialidadActual.Descripcion;
 
-            if (this.Modo == ModoForm.Baja)
+            if (Modo == ModoForm.Baja)
             {
-                this.btnAceptar.Text = "Eliminar";
+                btnAceptar.Text = "Eliminar";
             }
-
-            if (this.Modo == ModoForm.Consulta)
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
-                this.btnAceptar.Text = "Aceptar";
-            }
-
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
-            {
-                this.btnAceptar.Text = "Guardar";
+                btnAceptar.Text = "Guardar";
             }
         }
 
 
         public override void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
 
-                if (this.Modo == ModoForm.Alta)
+                if (Modo == ModoForm.Alta)
                 {
                     Especialidad esp = new Especialidad();
-                    this.EspecialidadActual = esp;
-                    this.EspecialidadActual.State = BusinessEntity.States.New;
+                    EspecialidadActual = esp;
                 }
                 else
                 {
-                    //int id = 0;
-                    //if (!int.TryParse("asdasd", out id))
-                    //{
-                    //    MessageBox.Show("Debe ingrear un int");
-                    //}
-                    //Convert.ToInt32("1244");
-                    this.EspecialidadActual.EspecialidadID = int.Parse(this.txtID.Text);
-                    this.EspecialidadActual.State = BusinessEntity.States.Modified;
+                    EspecialidadActual.EspecialidadID = int.Parse(txtID.Text);
                 }
 
-                this.EspecialidadActual.Descripcion = this.txtDescripcion.Text;
+                EspecialidadActual.Descripcion = txtDescripcion.Text;
             }
-            if (this.Modo == ModoForm.Consulta)
+            else if (Modo == ModoForm.Baja)
             {
-                this.EspecialidadActual.State = BusinessEntity.States.Unmodified;
-            }
-            else if (this.Modo == ModoForm.Baja)
-            {
-                this.EspecialidadActual.State = BusinessEntity.States.Deleted;
-
             }
         }
 
@@ -101,27 +80,24 @@ namespace Escritorio
         {
             MapearADatos();
             EspecialidadLogic es = new EspecialidadLogic();
-            if (this.Modo == ModoForm.Alta)
+            if (Modo == ModoForm.Alta)
             {
-                es.Add(this.EspecialidadActual);
+                es.Add(EspecialidadActual);
             }
-            else if (this.Modo == ModoForm.Modificacion)
+            else if (Modo == ModoForm.Modificacion)
             {
-                es.Update(this.EspecialidadActual);
+                es.Update(EspecialidadActual);
 
             }
-            else if (this.Modo == ModoForm.Consulta)
+            else if (Modo == ModoForm.Baja)
             {
-            }
-            else if (this.Modo == ModoForm.Baja)
-            {
-                es.Remove(this.EspecialidadActual.EspecialidadID);
+                es.Remove(EspecialidadActual.EspecialidadID);
             }
         }
 
         public override bool Validar()
         {
-            if (string.IsNullOrEmpty(this.txtDescripcion.Text))
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
             {
                 Notificar("ERROR!", "Debe ingresar Descripcion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
