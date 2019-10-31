@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace Data.Repositories
 {
-    interface IUsuarioRepository : IRepository<Usuario>
+    public interface IUsuarioRepository : IRepository<Usuario>
     {
         IEnumerable<Usuario> GetAll();
+        Usuario FindByUsernameAndPassword(string nombreUsuario, string clave);
     }
 }

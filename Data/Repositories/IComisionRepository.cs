@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    interface IComisionRepository : IRepository<Comision>
+    public interface IComisionRepository : IRepository<Comision>
     {
         IEnumerable<Comision> GetAll();
     }

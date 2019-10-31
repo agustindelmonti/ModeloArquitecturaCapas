@@ -4,7 +4,7 @@ using Entities;
 
 namespace Data.Repositories
 {
-    interface ICursoRepository : IRepository<Curso>
+    public interface ICursoRepository : IRepository<Curso>
     {
         IEnumerable<Curso> GetAll();
 

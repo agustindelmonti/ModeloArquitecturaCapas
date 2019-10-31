@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    interface IInscripcionRepository : IRepository<AlumnoInscripcion>
+    public interface IInscripcionRepository : IRepository<AlumnoInscripcion>
     {
     }
 }
