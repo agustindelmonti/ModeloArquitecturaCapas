@@ -23,6 +23,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @using (Html.BeginForm("Logout", "Account", FormMethod.Post)) {
+                        @Html.AntiForgeryToken()
+                        <li><input type="submit" value="Logout"></li>
+                    }
                 </ul>
             </div>
         </div>
