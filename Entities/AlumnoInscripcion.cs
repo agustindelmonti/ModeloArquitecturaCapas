@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BusinessLogic.Validations;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,11 @@ namespace Entities {
     public class AlumnoInscripcion : BusinessEntity {
         // Attributes
         public int AlumnoInscripcionID { get; set; }
-        public string Condicion { get; set; }
+
+        [Required, EnumDataType(typeof(Estado))]
+        public Estado Condicion { get; set; }
+
+        [Range(1,10)]
         public int Nota { get; set; }
 
         // Foreign Keys
@@ -16,7 +22,13 @@ namespace Entities {
         public int CursoID { get; set; }
 
         // Navegation Properties
+        [Required]
         public virtual Persona Persona { get; set; }
+        [Required]
         public virtual Curso Curso { get; set; }
+
+        public enum Estado {
+            Inscrito, Cursando, Regular, Aprobado, Libre
+        }
     }
 }
