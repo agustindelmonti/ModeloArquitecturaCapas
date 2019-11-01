@@ -19,6 +19,7 @@ namespace Escritorio
         public LoginForm()
         {
             InitializeComponent();
+            lblMensaje.Hide();
         }
 
         private void btnInciarSesion_Click(object sender, EventArgs e)
@@ -28,13 +29,19 @@ namespace Escritorio
             
             try
             {
+                lblMensaje.ForeColor = Color.CadetBlue;
+                lblMensaje.Text = "Cargando. Por favor espere.";
+                lblMensaje.Show();
+
                 UsuarioAutenticado = uLogic.AuthCredentials(usr);
                 Close();
 
             }
             catch (UserAuthenticationException error)
             {
-                MessageBox.Show(error.Message);
+                lblMensaje.Text = error.Message;
+                lblMensaje.ForeColor = Color.Red;
+                lblMensaje.Show();
             }
         }
 

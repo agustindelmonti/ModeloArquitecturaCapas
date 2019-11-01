@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app-icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -199,6 +202,9 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuAlumno.resx">
+      <DependentUpon>MenuAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuNoDocente.resx">
       <DependentUpon>MenuNoDocente.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +247,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app-icon.ico" />
+    <Content Include="Assets\academia-img.png" />
     <Content Include="Assets\app-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

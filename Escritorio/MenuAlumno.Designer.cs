@@ -32,6 +32,7 @@
             this.btnEspecialidades = new System.Windows.Forms.Button();
             this.btnPlanes = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnEspecialidades, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnPlanes, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnUsuarios, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbTitulo, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -96,14 +98,30 @@
             this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
-            // Menu
+            // lbTitulo
+            // 
+            this.lbTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Location = new System.Drawing.Point(103, 0);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(294, 77);
+            this.lbTitulo.TabIndex = 3;
+            this.lbTitulo.Text = "Titulo";
+            this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MenuAlumno
             // 
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(501, 386);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
-            this.Name = "Menu";
+            this.Name = "MenuAlumno";
+            this.Text = "Academia";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -114,5 +132,6 @@
         private System.Windows.Forms.Button btnEspecialidades;
         private System.Windows.Forms.Button btnPlanes;
         private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }
