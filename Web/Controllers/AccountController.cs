@@ -9,12 +9,13 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Entities;
 using BusinessLogic;
+using Utils.Exceptions;
 
 namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        public AccountManager accountManager = new AccountManager();
+       private UsuarioLogic UsuarioLogic = new UsuarioLogic();
 
         // GET: /Login
         public ActionResult Login() {
@@ -25,17 +26,41 @@ namespace Web.Controllers
         // POST: /Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include = "NombreUsuario,Clave")] Usuario usuario) {
+        public ActionResult Login([Bind(Include = "NombreUsuario,Clave")] Usuario usuario, string returnUrl) {
+
             if (ModelState.IsValid) {
-                AccountManager acountManager = new AccountManager();
-                bool found = acountManager.ValidateUser(usuario);
+
+                try
+                {
+                    Usuario u = UsuarioLogic.AuthCredentials(usuario);
+
+                    
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
+                        1,                            // Version
+                        u.UsuarioID.ToString(),       
+                        DateTime.Now,                  
+                        DateTime.Now.AddMinutes(20),  // Expiration
+                        false,                        // Persist
+                        u.Persona.Rol,        // Rol
+                        "/");                         // Cookie path
+                    
+                    HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
+                    Response.Cookies.Add(cookie);
 
 
-                if (found) {
-                    FormsAuthentication.RedirectFromLoginPage(usuario.NombreUsuario, true);
+                    if(returnUrl != null) {
+                        return Redirect(returnUrl);
+                    }
+                    else {
+                        return RedirectToAction("index", "home");
+                    }
+
+                }
+                catch (UserAuthenticationException e)
+                {
+                    ViewBag.LoginError = e.Message;
                 }
             }
-            ViewBag.LoginError = "Usuario y/o contraseña incorrecta";
             return View();
         }
 

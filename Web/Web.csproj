@@ -129,6 +129,7 @@
     <Compile Include="Controllers\ComisionController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\DocenteCursoController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EspecialidadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -235,6 +236,7 @@
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -254,6 +256,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ModeloArquitecturaCapas\Utils\Utils.csproj">
+      <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{E5333D3D-C73D-4A30-BBAC-2879CEF3333F}</Project>
       <Name>BusinessLogic</Name>

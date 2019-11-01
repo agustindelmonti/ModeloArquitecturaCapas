@@ -7,10 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
+using BusinessLogic.Authorization;
 using Entities;
 
 namespace Web.Controllers
 {
+    [CustomAuthorize(Roles = "Plan")]
     public class PlanController : Controller
     {
         PlanLogic PlanLogic = new PlanLogic();
