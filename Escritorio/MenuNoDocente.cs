@@ -14,9 +14,12 @@ namespace Escritorio
 {
     public partial class MenuNoDocente : Form
     {
-        public MenuNoDocente()
+        public Usuario UsuarioAutenticado { get; set; }
+
+        public MenuNoDocente(Usuario usr)
         {
             InitializeComponent();
+            UsuarioAutenticado = usr;
         }
 
 

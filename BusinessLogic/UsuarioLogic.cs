@@ -21,9 +21,18 @@ namespace BusinessLogic
         public Usuario AuthCredentials(Usuario usuario)
         {
             Usuario usuarioBuscar = UsuarioRepository.FindByUsernameAndPassword(usuario.NombreUsuario, usuario.Clave);
+ 
             if (usuarioBuscar is null)
             {
                 throw new UserAuthenticationException("Usuario y/o contraseña incorrecta");
+            }
+            if (!usuarioBuscar.Habilitado)
+            {
+                throw new UserAuthenticationException("Usuario no habilitado");
+            }
+            if (usuarioBuscar.CambioClave)
+            {
+                throw new UserAuthenticationException("Usuario ha cambiado de clave y no ha verificado el email.");
             }
             return usuarioBuscar;
          

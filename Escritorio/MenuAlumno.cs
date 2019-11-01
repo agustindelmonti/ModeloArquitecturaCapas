@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
 
 namespace Escritorio
 {
     public partial class MenuAlumno : Form
     {
-        public MenuAlumno()
+        public Usuario UsuarioAutenticado { get; set; }
+
+        public MenuAlumno(Usuario usr)
         {
             InitializeComponent();
+            UsuarioAutenticado = usr;
         }
 
 

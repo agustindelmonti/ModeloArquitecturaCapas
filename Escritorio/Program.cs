@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,21 @@ namespace Escritorio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListaPersonas());
+
+            LoginForm loginForm = new LoginForm();
+            Application.Run(loginForm);
+
+            Usuario usuarioActual = loginForm.UsuarioAutenticado;
+            if (usuarioActual != null)
+            {
+                switch (usuarioActual.Persona.TipoPersona)
+                {
+                    case Persona.Rol.Alumno: { Application.Run(new MenuAlumno(usuarioActual)); break; }
+                    case Persona.Rol.Docente: { Application.Run(new MenuDocente(usuarioActual)); break; }
+                    case Persona.Rol.No_Docente: { Application.Run(new MenuNoDocente(usuarioActual)); break;  }
+                    default: break;
+                }
+            }
         }
     }
 }
