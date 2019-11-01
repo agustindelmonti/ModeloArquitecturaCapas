@@ -18,6 +18,7 @@ namespace Web.Controllers
         PersonaLogic PersonaLogic = new PersonaLogic();
 
         // GET: AlumnoInscripcion
+        [Authorize]
         public ActionResult Index()
         {
             IEnumerable<AlumnoInscripcion> alumnoInscripciones = InscripcionLogic.GetInscripcionesWithCursoAndPersona();
