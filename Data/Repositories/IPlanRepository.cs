@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Data.Repositories
 {
-    interface IPlanRepository : IRepository<Plan>
+    public interface IPlanRepository : IRepository<Plan>
     {
         IEnumerable<Plan> GetAll();
     }

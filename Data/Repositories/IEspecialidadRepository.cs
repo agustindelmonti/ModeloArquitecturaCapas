@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    interface IEspecialidadRepository : IRepository<Especialidad>
+    public interface IEspecialidadRepository : IRepository<Especialidad>
     {
         IEnumerable<Especialidad> GetAll();
     }
