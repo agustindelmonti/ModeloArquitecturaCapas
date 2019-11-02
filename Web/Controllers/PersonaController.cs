@@ -44,6 +44,9 @@ namespace Web.Controllers
         public ActionResult Create()
         {
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion");
+
+            SelectList roleList = new SelectList(Persona.Roles);
+            ViewBag.Rol = roleList;
             return View();
         }
 
@@ -77,6 +80,10 @@ namespace Web.Controllers
                 return HttpNotFound();
             }
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", persona.PlanID);
+
+            SelectList roleList = new SelectList(Persona.Roles);
+            ViewBag.Rol = roleList;
+
             return View(persona);
         }
 
