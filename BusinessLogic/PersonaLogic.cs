@@ -9,13 +9,13 @@ namespace BusinessLogic
 {
     public class PersonaLogic
     {
-        public PersonaRepository PersonaRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IPersonaRepository PersonaRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public PersonaLogic()
         {
-            Context = new AcademiaContext();
-            PersonaRepository= new PersonaRepository(Context);
+            Context = ContextUnit.Unit;
+            PersonaRepository = Context.PersonaRepository;
         }
 
         //CRUD

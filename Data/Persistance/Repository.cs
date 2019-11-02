@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
@@ -62,30 +63,23 @@ namespace Data.Persistence
 
         public void Add(TEntity entity)
         {
-            _entities.Add(entity);
+            _entities.AddOrUpdate(entity);
             Context.SaveChanges();
         }
 
         public void AddRange(IEnumerable<TEntity> entities)
         {
             _entities.AddRange(entities);
-            Context.SaveChanges();
         }
 
         public void Delete(object id)
         {
             TEntity entityToDelete = _entities.Find(id);
             Delete(entityToDelete);
-            Context.SaveChanges();
         }
 
         public void Delete(TEntity entity)
         {
-            if (Context.Entry(entity).State == EntityState.Detached)
-            {
-                _entities.Attach(entity);
-            }
-
             _entities.Remove(entity);
             Context.SaveChanges();
         }
@@ -106,8 +100,7 @@ namespace Data.Persistence
 
         public void Update(TEntity entity)
         {
-            _entities.Attach(entity);
-            Context.Entry(entity).State = EntityState.Modified;
+            _entities.AddOrUpdate(entity);
             Context.SaveChanges();
         }
     }

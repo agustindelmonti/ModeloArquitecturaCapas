@@ -10,12 +10,12 @@ namespace BusinessLogic
     public class UsuarioLogic
     {
         public IUsuarioRepository UsuarioRepository { get; set; }
-        private readonly AcademiaContext Context;
+        private readonly ContextUnit Context;
 
         public UsuarioLogic()
         {
-            Context = new AcademiaContext();
-            UsuarioRepository= new UsuarioRepository(Context);
+            Context = ContextUnit.Unit;
+            UsuarioRepository = Context.UsuarioRepository;
         }
 
         public Usuario AuthCredentials(Usuario usuario)

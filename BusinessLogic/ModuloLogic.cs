@@ -9,13 +9,13 @@ namespace BusinessLogic
 {
     public class ModuloLogic
     {
-        public ModuloRepository ModuloRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IModuloRepository ModuloRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public ModuloLogic()
         {
-            Context = new AcademiaContext();
-            ModuloRepository= new ModuloRepository(Context);
+            Context = ContextUnit.Unit;
+            ModuloRepository = Context.ModuloRepository;
         }
 
         //CRUD

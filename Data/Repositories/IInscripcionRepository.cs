@@ -9,5 +9,6 @@ namespace Data.Repositories
 {
     public interface IInscripcionRepository : IRepository<AlumnoInscripcion>
     {
+        IEnumerable<AlumnoInscripcion> GetInscripcionesWithCursoAndPersona();
     }
 }

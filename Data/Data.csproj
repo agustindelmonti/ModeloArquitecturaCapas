@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AcademiaContext.cs" />
     <Compile Include="AcademiaInitializer.cs" />
+    <Compile Include="ContextUnit.cs" />
     <Compile Include="Persistance\DocenteCursoRepository.cs" />
     <Compile Include="Persistance\ComisionRepository.cs" />
     <Compile Include="Persistance\EspecialidadRepository.cs" />

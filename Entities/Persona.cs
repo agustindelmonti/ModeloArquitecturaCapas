@@ -19,8 +19,8 @@ namespace Entities {
         public string Email { get; set; }
         [Required, StringLength(20)]
         public string Telefono { get; set; }
-        [Required, DataType(DataType.Date), Display(Name = "Fecha de Nacimiento")]
-        public DateTime FechaNacimiento { get; set; }
+        [DataType(DataType.Date), Display(Name = "Fecha de Nacimiento")]
+        public DateTime? FechaNacimiento { get; set; }
         public int Legajo { get; set; }
         [Required, EnumDataType(typeof(Rol))]
         public Rol TipoPersona { get; set; }

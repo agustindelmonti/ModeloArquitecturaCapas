@@ -11,13 +11,13 @@ namespace BusinessLogic
 {
     public class EspecialidadLogic
     {
-        public EspecialidadRepository EspecialidadRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IEspecialidadRepository EspecialidadRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public EspecialidadLogic()
         {
-            Context = new AcademiaContext();
-            EspecialidadRepository = new EspecialidadRepository(Context);
+            Context = ContextUnit.Unit;
+            EspecialidadRepository = Context.EspecialidadRepository;
         }
 
         //CRUD

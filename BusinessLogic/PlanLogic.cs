@@ -9,13 +9,13 @@ namespace BusinessLogic
 {
     public class PlanLogic
     {
-        public PlanRepository PlanRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IPlanRepository PlanRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public PlanLogic()
         {
-            Context = new AcademiaContext();
-            PlanRepository= new PlanRepository(Context);
+            Context = ContextUnit.Unit;
+            PlanRepository = Context.PlanRepository;
         }
 
         //CRUD

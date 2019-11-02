@@ -8,13 +8,13 @@ namespace BusinessLogic
 {
     public class ComisionLogic
     {
-        public ComisionRepository ComisionRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IComisionRepository ComisionRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public ComisionLogic()
         {
-            Context = new AcademiaContext();
-            ComisionRepository= new ComisionRepository(Context);
+            Context = ContextUnit.Unit;
+            ComisionRepository = Context.ComisionRepository;
         }
 
         //CRUD

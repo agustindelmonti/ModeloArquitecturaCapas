@@ -8,21 +8,22 @@ namespace BusinessLogic
 {
     public class CursoLogic
     {
-        public CursoRepository CursoRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public ICursoRepository CursoRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public CursoLogic()
         {
-            Context = new AcademiaContext();
-            CursoRepository = new CursoRepository(Context);
+            Context = ContextUnit.Unit;
+            CursoRepository = Context.CursoRepository;
         }
+    
 
         public IEnumerable<Persona> GetDocentesCurso(Curso curso) => CursoRepository.GetDocentesCurso(curso);
 
         //CRUD
         public IEnumerable<Curso> GetAll() => CursoRepository.GetAll();
 
-        public Curso Find(int? id) => CursoRepository.Find(id);
+        public Curso Find(int? id) => CursoRepository.GetById(id);
 
         public void Add(Curso curso) => CursoRepository.Add(curso);
 
