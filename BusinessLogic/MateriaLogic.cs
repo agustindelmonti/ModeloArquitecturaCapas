@@ -28,5 +28,7 @@ namespace BusinessLogic
         public void Update(Materia materia) => MateriaRepository.Update(materia);
 
         public void Delete(int id) => MateriaRepository.Delete(id);
+
+        public void DeleteRange(List<Materia> materias) => MateriaRepository.DeleteRange(materias);
     }
 }

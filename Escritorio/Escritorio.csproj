@@ -107,6 +107,12 @@
     <Compile Include="ListaCursos.Designer.cs">
       <DependentUpon>ListaCursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListadoMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoMaterias.Designer.cs">
+      <DependentUpon>ListadoMaterias.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListaEspecialidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmUsuarios.resx">
       <DependentUpon>AbmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoMaterias.resx">
+      <DependentUpon>ListadoMaterias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaEspecialidades.resx">
       <DependentUpon>ListaEspecialidades.cs</DependentUpon>

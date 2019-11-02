@@ -47,11 +47,23 @@
     <Compile Include="Detalle.Designer.cs">
       <DependentUpon>Detalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="MateriaDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MateriaDetalle.Designer.cs">
+      <DependentUpon>MateriaDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="EspecialidadDetalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="EspecialidadDetalle.Designer.cs">
       <DependentUpon>EspecialidadDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonaDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PersonaDetalle.Designer.cs">
+      <DependentUpon>PersonaDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -59,6 +71,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Detalle.resx">
       <DependentUpon>Detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaDetalle.resx">
+      <DependentUpon>MateriaDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadDetalle.resx">
       <DependentUpon>EspecialidadDetalle.cs</DependentUpon>
