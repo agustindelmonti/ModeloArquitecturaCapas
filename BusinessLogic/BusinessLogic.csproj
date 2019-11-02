@@ -63,7 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountManager.cs" />
     <Compile Include="CursoLogic.cs" />
     <Compile Include="Authorization\CustomAuthorize.cs" />
     <Compile Include="EspecialidadLogic.cs" />
