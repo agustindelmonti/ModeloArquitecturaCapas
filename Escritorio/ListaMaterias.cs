@@ -12,7 +12,7 @@ using BusinessLogic;
 
 namespace Escritorio
 {
-    public partial class ListaMaterias : Form
+    public partial class ListaMaterias : UserControl
     {
         public ListaMaterias()
         {
@@ -42,7 +42,7 @@ namespace Escritorio
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)

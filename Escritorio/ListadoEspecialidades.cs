@@ -15,7 +15,7 @@ using Utils;
 
 namespace Escritorio
 {
-    public partial class listaEspecialidades : Form
+    public partial class listaEspecialidades : UserControl
     {
         public EspecialidadLogic EspecialidadLogic { get; set; }
         public ModoForm Modo { get; set; }
@@ -213,7 +213,7 @@ namespace Escritorio
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
     }

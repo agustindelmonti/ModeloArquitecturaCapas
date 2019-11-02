@@ -41,22 +41,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Detalle.cs">
+    <Compile Include="Detalles\Detalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Detalle.Designer.cs">
+    <Compile Include="Detalles\Detalle.Designer.cs">
       <DependentUpon>Detalle.cs</DependentUpon>
     </Compile>
-    <Compile Include="MateriaDetalle.cs">
+    <Compile Include="Listados\ListadoEspecialidades.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MateriaDetalle.Designer.cs">
+    <Compile Include="Listados\ListadoEspecialidades.Designer.cs">
+      <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoMaterias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoMaterias.Designer.cs">
+      <DependentUpon>ListadoMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detalles\MateriaDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detalles\MateriaDetalle.Designer.cs">
       <DependentUpon>MateriaDetalle.cs</DependentUpon>
     </Compile>
-    <Compile Include="EspecialidadDetalle.cs">
+    <Compile Include="Detalles\EspecialidadDetalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EspecialidadDetalle.Designer.cs">
+    <Compile Include="Detalles\EspecialidadDetalle.Designer.cs">
       <DependentUpon>EspecialidadDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonaDetalle.cs">
@@ -65,18 +77,33 @@
     <Compile Include="PersonaDetalle.Designer.cs">
       <DependentUpon>PersonaDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Detalle.resx">
+    <EmbeddedResource Include="Detalles\Detalle.resx">
       <DependentUpon>Detalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MateriaDetalle.resx">
+    <EmbeddedResource Include="Listados\ListadoEspecialidades.resx">
+      <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoMaterias.resx">
+      <DependentUpon>ListadoMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalles\MateriaDetalle.resx">
       <DependentUpon>MateriaDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EspecialidadDetalle.resx">
+    <EmbeddedResource Include="Detalles\EspecialidadDetalle.resx">
       <DependentUpon>EspecialidadDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

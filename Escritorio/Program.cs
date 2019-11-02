@@ -26,7 +26,7 @@ namespace Escritorio
             {
                 switch (usuarioActual.Persona.TipoPersona)
                 {
-                    case Persona.Rol.Alumno: { Application.Run(new listaEspecialidades()); break; }
+                    case Persona.Rol.Alumno: { Application.Run(new MenuAlumno(usuarioActual)); break; }
                     case Persona.Rol.Docente: { Application.Run(new MenuDocente(usuarioActual)); break; }
                     case Persona.Rol.No_Docente: { Application.Run(new MenuNoDocente(usuarioActual)); break;  }
                     default: break;

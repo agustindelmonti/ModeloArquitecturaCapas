@@ -228,7 +228,6 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcEspecialidades);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "listaEspecialidades";
             this.Text = "Especialidad";

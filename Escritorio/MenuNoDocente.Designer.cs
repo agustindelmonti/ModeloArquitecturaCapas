@@ -28,169 +28,172 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnEspecialidades = new System.Windows.Forms.Button();
-            this.btnPlanes = new System.Windows.Forms.Button();
-            this.btnUsuarios = new System.Windows.Forms.Button();
-            this.btnMaterias = new System.Windows.Forms.Button();
-            this.btnAlumnos = new System.Windows.Forms.Button();
-            this.btnProfesores = new System.Windows.Forms.Button();
-            this.btnComisiones = new System.Windows.Forms.Button();
-            this.btnCursos = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuNoDocente));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.especialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inscrpcionAlumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verTodosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignarProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // menuStrip1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Lavender;
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.btnUsuarios, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnAlumnos, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnProfesores, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnMaterias, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnPlanes, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnEspecialidades, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnComisiones, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btnCursos, 1, 4);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(501, 386);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.principalToolStripMenuItem,
+            this.consultarToolStripMenuItem,
+            this.cursosToolStripMenuItem1,
+            this.usuariosToolStripMenuItem1,
+            this.salirToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnEspecialidades
+            // principalToolStripMenuItem
             // 
-            this.btnEspecialidades.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEspecialidades.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnEspecialidades.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Bold);
-            this.btnEspecialidades.Location = new System.Drawing.Point(263, 71);
-            this.btnEspecialidades.Name = "btnEspecialidades";
-            this.btnEspecialidades.Size = new System.Drawing.Size(186, 49);
-            this.btnEspecialidades.TabIndex = 2;
-            this.btnEspecialidades.Text = "Especialidades";
-            this.btnEspecialidades.UseVisualStyleBackColor = false;
-            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
+            this.principalToolStripMenuItem.Name = "principalToolStripMenuItem";
+            this.principalToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.principalToolStripMenuItem.Text = "Principal";
+            this.principalToolStripMenuItem.Click += new System.EventHandler(this.principalToolStripMenuItem_Click);
             // 
-            // btnPlanes
+            // consultarToolStripMenuItem
             // 
-            this.btnPlanes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPlanes.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnPlanes.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
-            this.btnPlanes.Location = new System.Drawing.Point(263, 135);
-            this.btnPlanes.Name = "btnPlanes";
-            this.btnPlanes.Size = new System.Drawing.Size(186, 49);
-            this.btnPlanes.TabIndex = 1;
-            this.btnPlanes.Text = "Planes";
-            this.btnPlanes.UseVisualStyleBackColor = false;
-            this.btnPlanes.Click += new System.EventHandler(this.btnPlanes_Click);
+            this.consultarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comisionesToolStripMenuItem,
+            this.planesToolStripMenuItem,
+            this.especialidadesToolStripMenuItem,
+            this.materiasToolStripMenuItem});
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.consultarToolStripMenuItem.Text = "Consultar";
             // 
-            // btnUsuarios
+            // comisionesToolStripMenuItem
             // 
-            this.btnUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUsuarios.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnUsuarios.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
-            this.btnUsuarios.Location = new System.Drawing.Point(51, 71);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(186, 49);
-            this.btnUsuarios.TabIndex = 0;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.UseVisualStyleBackColor = false;
-            this.btnUsuarios.Click += new System.EventHandler(this.Usuarios_Click);
+            this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
+            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.comisionesToolStripMenuItem.Text = "Comisiones";
             // 
-            // btnMaterias
+            // planesToolStripMenuItem
             // 
-            this.btnMaterias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMaterias.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnMaterias.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
-            this.btnMaterias.Location = new System.Drawing.Point(263, 199);
-            this.btnMaterias.Name = "btnMaterias";
-            this.btnMaterias.Size = new System.Drawing.Size(186, 49);
-            this.btnMaterias.TabIndex = 3;
-            this.btnMaterias.Text = "Materias";
-            this.btnMaterias.UseVisualStyleBackColor = false;
+            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.planesToolStripMenuItem.Text = "Planes";
             // 
-            // btnAlumnos
+            // especialidadesToolStripMenuItem
             // 
-            this.btnAlumnos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAlumnos.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnAlumnos.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
-            this.btnAlumnos.Location = new System.Drawing.Point(51, 135);
-            this.btnAlumnos.Name = "btnAlumnos";
-            this.btnAlumnos.Size = new System.Drawing.Size(186, 49);
-            this.btnAlumnos.TabIndex = 4;
-            this.btnAlumnos.Text = "Alumnos";
-            this.btnAlumnos.UseVisualStyleBackColor = false;
+            this.especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
+            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.especialidadesToolStripMenuItem.Text = "Especialidades";
             // 
-            // btnProfesores
+            // cursosToolStripMenuItem1
             // 
-            this.btnProfesores.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnProfesores.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnProfesores.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
-            this.btnProfesores.Location = new System.Drawing.Point(51, 199);
-            this.btnProfesores.Name = "btnProfesores";
-            this.btnProfesores.Size = new System.Drawing.Size(186, 49);
-            this.btnProfesores.TabIndex = 5;
-            this.btnProfesores.Text = "Profesores";
-            this.btnProfesores.UseVisualStyleBackColor = false;
+            this.cursosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearCursoToolStripMenuItem,
+            this.verTodosToolStripMenuItem,
+            this.inscrpcionAlumnoToolStripMenuItem,
+            this.asignarProfesorToolStripMenuItem});
+            this.cursosToolStripMenuItem1.Name = "cursosToolStripMenuItem1";
+            this.cursosToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
+            this.cursosToolStripMenuItem1.Text = "Cursos";
             // 
-            // btnComisiones
+            // inscrpcionAlumnoToolStripMenuItem
             // 
-            this.btnComisiones.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnComisiones.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnComisiones.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
-            this.btnComisiones.Location = new System.Drawing.Point(263, 263);
-            this.btnComisiones.Name = "btnComisiones";
-            this.btnComisiones.Size = new System.Drawing.Size(186, 49);
-            this.btnComisiones.TabIndex = 6;
-            this.btnComisiones.Text = "Comisiones";
-            this.btnComisiones.UseVisualStyleBackColor = false;
+            this.inscrpcionAlumnoToolStripMenuItem.Name = "inscrpcionAlumnoToolStripMenuItem";
+            this.inscrpcionAlumnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inscrpcionAlumnoToolStripMenuItem.Text = "Inscrpcion Alumno";
             // 
-            // btnCursos
+            // salirToolStripMenuItem
             // 
-            this.btnCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCursos.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCursos.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Bold);
-            this.btnCursos.Location = new System.Drawing.Point(51, 263);
-            this.btnCursos.Name = "btnCursos";
-            this.btnCursos.Size = new System.Drawing.Size(186, 49);
-            this.btnCursos.TabIndex = 7;
-            this.btnCursos.Text = "Cursos";
-            this.btnCursos.UseVisualStyleBackColor = false;
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
+            // verTodosToolStripMenuItem
+            // 
+            this.verTodosToolStripMenuItem.Name = "verTodosToolStripMenuItem";
+            this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verTodosToolStripMenuItem.Text = "Ver todos";
+            // 
+            // asignarProfesorToolStripMenuItem
+            // 
+            this.asignarProfesorToolStripMenuItem.Name = "asignarProfesorToolStripMenuItem";
+            this.asignarProfesorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarProfesorToolStripMenuItem.Text = "Asignar Profesor";
+            // 
+            // usuariosToolStripMenuItem1
+            // 
+            this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem1.Text = "Usuarios";
+            // 
+            // crearCursoToolStripMenuItem
+            // 
+            this.crearCursoToolStripMenuItem.Name = "crearCursoToolStripMenuItem";
+            this.crearCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearCursoToolStripMenuItem.Text = "Crear curso";
+            // 
+            // materiasToolStripMenuItem
+            // 
+            this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.materiasToolStripMenuItem.Text = "Materias";
+            this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 451);
+            this.panel1.TabIndex = 1;
             // 
             // MenuNoDocente
             // 
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(501, 386);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(784, 476);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MenuNoDocente";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Academia";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnEspecialidades;
-        private System.Windows.Forms.Button btnPlanes;
-        private System.Windows.Forms.Button btnUsuarios;
-        private System.Windows.Forms.Button btnAlumnos;
-        private System.Windows.Forms.Button btnProfesores;
-        private System.Windows.Forms.Button btnMaterias;
-        private System.Windows.Forms.Button btnComisiones;
-        private System.Windows.Forms.Button btnCursos;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem principalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem inscrpcionAlumnoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearCursoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verTodosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignarProfesorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
     }
 }

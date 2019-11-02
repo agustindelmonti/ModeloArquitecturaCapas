@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BusinessLogic;
+using UserControlsDesktop;
 
 namespace Escritorio
 {
@@ -20,6 +21,8 @@ namespace Escritorio
         {
             InitializeComponent();
             UsuarioAutenticado = usr;
+
+            panel1.Controls.Add(new Principal(UsuarioAutenticado));
         }
 
 
@@ -39,6 +42,17 @@ namespace Escritorio
         {
             //UI.Desktop.Especialidad esp = new UI.Desktop.Especialidad();
             //esp.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void principalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new Principal(UsuarioAutenticado));
         }
     }
 }

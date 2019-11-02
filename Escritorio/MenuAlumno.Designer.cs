@@ -28,31 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.especialidadDetalle1 = new UserControlsDesktop.EspecialidadDetalle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAlumno));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.esatdoAcademicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inscribirseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.examenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.misCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadoAcademicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // especialidadDetalle1
+            // menuStrip1
             // 
-            this.especialidadDetalle1.EspecialidadActual = null;
-            this.especialidadDetalle1.Location = new System.Drawing.Point(388, 3);
-            this.especialidadDetalle1.Name = "especialidadDetalle1";
-            this.especialidadDetalle1.Size = new System.Drawing.Size(237, 450);
-            this.especialidadDetalle1.TabIndex = 0;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.principalToolStripMenuItem,
+            this.esatdoAcademicoToolStripMenuItem,
+            this.inscribirseToolStripMenuItem,
+            this.actualizarDatosToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // esatdoAcademicoToolStripMenuItem
+            // 
+            this.esatdoAcademicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.estadoAcademicoToolStripMenuItem,
+            this.misCursosToolStripMenuItem,
+            this.materiasToolStripMenuItem,
+            this.planesToolStripMenuItem});
+            this.esatdoAcademicoToolStripMenuItem.Name = "esatdoAcademicoToolStripMenuItem";
+            this.esatdoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.esatdoAcademicoToolStripMenuItem.Text = "Consultar";
+            // 
+            // inscribirseToolStripMenuItem
+            // 
+            this.inscribirseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.materiaToolStripMenuItem,
+            this.examenToolStripMenuItem});
+            this.inscribirseToolStripMenuItem.Name = "inscribirseToolStripMenuItem";
+            this.inscribirseToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.inscribirseToolStripMenuItem.Text = "Inscribirse";
+            // 
+            // materiaToolStripMenuItem
+            // 
+            this.materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
+            this.materiaToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.materiaToolStripMenuItem.Text = "Cursado";
+            // 
+            // examenToolStripMenuItem
+            // 
+            this.examenToolStripMenuItem.Name = "examenToolStripMenuItem";
+            this.examenToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.examenToolStripMenuItem.Text = "Examen [No Implementado]";
+            // 
+            // materiasToolStripMenuItem
+            // 
+            this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.materiasToolStripMenuItem.Text = "Materias";
+            // 
+            // planesToolStripMenuItem
+            // 
+            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.planesToolStripMenuItem.Text = "Planes";
+            // 
+            // misCursosToolStripMenuItem
+            // 
+            this.misCursosToolStripMenuItem.Name = "misCursosToolStripMenuItem";
+            this.misCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.misCursosToolStripMenuItem.Text = "Mis Cursos";
+            // 
+            // estadoAcademicoToolStripMenuItem
+            // 
+            this.estadoAcademicoToolStripMenuItem.Name = "estadoAcademicoToolStripMenuItem";
+            this.estadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadoAcademicoToolStripMenuItem.Text = "Estado Academico";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
+            // principalToolStripMenuItem
+            // 
+            this.principalToolStripMenuItem.Name = "principalToolStripMenuItem";
+            this.principalToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.principalToolStripMenuItem.Text = "Principal";
+            this.principalToolStripMenuItem.Click += new System.EventHandler(this.principalToolStripMenuItem_Click);
+            // 
+            // actualizarDatosToolStripMenuItem
+            // 
+            this.actualizarDatosToolStripMenuItem.Name = "actualizarDatosToolStripMenuItem";
+            this.actualizarDatosToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.actualizarDatosToolStripMenuItem.Text = "Perfil";
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 452);
+            this.panel1.TabIndex = 1;
             // 
             // MenuAlumno
             // 
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(628, 452);
-            this.Controls.Add(this.especialidadDetalle1);
+            this.ClientSize = new System.Drawing.Size(784, 476);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MenuAlumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Academia";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private UserControlsDesktop.EspecialidadDetalle especialidadDetalle1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem esatdoAcademicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem misCursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estadoAcademicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inscribirseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem materiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem examenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem principalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizarDatosToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
     }
 }

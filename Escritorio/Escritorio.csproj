@@ -107,17 +107,11 @@
     <Compile Include="ListaCursos.Designer.cs">
       <DependentUpon>ListaCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListadoMaterias.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ListadoEspecialidades.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ListadoMaterias.Designer.cs">
-      <DependentUpon>ListadoMaterias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ListaEspecialidades.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListaEspecialidades.Designer.cs">
-      <DependentUpon>ListaEspecialidades.cs</DependentUpon>
+    <Compile Include="ListadoEspecialidades.Designer.cs">
+      <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaMaterias.cs">
       <SubType>Form</SubType>
@@ -190,11 +184,8 @@
     <EmbeddedResource Include="AbmUsuarios.resx">
       <DependentUpon>AbmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListadoMaterias.resx">
-      <DependentUpon>ListadoMaterias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListaEspecialidades.resx">
-      <DependentUpon>ListaEspecialidades.cs</DependentUpon>
+    <EmbeddedResource Include="ListadoEspecialidades.resx">
+      <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaMaterias.resx">
       <DependentUpon>ListaMaterias.cs</DependentUpon>
@@ -213,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAlumno.resx">
       <DependentUpon>MenuAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuDocente.resx">
+      <DependentUpon>MenuDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuNoDocente.resx">
       <DependentUpon>MenuNoDocente.cs</DependentUpon>
