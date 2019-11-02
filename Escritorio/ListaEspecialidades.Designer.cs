@@ -37,7 +37,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
@@ -152,26 +152,27 @@
             this.tsEspecialidades.Dock = System.Windows.Forms.DockStyle.None;
             this.tsEspecialidades.ImageScalingSize = new System.Drawing.Size(25, 25);
             this.tsEspecialidades.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNuevo,
+            this.btnNuevo,
             this.btnEditar,
             this.btnBorrar,
             this.toolStripTextBox1});
             this.tsEspecialidades.Location = new System.Drawing.Point(3, 0);
             this.tsEspecialidades.Name = "tsEspecialidades";
             this.tsEspecialidades.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsEspecialidades.Size = new System.Drawing.Size(201, 32);
+            this.tsEspecialidades.Size = new System.Drawing.Size(232, 32);
             this.tsEspecialidades.TabIndex = 0;
             // 
-            // tsbNuevo
+            // btnNuevo
             // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(29, 29);
-            this.tsbNuevo.Text = "toolStripButton1";
-            this.tsbNuevo.ToolTipText = "Nuevo";
-            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
+            this.btnNuevo.BackColor = System.Drawing.Color.Transparent;
+            this.btnNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(29, 29);
+            this.btnNuevo.Text = "toolStripButton1";
+            this.btnNuevo.ToolTipText = "Nuevo";
+            this.btnNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // btnEditar
             // 
@@ -253,7 +254,7 @@
         private System.Windows.Forms.DataGridView dvgEspecialidades;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ToolStripButton tsbNuevo;
+        private System.Windows.Forms.ToolStripButton btnNuevo;
         private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.ToolStripButton btnBorrar;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;

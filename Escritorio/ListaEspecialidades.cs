@@ -29,6 +29,7 @@ namespace Escritorio
             dvgEspecialidades.AutoGenerateColumns = false;
             dvgEspecialidades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dvgEspecialidades.MultiSelect = false;
+            Modo = ModoForm.Consulta;
 
             detalle = new EspecialidadDetalle();
         }
@@ -56,6 +57,7 @@ namespace Escritorio
             //Refresco los cambios
             Listar();
             this.Modo = ModoForm.Consulta;
+            CambioContext();
         }
 
         public void Listar()
@@ -69,7 +71,6 @@ namespace Escritorio
             {
                 this.Modo = ModoForm.Alta;
                 LiberarRecurso();
-
                 detalle = new EspecialidadDetalle(ModoForm.Alta);
                 panel1.Controls.Add(detalle);
                 btnAceptar.Show();
@@ -79,6 +80,7 @@ namespace Escritorio
                 LiberarRecurso();
                 this.Modo = ModoForm.Consulta;
             }
+            CambioContext();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -89,29 +91,29 @@ namespace Escritorio
                 LiberarRecurso();
                 //Admite seleccion multiple
                 dvgEspecialidades.MultiSelect = true;
-                detalle = new EspecialidadDetalle(ModoForm.Consulta);
-                panel1.Controls.Add(detalle);
-
                 btnAceptar.Show();
             }
             else
             {
                 LiberarRecurso();
+                dvgEspecialidades.MultiSelect = false;
                 this.Modo = ModoForm.Consulta;
-            } 
+            }
+            CambioContext();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             if (this.Modo != ModoForm.Modificacion)
             {
-                Modificar();
+                Editar();
             }
             else
             {
                 LiberarRecurso();
                 this.Modo = ModoForm.Consulta;
             }
+            CambioContext();
         }
 
         //Seleccionar un registro de la tabla me muestra 
@@ -124,18 +126,17 @@ namespace Escritorio
             }
             else
             {
-                Modificar();
+                Editar();
             }
         }
 
-        private void Modificar()
+        private void Editar()
         {
             this.Modo = ModoForm.Modificacion;
             LiberarRecurso();
             Especialidad Seleccion = (Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem;
             detalle = new EspecialidadDetalle(Seleccion, ModoForm.Modificacion);
             panel1.Controls.Add(detalle);
-
             btnAceptar.Show();
         }
 
@@ -171,6 +172,26 @@ namespace Escritorio
                 Especialidad Seleccion = (Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem;
                 EspecialidadDetalle detalle = new EspecialidadDetalle(Seleccion, ModoForm.Consulta);
                 panel1.Controls.Add(detalle);
+            }
+        }
+
+        //Se encarga de todo lo visual para cambiar entre modos
+        private void CambioContext()
+        {
+            btnNuevo.BackColor = Color.Transparent;
+            btnBorrar.BackColor = Color.Transparent;
+            btnEditar.BackColor = Color.Transparent;
+            switch (Modo)
+            {
+                case ModoForm.Alta:
+                    btnNuevo.BackColor = Color.Teal;
+                    break;
+                case ModoForm.Baja:
+                    btnBorrar.BackColor = Color.Red;
+                    break;
+                case ModoForm.Modificacion:
+                    btnEditar.BackColor = Color.Blue;
+                    break;
             }
         }
 

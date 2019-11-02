@@ -23,19 +23,15 @@ namespace UserControlsDesktop
 
         public Especialidad ObtenerDatos()
         {
-            Validar();
-            Especialidad n = new Especialidad();
-            n.Descripcion = tbDescripcion.Text;
             switch (Modo)
             {
                 case ModoForm.Alta:
                     {
-                        return n;
+                        return new Especialidad() { Descripcion = Descripcion};
                     }
                 case ModoForm.Modificacion:
                     {
-                        n.EspecialidadID = EspecialidadActual.EspecialidadID;
-                        return n;
+                        return new Especialidad() { Descripcion = Descripcion, EspecialidadID = EspecialidadActual.EspecialidadID };
                     }
                 default: throw new Exception();
             }
