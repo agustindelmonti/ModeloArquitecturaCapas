@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BusinessLogic;
+using UserControlsDesktop;
+using static UserControlsDesktop.Detalle;
 
 namespace Escritorio
 {
@@ -45,8 +47,7 @@ namespace Escritorio
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            AbmEspecialidades abmEspecialidad = new AbmEspecialidades(ManejadorForm.ModoForm.Alta);
-            abmEspecialidad.ShowDialog();
+            detalle = new EspecialidadDetalle(ModoForm.Alta);
             this.Listar();
         }
 

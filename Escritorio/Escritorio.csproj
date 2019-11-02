@@ -241,6 +241,10 @@
       <Project>{1f3c2221-d7a7-4c45-929e-6e2302eeedb5}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserControlsDesktop\UserControlsDesktop.csproj">
+      <Project>{6BB546BA-7DAB-49D2-9E20-80F1CC75C3E3}</Project>
+      <Name>UserControlsDesktop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
       <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
       <Name>Utils</Name>
