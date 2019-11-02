@@ -30,5 +30,7 @@ namespace BusinessLogic
         public void Update(Especialidad especialidad) => EspecialidadRepository.Update(especialidad);
 
         public void Remove(int id) => EspecialidadRepository.Delete(id);
+
+        public void DeleteRange(List<Especialidad> especialidades) => EspecialidadRepository.DeleteRange(especialidades);
     }
 }

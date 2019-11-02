@@ -34,9 +34,7 @@
             // especialidadDetalle1
             // 
             this.especialidadDetalle1.EspecialidadActual = null;
-            this.especialidadDetalle1.EspecialidadLogic = null;
             this.especialidadDetalle1.Location = new System.Drawing.Point(388, 3);
-            this.especialidadDetalle1.Modo = UserControlsDesktop.Detalle.ModoForm.Alta;
             this.especialidadDetalle1.Name = "especialidadDetalle1";
             this.especialidadDetalle1.Size = new System.Drawing.Size(237, 450);
             this.especialidadDetalle1.TabIndex = 0;

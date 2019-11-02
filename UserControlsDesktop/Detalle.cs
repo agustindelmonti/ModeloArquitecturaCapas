@@ -7,15 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utils;
 
 namespace UserControlsDesktop
 {
     public partial class Detalle : UserControl
     {
-        public enum ModoForm {
-            Alta, Baja, Modificacion
-        }
-
         public ModoForm Modo { get; set; }
 
         public Detalle()

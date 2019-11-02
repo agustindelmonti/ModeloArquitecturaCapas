@@ -58,21 +58,23 @@
             this.tableLayoutPanel1.Controls.Add(this.cbEspecialidad, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(421, 417);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(316, 339);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lId
             // 
             this.lId.AutoSize = true;
-            this.lId.Location = new System.Drawing.Point(3, 0);
+            this.lId.Location = new System.Drawing.Point(2, 0);
+            this.lId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lId.Name = "lId";
-            this.lId.Size = new System.Drawing.Size(21, 17);
+            this.lId.Size = new System.Drawing.Size(18, 13);
             this.lId.TabIndex = 0;
             this.lId.Text = "ID";
             this.lId.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -80,35 +82,39 @@
             // lDescripcion
             // 
             this.lDescripcion.AutoSize = true;
-            this.lDescripcion.Location = new System.Drawing.Point(3, 33);
+            this.lDescripcion.Location = new System.Drawing.Point(2, 27);
+            this.lDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lDescripcion.Name = "lDescripcion";
-            this.lDescripcion.Size = new System.Drawing.Size(82, 17);
+            this.lDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lDescripcion.TabIndex = 1;
             this.lDescripcion.Text = "Descripcion";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(117, 3);
+            this.txtID.Location = new System.Drawing.Point(88, 2);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(282, 22);
+            this.txtID.Size = new System.Drawing.Size(212, 20);
             this.txtID.TabIndex = 4;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtDescripcion.Location = new System.Drawing.Point(117, 36);
+            this.txtDescripcion.Location = new System.Drawing.Point(88, 29);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(282, 313);
+            this.txtDescripcion.Size = new System.Drawing.Size(212, 255);
             this.txtDescripcion.TabIndex = 1;
             this.txtDescripcion.Text = "";
             // 
             // bntCancelar
             // 
             this.bntCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntCancelar.Location = new System.Drawing.Point(336, 384);
+            this.bntCancelar.Location = new System.Drawing.Point(252, 312);
+            this.bntCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.bntCancelar.Name = "bntCancelar";
-            this.bntCancelar.Size = new System.Drawing.Size(82, 30);
+            this.bntCancelar.Size = new System.Drawing.Size(62, 24);
             this.bntCancelar.TabIndex = 4;
             this.bntCancelar.Text = "Cancelar";
             this.bntCancelar.UseVisualStyleBackColor = true;
@@ -117,9 +123,10 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(36, 384);
+            this.btnAceptar.Location = new System.Drawing.Point(28, 312);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 30);
+            this.btnAceptar.Size = new System.Drawing.Size(56, 24);
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -129,18 +136,20 @@
             // 
             this.lid_Esp.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lid_Esp.AutoSize = true;
-            this.lid_Esp.Location = new System.Drawing.Point(3, 358);
+            this.lid_Esp.Location = new System.Drawing.Point(2, 291);
+            this.lid_Esp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lid_Esp.Name = "lid_Esp";
-            this.lid_Esp.Size = new System.Drawing.Size(88, 17);
+            this.lid_Esp.Size = new System.Drawing.Size(67, 13);
             this.lid_Esp.TabIndex = 6;
             this.lid_Esp.Text = "Especialidad";
             // 
             // cbEspecialidad
             // 
             this.cbEspecialidad.FormattingEnabled = true;
-            this.cbEspecialidad.Location = new System.Drawing.Point(117, 355);
+            this.cbEspecialidad.Location = new System.Drawing.Point(88, 288);
+            this.cbEspecialidad.Margin = new System.Windows.Forms.Padding(2);
             this.cbEspecialidad.Name = "cbEspecialidad";
-            this.cbEspecialidad.Size = new System.Drawing.Size(282, 24);
+            this.cbEspecialidad.Size = new System.Drawing.Size(212, 21);
             this.cbEspecialidad.TabIndex = 2;
             // 
             // especialidadLogicBindingSource
@@ -149,10 +158,11 @@
             // 
             // AbmPlanes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 417);
+            this.ClientSize = new System.Drawing.Size(316, 339);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AbmPlanes";
             this.Text = "ABM Planes";
             this.tableLayoutPanel1.ResumeLayout(false);

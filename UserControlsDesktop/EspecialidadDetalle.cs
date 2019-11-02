@@ -8,95 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
+using Utils;
 using BusinessLogic;
 
 namespace UserControlsDesktop
 {
-    public partial class EspecialidadDetalle: Detalle
+    public partial class EspecialidadDetalle : Detalle
     {
-        public Especialidad EspecialidadActual { get; set; }
-        public EspecialidadLogic EspecialidadLogic { get; set; }
+        //Propriedades que me permiten cambiar el estado del UserControl desde afuera
+        public Especialidad EspecialidadActual {get; set;}
 
-        public EspecialidadDetalle()
+        public int Id { set => lbId.Text = value.ToString(); }
+        public string Descripcion { get => tbDescripcion.Text; set => tbDescripcion.Text = value; }
+
+        public Especialidad ObtenerDatos()
         {
-            InitializeComponent();
+            Validar();
+            Especialidad n = new Especialidad();
+            n.Descripcion = tbDescripcion.Text;
+            switch (Modo)
+            {
+                case ModoForm.Alta:
+                    {
+                        return n;
+                    }
+                case ModoForm.Modificacion:
+                    {
+                        n.EspecialidadID = EspecialidadActual.EspecialidadID;
+                        return n;
+                    }
+                default: throw new Exception();
+            }
         }
 
         public EspecialidadDetalle(ModoForm modo) : this()
         {
             Modo = modo;
-        }
-
-        public EspecialidadDetalle(Especialidad e, ModoForm modo) : this()
-        {
-            Modo = modo;
-            EspecialidadActual = e;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            if (Validar()) GuardarCambios();
-        }
-        
-
-        public override void MapearDeDatos()
-        {
-            tbId.Text = EspecialidadActual.EspecialidadID.ToString();
-            tbDescripcion.Text = EspecialidadActual.Descripcion;
-
-            if (Modo == ModoForm.Baja)
-            {
-                btnAceptar.Text = "Eliminar";
-            }
-            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
-            {
-                btnAceptar.Text = "Guardar";
-            }
-        }
-
-        public override void MapearADatos()
-        {
-            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
-            {
-
-                if (Modo == ModoForm.Alta)
-                {
-                    Especialidad esp = new Especialidad();
-                    EspecialidadActual = esp;
-                }
-                else
-                {
-                    EspecialidadActual.EspecialidadID = int.Parse(tbId.Text);
-                }
-
-                EspecialidadActual.Descripcion = tbDescripcion.Text;
-            }
-            else if (Modo == ModoForm.Baja)
-            {
-            }
-        }
-
-        public override void GuardarCambios()
-        {
-            MapearADatos();
-            EspecialidadLogic es = new EspecialidadLogic();
             if (Modo == ModoForm.Alta)
             {
-                es.Add(EspecialidadActual);
-            }
-            else if (Modo == ModoForm.Modificacion)
-            {
-                es.Update(EspecialidadActual);
-
-            }
-            else if (Modo == ModoForm.Baja)
-            {
-                es.Remove(EspecialidadActual.EspecialidadID);
+                lbId.Hide();
             }
         }
 
@@ -108,6 +58,32 @@ namespace UserControlsDesktop
                 return false;
             }
             return true;
+        }
+
+        public EspecialidadDetalle()
+        {
+            InitializeComponent();
+        }
+
+        public EspecialidadDetalle(Especialidad e, ModoForm modo) : this(modo)
+        {
+            EspecialidadActual = e;
+
+            if (Modo == ModoForm.Consulta || Modo == ModoForm.Modificacion)
+            {
+                tbDescripcion.Enabled = false;
+                Descripcion = EspecialidadActual.Descripcion;
+                Id = EspecialidadActual.EspecialidadID;
+            }
+            if (Modo == ModoForm.Modificacion)
+            {
+                tbDescripcion.Enabled = true;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
