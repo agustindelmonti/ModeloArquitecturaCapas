@@ -45,9 +45,28 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +78,90 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbmComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmComisiones.Designer.cs">
+      <DependentUpon>AbmComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCursos.Designer.cs">
+      <DependentUpon>AbmCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPersonas.Designer.cs">
+      <DependentUpon>AbmPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmEspecialidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmEspecialidades.Designer.cs">
+      <DependentUpon>AbmEspecialidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmMaterias.Designer.cs">
+      <DependentUpon>AbmMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmPlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmPlanes.Designer.cs">
+      <DependentUpon>AbmPlanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmUsuarios.Designer.cs">
+      <DependentUpon>AbmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaComisiones.Designer.cs">
+      <DependentUpon>ListaComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaCursos.Designer.cs">
+      <DependentUpon>ListaCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaEspecialidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaEspecialidades.Designer.cs">
+      <DependentUpon>ListaEspecialidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaMaterias.Designer.cs">
+      <DependentUpon>ListaMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaPlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaPlanes.Designer.cs">
+      <DependentUpon>ListaPlanes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaPersonas.Designer.cs">
+      <DependentUpon>ListaPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaUsuarios.Designer.cs">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,14 +194,61 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteCursos.Designer.cs">
+      <DependentUpon>ReporteCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="AbmComisiones.resx">
+      <DependentUpon>AbmComisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCursos.resx">
+      <DependentUpon>AbmCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmEspecialidades.resx">
+      <DependentUpon>AbmEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmMaterias.resx">
+      <DependentUpon>AbmMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPersonas.resx">
+      <DependentUpon>AbmPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmPlanes.resx">
+      <DependentUpon>AbmPlanes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmUsuarios.resx">
+      <DependentUpon>AbmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformeCursos.rdlc" />
+    <EmbeddedResource Include="ListaComisiones.resx">
+      <DependentUpon>ListaComisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaCursos.resx">
+      <DependentUpon>ListaCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaEspecialidades.resx">
+      <DependentUpon>ListaEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaMaterias.resx">
+      <DependentUpon>ListaMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaPersonas.resx">
+      <DependentUpon>ListaPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaPlanes.resx">
+      <DependentUpon>ListaPlanes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaUsuarios.resx">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAlumno.resx">
       <DependentUpon>MenuAlumno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuDocente.resx">
-      <DependentUpon>MenuDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuNoDocente.resx">
       <DependentUpon>MenuNoDocente.cs</DependentUpon>
@@ -112,8 +262,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReporteCursos.resx">
+      <DependentUpon>ReporteCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BusinessLogic.CursoLogic.datasource" />
     <None Include="Properties\DataSources\BusinessLogic.EspecialidadLogic.datasource" />
+    <None Include="Properties\DataSources\Entities.Curso.datasource" />
+    <None Include="Properties\DataSources\Entities.Persona.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,10 +292,6 @@
       <Project>{1f3c2221-d7a7-4c45-929e-6e2302eeedb5}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UserControlsDesktop\UserControlsDesktop.csproj">
-      <Project>{6BB546BA-7DAB-49D2-9E20-80F1CC75C3E3}</Project>
-      <Name>UserControlsDesktop</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
       <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
       <Name>Utils</Name>
@@ -149,6 +301,19 @@
     <Content Include="app-icon.ico" />
     <Content Include="Assets\academia-img.png" />
     <Content Include="Assets\app-icon.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

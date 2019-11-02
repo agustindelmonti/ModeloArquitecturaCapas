@@ -34,6 +34,44 @@ namespace Data {
             context.SaveChanges();
 
 
+            var especialidades = new List<Especialidad> {
+                new Especialidad {Descripcion = "ISI"},
+                new Especialidad {Descripcion = "IQ"},
+                new Especialidad {Descripcion = "IE"}
+            };
+
+            especialidades.ForEach(e => context.Especialidades.Add(e));
+            context.SaveChanges();
+
+
+            var planes = new List<Plan> {
+                new Plan {Descripcion = "plan 8", EspecialidadID = 1},
+                new Plan {Descripcion = "plan 9", EspecialidadID = 2}
+            };
+
+            planes.ForEach(p => context.Planes.Add(p));
+            context.SaveChanges();
+
+
+            var materias = new List<Materia> {
+                new Materia {Descripcion = "MATERIA 8", HsSemanales = 3, HsTotales = 33, PlanID = 1},
+                new Materia {Descripcion = "MATERIA 9", HsSemanales = 4, HsTotales = 44, PlanID = 2}
+            };
+
+            materias.ForEach(m => context.Materias.Add(m));
+            context.SaveChanges();
+
+            var cursos = new List<Curso> {
+                new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 1},
+                new Curso {AnioCalendario = 2016, Cupo = 50, MateriaID = 2}
+            };
+
+            cursos.ForEach(c => context.Cursos.Add(c));
+            context.SaveChanges();
+
+
+
+
         }
     }
 }
