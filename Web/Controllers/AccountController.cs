@@ -37,11 +37,11 @@ namespace Web.Controllers
                     
                     FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
                         1,                            // Version
-                        u.UsuarioID.ToString(),       
-                        DateTime.Now,                  
+                        u.UsuarioID.ToString(),       // Auth Ticket Name
+                        DateTime.Now,                 // Start Date
                         DateTime.Now.AddMinutes(20),  // Expiration
                         false,                        // Persist
-                        u.Persona.Rol,        // Rol
+                        u.Persona.Rol,                // Rol
                         "/");                         // Cookie path
                     
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));

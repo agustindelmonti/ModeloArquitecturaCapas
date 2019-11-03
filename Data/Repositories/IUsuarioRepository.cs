@@ -7,5 +7,6 @@ namespace Data.Repositories
     {
         IEnumerable<Usuario> GetAll();
         Usuario FindByUsernameAndPassword(string nombreUsuario, string clave);
+        Persona GetPersonaByUserID(int userID);
     }
 }

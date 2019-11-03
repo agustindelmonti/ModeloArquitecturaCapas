@@ -9,7 +9,7 @@ using Utils.Exceptions;
 
 namespace BusinessLogic {
     public class UsuarioLogic {
-        public IUsuarioRepository UsuarioRepository { get; set; }
+        public UsuarioRepository UsuarioRepository { get; set; }
         private readonly AcademiaContext Context;
 
         public UsuarioLogic() {
@@ -24,6 +24,10 @@ namespace BusinessLogic {
             }
             return usuarioBuscar;
 
+        }
+
+        public Persona GetPersonaByUserID(int userID) {
+            return UsuarioRepository.GetPersonaByUserID(userID);
         }
 
         public IEnumerable<Usuario> FilterByNombreUsuario(IEnumerable<Usuario> usuarios, string nombreUsuario) {
