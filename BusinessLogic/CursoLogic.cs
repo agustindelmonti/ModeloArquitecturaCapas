@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Entities;
 using Data;
+using System.Linq;
 
 namespace BusinessLogic
 {
@@ -23,6 +24,14 @@ namespace BusinessLogic
         public IEnumerable<Curso> GetAll() => CursoRepository.GetAll();
 
         public Curso Find(int? id) => CursoRepository.Find(id);
+
+        public IEnumerable<Curso> FilterByAnioCalendario(IEnumerable<Curso> cursos, string año) {
+            return cursos.Where(c => c.AnioCalendario.ToString().StartsWith(año));
+        }
+
+        public IEnumerable<Curso> FilterByNombreMateria(IEnumerable<Curso> cursos, string materia) {
+            return cursos.Where(c => c.Materia.Descripcion.ToLower().Contains(materia.ToLower()));
+        }
 
         public void Add(Curso curso) => CursoRepository.Add(curso);
 

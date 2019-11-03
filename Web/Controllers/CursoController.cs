@@ -17,9 +17,18 @@ namespace Web.Controllers
         MateriaLogic MateriaLogic = new MateriaLogic();
 
         // GET: Curso
-        public ActionResult Index()
+        public ActionResult Index(string año, string materia)
         {
-            return View(CursoLogic.GetAll());
+            IEnumerable<Curso> cursos = CursoLogic.GetAll();
+
+            if (!String.IsNullOrEmpty(año)) {
+                cursos = CursoLogic.FilterByAnioCalendario(cursos, año);
+            }
+            if (!String.IsNullOrEmpty(materia)) {
+                cursos = CursoLogic.FilterByNombreMateria(cursos, materia);
+            }
+
+            return View(cursos);
         }
 
         // GET: Curso/Details/5
