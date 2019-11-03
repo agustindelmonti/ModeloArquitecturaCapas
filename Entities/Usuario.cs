@@ -24,7 +24,6 @@ namespace Entities {
 
         // Navegation Propierties
         public virtual Persona Persona { get; set; }
-        public virtual ICollection<ModuloUsuario> ModuloUsuario { get; set; }
 
     }
 }

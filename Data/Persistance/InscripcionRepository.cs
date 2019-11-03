@@ -25,7 +25,7 @@ namespace Data.Persistance
         }
 
         public object GetInscripcionesByPersona(Persona persona) {
-            return db.AlumnoInscripciones.Where(i => i.Persona == persona);
+            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == persona.PersonaID);
                                   
         }
     }

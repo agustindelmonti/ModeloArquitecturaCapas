@@ -21,6 +21,7 @@ namespace Web.Controllers
             return View();
         }
 
+       
         public ActionResult EstadoAcademico() {
             int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
 

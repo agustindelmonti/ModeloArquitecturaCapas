@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,8 +60,6 @@
     <Compile Include="Persistance\EspecialidadRepository.cs" />
     <Compile Include="Persistance\InscripcionRepository.cs" />
     <Compile Include="Persistance\MateriaRepository.cs" />
-    <Compile Include="Persistance\ModuloRepository.cs" />
-    <Compile Include="Persistance\ModuloUsuarioRepository.cs" />
     <Compile Include="Persistance\PersonaRepository.cs" />
     <Compile Include="Persistance\PlanRepository.cs" />
     <Compile Include="Persistance\Repository.cs" />
@@ -73,8 +71,6 @@
     <Compile Include="Repositories\IEspecialidadRepository.cs" />
     <Compile Include="Repositories\IInscripcionRepository.cs" />
     <Compile Include="Repositories\IMateriaRepository.cs" />
-    <Compile Include="Repositories\IModuloRepository.cs" />
-    <Compile Include="Repositories\IModuloUsuarioRepository.cs" />
     <Compile Include="Repositories\IPersonaRepository.cs" />
     <Compile Include="Repositories\IPlanRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />

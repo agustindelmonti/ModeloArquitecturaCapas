@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Entities.Curso>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "EstadoAcademico";
 }
 
 <h2>Index</h2>
@@ -9,18 +9,6 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-
-
-
-@using (Html.BeginForm("Index", "Curso", FormMethod.Get)) {
-    <p>
-        Año: @Html.TextBox("año") <br />
-        Materia: @Html.TextBox("materia") <br />
-        <input type="submit" value="Filter" />
-    </p>
-}
-
 
 
 <table class="table">
