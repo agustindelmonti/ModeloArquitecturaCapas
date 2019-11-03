@@ -1,6 +1,6 @@
 ﻿namespace UserControlsDesktop
 {
-    partial class EspecialidadDetalle
+    partial class PlanDetalle
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -32,6 +32,8 @@
             this.lbId = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lid_plan = new System.Windows.Forms.Label();
+            this.cbEspecialidad = new System.Windows.Forms.ComboBox();
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -71,32 +73,56 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lid_plan);
             this.groupBox1.Controls.Add(this.tbDescripcion);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(13, 40);
+            this.groupBox1.Controls.Add(this.cbEspecialidad);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(13, 48);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(210, 179);
+            this.groupBox1.Size = new System.Drawing.Size(210, 135);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Especialidades";
+            this.groupBox1.Text = "Planes";
+            // 
+            // lid_plan
+            // 
+            this.lid_plan.AutoSize = true;
+            this.lid_plan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lid_plan.Location = new System.Drawing.Point(17, 80);
+            this.lid_plan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lid_plan.Name = "lid_plan";
+            this.lid_plan.Size = new System.Drawing.Size(86, 15);
+            this.lid_plan.TabIndex = 7;
+            this.lid_plan.Text = "Especialidad *";
+            this.lid_plan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbEspecialidad
+            // 
+            this.cbEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbEspecialidad.FormattingEnabled = true;
+            this.cbEspecialidad.Location = new System.Drawing.Point(18, 97);
+            this.cbEspecialidad.Margin = new System.Windows.Forms.Padding(2);
+            this.cbEspecialidad.Name = "cbEspecialidad";
+            this.cbEspecialidad.Size = new System.Drawing.Size(141, 24);
+            this.cbEspecialidad.TabIndex = 3;
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.tbDescripcion.Location = new System.Drawing.Point(18, 46);
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(172, 22);
-            this.tbDescripcion.TabIndex = 5;
+            this.tbDescripcion.Size = new System.Drawing.Size(184, 22);
+            this.tbDescripcion.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(15, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.Size = new System.Drawing.Size(80, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Descripcion";
+            this.label2.Text = "Descripcion *";
             // 
             // btnCancelar
             // 
@@ -108,13 +134,13 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // EspecialidadDetalle
+            // PlanDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.panel1);
-            this.Name = "EspecialidadDetalle";
+            this.Name = "PlanDetalle";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -131,5 +157,7 @@
         private System.Windows.Forms.TextBox tbDescripcion;
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cbEspecialidad;
+        private System.Windows.Forms.Label lid_plan;
     }
 }

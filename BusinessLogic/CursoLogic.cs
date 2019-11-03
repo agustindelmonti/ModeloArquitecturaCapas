@@ -30,5 +30,7 @@ namespace BusinessLogic
         public void Update(Curso curso) => CursoRepository.Update(curso);
 
         public void Delete(int id) => CursoRepository.Delete(id);
+
+        public void DeleteRange(List<Curso> cursos) => CursoRepository.DeleteRange(cursos);
     }
 }

@@ -25,25 +25,6 @@ namespace Escritorio
             panel1.Controls.Add(new Principal(UsuarioAutenticado));
         }
 
-
-        private void Usuarios_Click(object sender, EventArgs e)
-        {
-            //Usuario u = new Usuario();
-            //u.ShowDialog();
-        }
-
-        private void btnPlanes_Click(object sender, EventArgs e)
-        {
-            //Escritorio.Plan p = new Escritorio.Plan();
-            //p.ShowDialog();
-        }
-
-        private void btnEspecialidades_Click(object sender, EventArgs e)
-        {
-            //Escritorio.Especialidad esp = new Escritorio.Especialidad();
-            //esp.ShowDialog();
-        }
-
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
@@ -54,6 +35,52 @@ namespace Escritorio
         {
             panel1.Controls.Clear();
             panel1.Controls.Add(new Principal(UsuarioAutenticado));
+        }
+
+        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new listaEspecialidades());
+        }
+
+        private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ListadoUsuarios());
+        }
+
+        private void crearCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void personaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ListadoPersonas());
+        }
+
+        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ListadoPlanes());
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ListadoComisiones());
+        }
+
+        private void cursosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ListadoCursos());
         }
     }
 }

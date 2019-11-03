@@ -15,24 +15,24 @@ using Utils;
 
 namespace Escritorio
 {
-    public partial class listaEspecialidades : UserControl
+    public partial class ListadoPersonas : UserControl
     {
-        public EspecialidadLogic EspecialidadLogic { get; set; }
+        public PersonaLogic PersonaLogic { get; set; }
         public ModoForm Modo { get; set; }
-        public EspecialidadDetalle detalle { get; set; }
+        public PersonaDetalle detalle { get; set; }
 
-        public listaEspecialidades()
+        public ListadoPersonas()
         {
             InitializeComponent();
 
-            EspecialidadLogic = new EspecialidadLogic();
-            dvgEspecialidades.AutoGenerateColumns = false;
-            dvgEspecialidades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dvgEspecialidades.MultiSelect = false;
+            PersonaLogic = new PersonaLogic();
+            dgvPersonas.AutoGenerateColumns = false;
+            dgvPersonas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPersonas.MultiSelect = false;
             Modo = ModoForm.Consulta;
 
             this.Listar();
-            detalle = new EspecialidadDetalle();
+            detalle = new PersonaDetalle();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -41,12 +41,12 @@ namespace Escritorio
             {
                 case ModoForm.Alta:
                     {
-                        EspecialidadLogic.Add(detalle.ObtenerDatos());
+                        PersonaLogic.Add(detalle.ObtenerDatos());
                         break;
                     }
                 case ModoForm.Modificacion:
                     {
-                        EspecialidadLogic.Update(detalle.ObtenerDatos());
+                        PersonaLogic.Update(detalle.ObtenerDatos());
                         break;
                     }
                 case ModoForm.Baja:
@@ -64,7 +64,7 @@ namespace Escritorio
 
         public void Listar()
         {
-            dvgEspecialidades.DataSource = (List<Especialidad>)EspecialidadLogic.GetAll();
+            dgvPersonas.DataSource = (List<Persona>) PersonaLogic.GetAll();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace Escritorio
             {
                 this.Modo = ModoForm.Alta;
                 LiberarRecurso();
-                detalle = new EspecialidadDetalle(ModoForm.Alta);
+                detalle = new PersonaDetalle(ModoForm.Alta);
                 panel1.Controls.Add(detalle);
                 btnAceptar.Show();
             }
@@ -92,13 +92,13 @@ namespace Escritorio
                 this.Modo = ModoForm.Baja;
                 LiberarRecurso();
                 //Admite seleccion multiple
-                dvgEspecialidades.MultiSelect = true;
+                dgvPersonas.MultiSelect = true;
                 btnAceptar.Show();
             }
             else
             {
                 LiberarRecurso();
-                dvgEspecialidades.MultiSelect = false;
+                dgvPersonas.MultiSelect = false;
                 this.Modo = ModoForm.Consulta;
             }
             CambioContext();
@@ -109,6 +109,7 @@ namespace Escritorio
             if (this.Modo != ModoForm.Modificacion)
             {
                 Editar();
+                this.Modo = ModoForm.Modificacion;
             }
             else
             {
@@ -120,7 +121,7 @@ namespace Escritorio
 
         //Seleccionar un registro de la tabla me muestra 
         //el detalle el registro seleccionado
-        private void dvgEspecialidades_Click(object sender, EventArgs e)
+        private void dgvMaterias_Click(object sender, EventArgs e)
         {
             if (this.Modo != ModoForm.Modificacion)
             {
@@ -134,10 +135,9 @@ namespace Escritorio
 
         private void Editar()
         {
-            this.Modo = ModoForm.Modificacion;
             LiberarRecurso();
-            Especialidad Seleccion = (Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem;
-            detalle = new EspecialidadDetalle(Seleccion, ModoForm.Modificacion);
+            Persona Seleccion = (Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem;
+            detalle = new PersonaDetalle(Seleccion, ModoForm.Modificacion);
             panel1.Controls.Add(detalle);
             btnAceptar.Show();
         }
@@ -145,20 +145,20 @@ namespace Escritorio
         //Borra un conjunto de registros seleccionados
         private void Borrar()
         {
-            int filasSeleccionadas = dvgEspecialidades.SelectedRows.Count;
+            int filasSeleccionadas = dgvPersonas.SelectedRows.Count;
             if (filasSeleccionadas >= 1)
             {
-                List<Especialidad> Seleccion = new List<Especialidad>(filasSeleccionadas);
+                List<Persona> Seleccion = new List<Persona>(filasSeleccionadas);
 
                 for (int i = 0; i < filasSeleccionadas; i++)
                 {
-                    var selectedRow = dvgEspecialidades.SelectedRows[i];
-                    var especialidad = (Especialidad)selectedRow.DataBoundItem;
+                    var selectedRow = dgvPersonas.SelectedRows[i];
+                    var Persona = (Persona)selectedRow.DataBoundItem;
 
-                    Seleccion.Add(especialidad);
+                    Seleccion.Add(Persona);
                 }
-                EspecialidadLogic.DeleteRange(Seleccion);
-                dvgEspecialidades.MultiSelect = false;
+                PersonaLogic.DeleteRange(Seleccion);
+                dgvPersonas.MultiSelect = false;
             }
             else
             {
@@ -169,10 +169,10 @@ namespace Escritorio
         private void VerDetalle()
         {
             LiberarRecurso();
-            if (this.dvgEspecialidades.SelectedRows.Count == 1)
+            if (this.dgvPersonas.SelectedRows.Count == 1)
             {
-                Especialidad Seleccion = (Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem;
-                EspecialidadDetalle detalle = new EspecialidadDetalle(Seleccion, ModoForm.Consulta);
+                Persona Seleccion = (Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem;
+                PersonaDetalle detalle = new PersonaDetalle(Seleccion, ModoForm.Consulta);
                 panel1.Controls.Add(detalle);
             }
         }
@@ -203,7 +203,7 @@ namespace Escritorio
         }
 
 
-        private void Especialidad_Load(object sender, EventArgs e)
+        private void Materia_Load(object sender, EventArgs e)
         {
             this.Listar();
         }

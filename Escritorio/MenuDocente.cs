@@ -54,5 +54,10 @@ namespace Escritorio
             panel1.Controls.Clear();
             panel1.Controls.Add(new Principal(UsuarioAutenticado));
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

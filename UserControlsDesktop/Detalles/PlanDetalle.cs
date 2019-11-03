@@ -10,29 +10,26 @@ using System.Windows.Forms;
 using Entities;
 using Utils;
 using BusinessLogic;
+using Utils.Exceptions;
 
 namespace UserControlsDesktop
 {
-    public partial class MateriaDetalle : Detalle
+    public partial class PlanDetalle : Detalle
     {
         //Propriedades que me permiten cambiar el estado del UserControl desde afuera
-        public Materia MateriaActual { get; set; }
+        public Plan PlanActual { get; set; }
 
         public int Id { set => lbId.Text = value.ToString(); }
         public string Descripcion { get => tbDescripcion.Text; set => tbDescripcion.Text = value; }
-        public int HsSemanal { get => int.Parse(tbSemana.Text); set => tbSemana.Text = value.ToString(); }
-        public int HsTotal { get => int.Parse(tbTotal.Text); set => tbTotal.Text = value.ToString(); }
-        public Plan Plan { get => (Plan)cbPlan.SelectedItem; set => cbPlan.SelectedValue = value.PlanID; }
+        public Especialidad Especialidad { get => (Especialidad)cbEspecialidad.SelectedItem; set => cbEspecialidad.SelectedValue = value.EspecialidadID; }
         
 
-        public Materia ObtenerDatos()
+        public Plan ObtenerDatos()
         {
-            Materia m = new Materia()
+            Plan m = new Plan()
             {
                 Descripcion = Descripcion,
-                HsSemanales = HsSemanal,
-                HsTotales = HsTotal,
-                Plan = Plan
+                Especialidad = Especialidad
             };
 
             switch (Modo)
@@ -43,15 +40,16 @@ namespace UserControlsDesktop
                     }
                 case ModoForm.Modificacion:
                     {
-                        m.MateriaID = MateriaActual.MateriaID;
-                        m.Cursos = MateriaActual.Cursos;
+                        m.PlanID = PlanActual.PlanID;
+                        m.Personas = PlanActual.Personas;
+                        m.Materias = PlanActual.Materias;
                         return m;
                     }
-                default: throw new Exception();
+                default: throw new InvalidInputException("Complete todos los campos obligatorios");
             }
         }
 
-        public MateriaDetalle(ModoForm modo) : this()
+        public PlanDetalle(ModoForm modo) : this()
         {
             Modo = modo;
             if (Modo == ModoForm.Alta)
@@ -60,34 +58,35 @@ namespace UserControlsDesktop
             }
         }
 
-        public MateriaDetalle()
+        public PlanDetalle()
         {
             InitializeComponent();
 
-            PlanLogic p = new PlanLogic();
-            List<Plan> planes = (List<Plan>) p.GetAll();
+            EspecialidadLogic logic = new EspecialidadLogic();
+            List<Especialidad> especialidades = (List<Especialidad>)logic.GetAll();
 
-            foreach (Plan pl in planes)
+            foreach (Especialidad e in especialidades)
             {
-                cbPlan.Items.Add(pl);
+                cbEspecialidad.Items.Add(e);
             }
+            cbEspecialidad.DisplayMember = "Descripcion";
 
-            cbPlan.DisplayMember = "Descripcion";
         }
 
-        public MateriaDetalle(Materia e, ModoForm modo) : this(modo)
+        public PlanDetalle(Plan e, ModoForm modo) : this(modo)
         {
-            MateriaActual = e;
+            PlanActual = e;
 
             if (Modo == ModoForm.Consulta || Modo == ModoForm.Modificacion)
             {
                 tbDescripcion.Enabled = false;
-                Descripcion = MateriaActual.Descripcion;
-                Id = MateriaActual.MateriaID;
+                Descripcion = PlanActual.Descripcion;
+                Id = PlanActual.PlanID;
             }
             if (Modo == ModoForm.Modificacion)
             {
                 tbDescripcion.Enabled = true;
+                cbEspecialidad.Enabled = true;
             }
         }
 

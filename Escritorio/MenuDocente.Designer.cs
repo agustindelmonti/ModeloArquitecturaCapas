@@ -33,7 +33,11 @@
             this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.misCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analisisMatematicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.algebraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -63,23 +67,54 @@
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.misCursosToolStripMenuItem,
-            this.planesToolStripMenuItem});
+            this.misCursosToolStripMenuItem});
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // misCursosToolStripMenuItem
             // 
+            this.misCursosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.analisisMatematicoToolStripMenuItem,
+            this.algebraToolStripMenuItem});
             this.misCursosToolStripMenuItem.Name = "misCursosToolStripMenuItem";
             this.misCursosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.misCursosToolStripMenuItem.Text = "Mis Cursos";
             // 
-            // planesToolStripMenuItem
+            // analisisMatematicoToolStripMenuItem
             // 
-            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.planesToolStripMenuItem.Text = "Planes";
+            this.analisisMatematicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+            this.analisisMatematicoToolStripMenuItem.Name = "analisisMatematicoToolStripMenuItem";
+            this.analisisMatematicoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.analisisMatematicoToolStripMenuItem.Text = "Analisis Matematico";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMenuItem2.Text = "302";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMenuItem3.Text = "301";
+            // 
+            // algebraToolStripMenuItem
+            // 
+            this.algebraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem4});
+            this.algebraToolStripMenuItem.Name = "algebraToolStripMenuItem";
+            this.algebraToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.algebraToolStripMenuItem.Text = "Algebra";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(92, 22);
+            this.toolStripMenuItem4.Text = "103";
             // 
             // perfilToolStripMenuItem
             // 
@@ -92,6 +127,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -128,9 +164,13 @@
         private System.Windows.Forms.ToolStripMenuItem principalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem misCursosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem analisisMatematicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem algebraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
     }
 }

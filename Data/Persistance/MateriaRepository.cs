@@ -20,8 +20,12 @@ namespace Data.Persistance
 
         public IEnumerable<Materia> GetAll()
         {
-            return db.Materias.Include(m => m.Plan);
+            return db.Materias.Include(m => m.Plan).ToList();
         }
 
+        public List<Materia> GetAllByPlan(Plan plan)
+        {
+            return db.Materias.Where(m => m.Plan.PlanID == plan.PlanID).ToList();
+        }
     }
 }

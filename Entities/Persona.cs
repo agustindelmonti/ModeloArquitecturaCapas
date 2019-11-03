@@ -17,7 +17,7 @@ namespace Entities {
         public string Direccion { get; set; }
         [Required, EmailAddress]
         public string Email { get; set; }
-        [Required, StringLength(20)]
+        [StringLength(20)]
         public string Telefono { get; set; }
         [DataType(DataType.Date), Display(Name = "Fecha de Nacimiento")]
         public DateTime? FechaNacimiento { get; set; }

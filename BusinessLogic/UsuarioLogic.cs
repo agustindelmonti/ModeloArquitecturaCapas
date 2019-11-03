@@ -48,5 +48,7 @@ namespace BusinessLogic
         public void Update(Usuario usuario) => UsuarioRepository.Update(usuario);
 
         public void Delete(int id) => UsuarioRepository.Delete(id);
+
+        public void DeleteRange(List<Usuario> usuarios) => UsuarioRepository.DeleteRange(usuarios);
     }
 }

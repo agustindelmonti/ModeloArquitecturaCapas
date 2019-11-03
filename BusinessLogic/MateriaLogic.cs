@@ -30,5 +30,7 @@ namespace BusinessLogic
         public void Delete(int id) => MateriaRepository.Delete(id);
 
         public void DeleteRange(List<Materia> materias) => MateriaRepository.DeleteRange(materias);
+
+        public List<Materia> GetAllByPlan(Plan plan) => MateriaRepository.GetAllByPlan(plan);
     }
 }

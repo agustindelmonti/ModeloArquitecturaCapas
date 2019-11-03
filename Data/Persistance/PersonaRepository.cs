@@ -21,5 +21,10 @@ namespace Data.Repositories
         {
             return db.Personas.Include(p => p.Plan).ToList();
         }
+
+        public Persona GetByLegajo(int legajo)
+        {
+            return db.Personas.Where(p => p.Legajo == legajo).FirstOrDefault();
+        }
     }
 }

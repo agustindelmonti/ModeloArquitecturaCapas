@@ -26,11 +26,12 @@ namespace Escritorio
             InitializeComponent();
 
             MateriaLogic = new MateriaLogic();
-            dvgMaterias.AutoGenerateColumns = false;
-            dvgMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dvgMaterias.MultiSelect = false;
+            dgvMaterias.AutoGenerateColumns = false;
+            dgvMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMaterias.MultiSelect = false;
             Modo = ModoForm.Consulta;
 
+            this.Listar();
             detalle = new MateriaDetalle();
         }
 
@@ -57,12 +58,13 @@ namespace Escritorio
             //Refresco los cambios
             Listar();
             this.Modo = ModoForm.Consulta;
+            LiberarRecurso();
             CambioContext();
         }
 
         public void Listar()
         {
-            dvgMaterias.DataSource = (List<Materia>) MateriaLogic.GetAll();
+            dgvMaterias.DataSource = (List<Materia>) MateriaLogic.GetAll();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
@@ -90,13 +92,13 @@ namespace Escritorio
                 this.Modo = ModoForm.Baja;
                 LiberarRecurso();
                 //Admite seleccion multiple
-                dvgMaterias.MultiSelect = true;
+                dgvMaterias.MultiSelect = true;
                 btnAceptar.Show();
             }
             else
             {
                 LiberarRecurso();
-                dvgMaterias.MultiSelect = false;
+                dgvMaterias.MultiSelect = false;
                 this.Modo = ModoForm.Consulta;
             }
             CambioContext();
@@ -134,7 +136,7 @@ namespace Escritorio
         {
             this.Modo = ModoForm.Modificacion;
             LiberarRecurso();
-            Materia Seleccion = (Materia)this.dvgMaterias.SelectedRows[0].DataBoundItem;
+            Materia Seleccion = (Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem;
             detalle = new MateriaDetalle(Seleccion, ModoForm.Modificacion);
             panel1.Controls.Add(detalle);
             btnAceptar.Show();
@@ -143,20 +145,20 @@ namespace Escritorio
         //Borra un conjunto de registros seleccionados
         private void Borrar()
         {
-            int filasSeleccionadas = dvgMaterias.SelectedRows.Count;
+            int filasSeleccionadas = dgvMaterias.SelectedRows.Count;
             if (filasSeleccionadas >= 1)
             {
                 List<Materia> Seleccion = new List<Materia>(filasSeleccionadas);
 
                 for (int i = 0; i < filasSeleccionadas; i++)
                 {
-                    var selectedRow = dvgMaterias.SelectedRows[i];
+                    var selectedRow = dgvMaterias.SelectedRows[i];
                     var Materia = (Materia)selectedRow.DataBoundItem;
 
                     Seleccion.Add(Materia);
                 }
                 MateriaLogic.DeleteRange(Seleccion);
-                dvgMaterias.MultiSelect = false;
+                dgvMaterias.MultiSelect = false;
             }
             else
             {
@@ -167,9 +169,9 @@ namespace Escritorio
         private void VerDetalle()
         {
             LiberarRecurso();
-            if (this.dvgMaterias.SelectedRows.Count == 1)
+            if (this.dgvMaterias.SelectedRows.Count == 1)
             {
-                Materia Seleccion = (Materia)this.dvgMaterias.SelectedRows[0].DataBoundItem;
+                Materia Seleccion = (Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem;
                 MateriaDetalle detalle = new MateriaDetalle(Seleccion, ModoForm.Consulta);
                 panel1.Controls.Add(detalle);
             }

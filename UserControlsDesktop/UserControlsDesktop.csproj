@@ -41,11 +41,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Detalles\ComisionDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detalles\ComisionDetalle.Designer.cs">
+      <DependentUpon>ComisionDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detalles\CursoDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detalles\CursoDetalle.Designer.cs">
+      <DependentUpon>CursoDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Detalles\Detalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Detalles\Detalle.Designer.cs">
       <DependentUpon>Detalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoCursos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoCursos.Designer.cs">
+      <DependentUpon>ListadoCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoComisiones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoComisiones.Designer.cs">
+      <DependentUpon>ListadoComisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoPersonas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoPersonas.Designer.cs">
+      <DependentUpon>ListadoPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoUsuarios.Designer.cs">
+      <DependentUpon>ListadoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Listados\ListadoEspecialidades.cs">
       <SubType>UserControl</SubType>
@@ -71,11 +107,29 @@
     <Compile Include="Detalles\EspecialidadDetalle.Designer.cs">
       <DependentUpon>EspecialidadDetalle.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonaDetalle.cs">
+    <Compile Include="Detalles\PlanDetalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PersonaDetalle.Designer.cs">
+    <Compile Include="Detalles\PlanDetalle.Designer.cs">
+      <DependentUpon>PlanDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detalles\PersonaDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detalles\PersonaDetalle.Designer.cs">
       <DependentUpon>PersonaDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detalles\UsuarioDetalle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Detalles\UsuarioDetalle.Designer.cs">
+      <DependentUpon>UsuarioDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoPlanes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoPlanes.Designer.cs">
+      <DependentUpon>ListadoPlanes.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>UserControl</SubType>
@@ -87,8 +141,26 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Detalles\ComisionDetalle.resx">
+      <DependentUpon>ComisionDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalles\CursoDetalle.resx">
+      <DependentUpon>CursoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Detalles\Detalle.resx">
       <DependentUpon>Detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoCursos.resx">
+      <DependentUpon>ListadoCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoComisiones.resx">
+      <DependentUpon>ListadoComisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoPersonas.resx">
+      <DependentUpon>ListadoPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoUsuarios.resx">
+      <DependentUpon>ListadoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\ListadoEspecialidades.resx">
       <DependentUpon>ListadoEspecialidades.cs</DependentUpon>
@@ -101,6 +173,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Detalles\EspecialidadDetalle.resx">
       <DependentUpon>EspecialidadDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalles\PlanDetalle.resx">
+      <DependentUpon>PlanDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalles\PersonaDetalle.resx">
+      <DependentUpon>PersonaDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalles\UsuarioDetalle.resx">
+      <DependentUpon>UsuarioDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoPlanes.resx">
+      <DependentUpon>ListadoPlanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

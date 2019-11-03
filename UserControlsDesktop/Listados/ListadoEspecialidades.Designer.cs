@@ -104,6 +104,7 @@
             this.dvgEspecialidades.Margin = new System.Windows.Forms.Padding(2);
             this.dvgEspecialidades.Name = "dvgEspecialidades";
             this.dvgEspecialidades.ReadOnly = true;
+            this.dvgEspecialidades.RowHeadersVisible = false;
             this.dvgEspecialidades.RowTemplate.Height = 24;
             this.dvgEspecialidades.Size = new System.Drawing.Size(484, 392);
             this.dvgEspecialidades.TabIndex = 0;
@@ -159,7 +160,7 @@
             this.tsEspecialidades.Location = new System.Drawing.Point(3, 0);
             this.tsEspecialidades.Name = "tsEspecialidades";
             this.tsEspecialidades.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsEspecialidades.Size = new System.Drawing.Size(232, 32);
+            this.tsEspecialidades.Size = new System.Drawing.Size(201, 32);
             this.tsEspecialidades.TabIndex = 0;
             // 
             // btnNuevo
@@ -224,13 +225,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 451);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcEspecialidades);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "listaEspecialidades";
-            this.Text = "Especialidad";
+            this.Size = new System.Drawing.Size(727, 451);
             this.Load += new System.EventHandler(this.Especialidad_Load);
             this.tcEspecialidades.ContentPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.ResumeLayout(false);

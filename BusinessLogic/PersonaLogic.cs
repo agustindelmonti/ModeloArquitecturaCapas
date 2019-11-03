@@ -28,5 +28,9 @@ namespace BusinessLogic
         public void Update(Persona persona) => PersonaRepository.Update(persona);
 
         public void Delete(int id) => PersonaRepository.Delete(id);
+
+        public Persona GetByLegajo(int legajo) => PersonaRepository.GetByLegajo(legajo);
+
+        public void DeleteRange(List<Persona> personas) => PersonaRepository.DeleteRange(personas);
     }
 }

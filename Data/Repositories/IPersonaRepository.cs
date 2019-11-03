@@ -10,5 +10,6 @@ namespace Data.Repositories
     public interface IPersonaRepository : IRepository<Persona>
     {
         IEnumerable<Persona> GetAll();
+        Persona GetByLegajo(int legajo);
     }
 }

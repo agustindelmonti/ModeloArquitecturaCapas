@@ -15,24 +15,24 @@ using Utils;
 
 namespace Escritorio
 {
-    public partial class listaEspecialidades : UserControl
+    public partial class ListadoComisiones : UserControl
     {
-        public EspecialidadLogic EspecialidadLogic { get; set; }
+        public ComisionLogic ComisionLogic { get; set; }
         public ModoForm Modo { get; set; }
-        public EspecialidadDetalle detalle { get; set; }
+        public ComisionDetalle detalle { get; set; }
 
-        public listaEspecialidades()
+        public ListadoComisiones()
         {
             InitializeComponent();
 
-            EspecialidadLogic = new EspecialidadLogic();
-            dvgEspecialidades.AutoGenerateColumns = false;
-            dvgEspecialidades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dvgEspecialidades.MultiSelect = false;
+            ComisionLogic = new ComisionLogic();
+            dgvComisiones.AutoGenerateColumns = true;
+            dgvComisiones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvComisiones.MultiSelect = false;
             Modo = ModoForm.Consulta;
 
             this.Listar();
-            detalle = new EspecialidadDetalle();
+            detalle = new ComisionDetalle();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -41,12 +41,12 @@ namespace Escritorio
             {
                 case ModoForm.Alta:
                     {
-                        EspecialidadLogic.Add(detalle.ObtenerDatos());
+                        ComisionLogic.Add(detalle.ObtenerDatos());
                         break;
                     }
                 case ModoForm.Modificacion:
                     {
-                        EspecialidadLogic.Update(detalle.ObtenerDatos());
+                        ComisionLogic.Update(detalle.ObtenerDatos());
                         break;
                     }
                 case ModoForm.Baja:
@@ -64,7 +64,7 @@ namespace Escritorio
 
         public void Listar()
         {
-            dvgEspecialidades.DataSource = (List<Especialidad>)EspecialidadLogic.GetAll();
+            dgvComisiones.DataSource = (List<Comision>) ComisionLogic.GetAll();
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace Escritorio
             {
                 this.Modo = ModoForm.Alta;
                 LiberarRecurso();
-                detalle = new EspecialidadDetalle(ModoForm.Alta);
+                detalle = new ComisionDetalle(ModoForm.Alta);
                 panel1.Controls.Add(detalle);
                 btnAceptar.Show();
             }
@@ -92,13 +92,13 @@ namespace Escritorio
                 this.Modo = ModoForm.Baja;
                 LiberarRecurso();
                 //Admite seleccion multiple
-                dvgEspecialidades.MultiSelect = true;
+                dgvComisiones.MultiSelect = true;
                 btnAceptar.Show();
             }
             else
             {
                 LiberarRecurso();
-                dvgEspecialidades.MultiSelect = false;
+                dgvComisiones.MultiSelect = false;
                 this.Modo = ModoForm.Consulta;
             }
             CambioContext();
@@ -120,7 +120,7 @@ namespace Escritorio
 
         //Seleccionar un registro de la tabla me muestra 
         //el detalle el registro seleccionado
-        private void dvgEspecialidades_Click(object sender, EventArgs e)
+        private void dgvMaterias_Click(object sender, EventArgs e)
         {
             if (this.Modo != ModoForm.Modificacion)
             {
@@ -136,8 +136,8 @@ namespace Escritorio
         {
             this.Modo = ModoForm.Modificacion;
             LiberarRecurso();
-            Especialidad Seleccion = (Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem;
-            detalle = new EspecialidadDetalle(Seleccion, ModoForm.Modificacion);
+            Comision Seleccion = (Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem;
+            detalle = new ComisionDetalle(Seleccion, ModoForm.Modificacion);
             panel1.Controls.Add(detalle);
             btnAceptar.Show();
         }
@@ -145,20 +145,20 @@ namespace Escritorio
         //Borra un conjunto de registros seleccionados
         private void Borrar()
         {
-            int filasSeleccionadas = dvgEspecialidades.SelectedRows.Count;
+            int filasSeleccionadas = dgvComisiones.SelectedRows.Count;
             if (filasSeleccionadas >= 1)
             {
-                List<Especialidad> Seleccion = new List<Especialidad>(filasSeleccionadas);
+                List<Comision> Seleccion = new List<Comision>(filasSeleccionadas);
 
                 for (int i = 0; i < filasSeleccionadas; i++)
                 {
-                    var selectedRow = dvgEspecialidades.SelectedRows[i];
-                    var especialidad = (Especialidad)selectedRow.DataBoundItem;
+                    var selectedRow = dgvComisiones.SelectedRows[i];
+                    var Comision = (Comision)selectedRow.DataBoundItem;
 
-                    Seleccion.Add(especialidad);
+                    Seleccion.Add(Comision);
                 }
-                EspecialidadLogic.DeleteRange(Seleccion);
-                dvgEspecialidades.MultiSelect = false;
+                ComisionLogic.DeleteRange(Seleccion);
+                dgvComisiones.MultiSelect = false;
             }
             else
             {
@@ -169,10 +169,10 @@ namespace Escritorio
         private void VerDetalle()
         {
             LiberarRecurso();
-            if (this.dvgEspecialidades.SelectedRows.Count == 1)
+            if (this.dgvComisiones.SelectedRows.Count == 1)
             {
-                Especialidad Seleccion = (Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem;
-                EspecialidadDetalle detalle = new EspecialidadDetalle(Seleccion, ModoForm.Consulta);
+                Comision Seleccion = (Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem;
+                ComisionDetalle detalle = new ComisionDetalle(Seleccion, ModoForm.Consulta);
                 panel1.Controls.Add(detalle);
             }
         }
@@ -200,12 +200,6 @@ namespace Escritorio
         private void LiberarRecurso()
         {
             panel1.Controls.Clear();
-        }
-
-
-        private void Especialidad_Load(object sender, EventArgs e)
-        {
-            this.Listar();
         }
 
         private void btnActualizar_Click_1(object sender, EventArgs e)

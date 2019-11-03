@@ -28,5 +28,9 @@ namespace BusinessLogic
         public void Update(Plan plan) => PlanRepository.Update(plan);
 
         public void Add(Plan plan) => PlanRepository.Add(plan);
+
+        public void DeleteRange(List<Plan> planes) => PlanRepository.DeleteRange(planes);
+
+        public List<Plan> GetAllByEspecialidad(Especialidad especialidad) => PlanRepository.GetAllByEspecialidad(especialidad);
     }
 }

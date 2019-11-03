@@ -27,5 +27,10 @@ namespace BusinessLogic
         public void Update(Comision comision) => ComisionRepository.Update(comision);
 
         public void Delete(int id) => ComisionRepository.Delete(id);
+
+        public List<Comision> GetAllByPlan(Plan plan) => ComisionRepository.GetAllByPlan(plan);
+
+        public void DeleteRange(List<Comision> comisiones) => ComisionRepository.DeleteRange(comisiones);
+
     }
 }

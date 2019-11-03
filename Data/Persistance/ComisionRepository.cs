@@ -21,5 +21,10 @@ namespace Data.Repositories
         {
             return db.Comisiones.Include(c => c.Plan).ToList();
         }
+
+        public List<Comision> GetAllByPlan(Plan plan)
+        {
+            return db.Comisiones.Where(c => c.Plan.PlanID == plan.PlanID).ToList();
+        }
     }
 }
