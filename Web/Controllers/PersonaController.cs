@@ -24,11 +24,11 @@ namespace Web.Controllers
             IEnumerable<Persona> personas = PersonaLogic.GetAll();
 
             if (!String.IsNullOrEmpty(legajo)) {
-                personas = personas.Where(p => p.Legajo == Convert.ToInt32(legajo));
+                personas = PersonaLogic.FilterByLegajo(personas, legajo);
             }
 
             if (!String.IsNullOrEmpty(rol)) {
-                personas = personas.Where(p => p.Rol == rol);
+                personas = PersonaLogic.FilterByRol(personas, rol);
             }
 
             ViewBag.Rol = new SelectList(Persona.Roles);

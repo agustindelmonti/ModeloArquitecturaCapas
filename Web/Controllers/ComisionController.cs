@@ -23,10 +23,9 @@ namespace Web.Controllers
 
 
             if (!String.IsNullOrEmpty(nroComision)) {
-                nroComision = nroComision.ToLower();
-                comisiones = comisiones.Where(c => c.Descripcion.ToLower().Contains(nroComision));
+                comisiones = ComisionLogic.FilterByNroComision(comisiones, nroComision);
             }
-
+            
             return View(comisiones);
         }
 

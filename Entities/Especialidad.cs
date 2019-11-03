@@ -9,7 +9,7 @@ namespace Entities {
     public class Especialidad : BusinessEntity {
         // Attributes
         public int EspecialidadID { get; set; }
-        [Required, StringLength(20)]
+        [Required, StringLength(20), Display(Name = "Nombre")]
         public string Descripcion { get; set; }
 
         // Navegation Properties

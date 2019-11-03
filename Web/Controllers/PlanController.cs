@@ -24,8 +24,7 @@ namespace Web.Controllers
 
 
             if (!String.IsNullOrEmpty(descripcion)) {
-                descripcion = descripcion.ToLower();
-                planes = planes.Where(p => p.Descripcion.ToLower().Contains(descripcion));
+                planes = PlanLogic.FilterByDescripcion(planes, descripcion);
             }
 
             return View(planes);

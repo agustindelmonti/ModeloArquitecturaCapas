@@ -21,8 +21,7 @@ namespace Web.Controllers
             IEnumerable<Especialidad>  especialidades = EspecialidadLogic.GetAll();
 
             if (!String.IsNullOrEmpty(descripcion)) {
-                descripcion = descripcion.ToLower();
-                especialidades = especialidades.Where(e => e.Descripcion.ToLower().Contains(descripcion));
+                especialidades = EspecialidadLogic.FilterByDescripcion(especialidades, descripcion);
             }
 
             return View(especialidades);
