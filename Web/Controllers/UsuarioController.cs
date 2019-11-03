@@ -17,9 +17,14 @@ namespace Web.Controllers
         PersonaLogic PersonaLogic = new PersonaLogic();
 
         // GET: Usuario
-        public ActionResult Index()
+        public ActionResult Index(string nombreUsuario)
         {
             IEnumerable<Usuario> usuarios = UsuarioLogic.GetAll();
+
+            if (!String.IsNullOrEmpty(nombreUsuario)) {
+                usuarios = usuarios.Where(u => u.NombreUsuario.Contains(nombreUsuario));
+            }
+
             return View(usuarios);
         }
 

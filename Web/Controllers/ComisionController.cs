@@ -17,9 +17,16 @@ namespace Web.Controllers
         PlanLogic PlanLogic = new PlanLogic();
 
         // GET: Comision
-        public ActionResult Index()
+        public ActionResult Index(string nroComision)
         {
             IEnumerable<Comision> comisiones = ComisionLogic.GetAll();
+
+
+            if (!String.IsNullOrEmpty(nroComision)) {
+                nroComision = nroComision.ToLower();
+                comisiones = comisiones.Where(c => c.Descripcion.ToLower().Contains(nroComision));
+            }
+
             return View(comisiones);
         }
 

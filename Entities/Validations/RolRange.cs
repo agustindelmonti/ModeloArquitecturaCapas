@@ -9,6 +9,7 @@ namespace Entities.Validations {
     public class RolRangeAttribute : ValidationAttribute {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext) {
 
+
             if (Persona.Roles.Contains(value.ToString())) {
                 return ValidationResult.Success;
             }

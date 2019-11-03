@@ -19,9 +19,19 @@ namespace Web.Controllers
         PlanLogic PlanLogic = new PlanLogic();
 
         // GET: Persona
-        public ActionResult Index()
+        public ActionResult Index(string legajo, string rol)
         {
             IEnumerable<Persona> personas = PersonaLogic.GetAll();
+
+            if (!String.IsNullOrEmpty(legajo)) {
+                personas = personas.Where(p => p.Legajo == Convert.ToInt32(legajo));
+            }
+
+            if (!String.IsNullOrEmpty(rol)) {
+                personas = personas.Where(p => p.Rol == rol);
+            }
+
+            ViewBag.Rol = new SelectList(Persona.Roles);
             return View(personas);
         }
 
@@ -45,8 +55,12 @@ namespace Web.Controllers
         {
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion");
 
-            SelectList roleList = new SelectList(Persona.Roles);
-            ViewBag.Rol = roleList;
+            var personas = PersonaLogic.GetAll();
+
+            ViewBag.Rol = new SelectList(   
+                                        Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r})
+                                        , "Text"
+                                        , "Value" );
             return View();
         }
 
@@ -55,7 +69,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,TipoPersona,PlanID,State")] Persona persona)
+        public ActionResult Create([Bind(Include = "Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,Rol,PlanID,State")] Persona persona)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +78,12 @@ namespace Web.Controllers
             }
 
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", persona.PlanID);
+
+            ViewBag.Rol = new SelectList(
+                                        Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r })
+                                        , "Text"
+                                        , "Value");
+
             return View(persona);
         }
 
@@ -75,14 +95,17 @@ namespace Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Persona persona = PersonaLogic.Find(id);
+
             if (persona == null)
             {
                 return HttpNotFound();
             }
+            
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", persona.PlanID);
-
-            SelectList roleList = new SelectList(Persona.Roles);
-            ViewBag.Rol = roleList;
+            ViewBag.Rol = new SelectList(
+                                        Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r })
+                                        , "Text"
+                                        , "Value");
 
             return View(persona);
         }
@@ -92,7 +115,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,TipoPersona,PlanID,State")] Persona persona)
+        public ActionResult Edit([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,Rol,PlanID,State")] Persona persona)
         {
             if (ModelState.IsValid)
             {
@@ -100,6 +123,12 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", persona.PlanID);
+
+            ViewBag.Rol = new SelectList(
+                                        Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r })
+                                        , "Text"
+                                        , "Value");
+
             return View(persona);
         }
 

@@ -12,16 +12,22 @@ using Entities;
 
 namespace Web.Controllers
 {
-    [CustomAuthorize(Roles = "Plan")]
     public class PlanController : Controller
     {
         PlanLogic PlanLogic = new PlanLogic();
         EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Plan
-        public ActionResult Index()
+        public ActionResult Index(string descripcion)
         {
             IEnumerable<Plan> planes = PlanLogic.GetAll();
+
+
+            if (!String.IsNullOrEmpty(descripcion)) {
+                descripcion = descripcion.ToLower();
+                planes = planes.Where(p => p.Descripcion.ToLower().Contains(descripcion));
+            }
+
             return View(planes);
         }
 
