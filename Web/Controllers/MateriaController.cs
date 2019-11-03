@@ -17,9 +17,15 @@ namespace Web.Controllers
         PlanLogic PlanLogic = new PlanLogic();
 
         // GET: Materia
-        public ActionResult Index()
+        public ActionResult Index(string descripcion)
         {
             IEnumerable<Materia> materias = MateriaLogic.GetAll();
+
+            if (!String.IsNullOrEmpty(descripcion)) {
+                descripcion = descripcion.ToLower();
+                materias = materias.Where(m => m.Descripcion.ToLower().Contains(descripcion));
+            }
+
             return View(materias);
         }
 

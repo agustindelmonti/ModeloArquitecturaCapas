@@ -20,7 +20,7 @@ namespace Entities {
         public string Email { get; set; }
         [Required, StringLength(20)]
         public string Telefono { get; set; }
-        [Required, DataType(DataType.Date), Display(Name = "Fecha de Nacimiento")]
+        [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true), Display(Name = "Fecha de Nacimiento")]
         public DateTime FechaNacimiento { get; set; }
         public int Legajo { get; set; }
         [Required, RolRange]
