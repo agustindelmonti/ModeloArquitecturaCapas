@@ -22,8 +22,7 @@ namespace Web.Controllers
             IEnumerable<Materia> materias = MateriaLogic.GetAll();
 
             if (!String.IsNullOrEmpty(descripcion)) {
-                descripcion = descripcion.ToLower();
-                materias = materias.Where(m => m.Descripcion.ToLower().Contains(descripcion));
+                materias = MateriaLogic.FilterByDescripcion(materias, descripcion);
             }
 
             return View(materias);

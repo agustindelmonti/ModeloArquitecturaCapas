@@ -22,7 +22,7 @@ namespace Web.Controllers
             IEnumerable<Usuario> usuarios = UsuarioLogic.GetAll();
 
             if (!String.IsNullOrEmpty(nombreUsuario)) {
-                usuarios = usuarios.Where(u => u.NombreUsuario.Contains(nombreUsuario));
+                usuarios = UsuarioLogic.FilterByNombreUsuario(usuarios, nombreUsuario);
             }
 
             return View(usuarios);

@@ -22,11 +22,10 @@ namespace Web.Controllers
             IEnumerable<Curso> cursos = CursoLogic.GetAll();
 
             if (!String.IsNullOrEmpty(año)) {
-                cursos = cursos.Where(c => c.AnioCalendario == Convert.ToInt32(año));
+                cursos = CursoLogic.FilterByAnioCalendario(cursos, año);
             }
-
             if (!String.IsNullOrEmpty(materia)) {
-                cursos = cursos.Where(c => c.Materia.Descripcion.Contains(materia));
+                cursos = CursoLogic.FilterByNombreMateria(cursos, materia);
             }
 
             return View(cursos);
