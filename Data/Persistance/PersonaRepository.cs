@@ -21,5 +21,6 @@ namespace Data.Repositories
         {
             return db.Personas.Include(p => p.Plan).ToList();
         }
+
     }
 }
