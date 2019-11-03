@@ -26,18 +26,22 @@ namespace Web.Controllers
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
 
-            IEnumerable<AlumnoInscripcion> materiasEstado = inscripcionLogic.FindInscripcionesByPersona(persona);
+            IEnumerable<AlumnoInscripcion> materiasEstado = inscripcionLogic.FindInscripcionesByPersonaID(persona.PersonaID);
 
             return View(materiasEstado);
 
         }
 
+        /*
         public ActionResult MisCursos() {
             int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
 
+
+
             
         }
+        */
     }
 }
