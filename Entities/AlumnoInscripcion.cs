@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class AlumnoInscripcion : BusinessEntity {
+    public class AlumnoInscripcion {
         // Attributes
         public int AlumnoInscripcionID { get; set; }
 

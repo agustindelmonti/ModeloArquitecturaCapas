@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class Usuario : BusinessEntity {
+    public class Usuario {
         // Attributes
         public int UsuarioID { get; set; }
         [Required, StringLength(20)]

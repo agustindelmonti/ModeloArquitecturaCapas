@@ -14,9 +14,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
         <th></th>
     </tr>
 
@@ -24,9 +21,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EspecialidadID }) |

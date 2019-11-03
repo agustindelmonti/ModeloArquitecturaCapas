@@ -133,8 +133,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
-    <Compile Include="Controllers\ModuloController.cs" />
-    <Compile Include="Controllers\ModuloUsuarioController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\PlanController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -209,16 +207,6 @@
     <Content Include="Views\Materia\Details.cshtml" />
     <Content Include="Views\Materia\Edit.cshtml" />
     <Content Include="Views\Materia\Index.cshtml" />
-    <Content Include="Views\Modulo\Create.cshtml" />
-    <Content Include="Views\Modulo\Delete.cshtml" />
-    <Content Include="Views\Modulo\Details.cshtml" />
-    <Content Include="Views\Modulo\Edit.cshtml" />
-    <Content Include="Views\Modulo\Index.cshtml" />
-    <Content Include="Views\ModuloUsuario\Create.cshtml" />
-    <Content Include="Views\ModuloUsuario\Delete.cshtml" />
-    <Content Include="Views\ModuloUsuario\Details.cshtml" />
-    <Content Include="Views\ModuloUsuario\Edit.cshtml" />
-    <Content Include="Views\ModuloUsuario\Index.cshtml" />
     <Content Include="Views\Persona\Create.cshtml" />
     <Content Include="Views\Persona\Delete.cshtml" />
     <Content Include="Views\Persona\Details.cshtml" />
@@ -239,6 +227,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Alumno\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
