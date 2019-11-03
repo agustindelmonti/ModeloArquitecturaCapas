@@ -4,6 +4,7 @@ using Data.Repositories;
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic
 {
@@ -26,6 +27,10 @@ namespace BusinessLogic
         public Plan Find(int? id) => PlanRepository.GetById(id);
 
         public void Update(Plan plan) => PlanRepository.Update(plan);
+
+        public IEnumerable<Plan> FilterByDescripcion(IEnumerable<Plan> planes, string descripcion) {
+            return planes.Where(p => p.Descripcion.ToLower().Contains(descripcion.ToLower()));
+        }
 
         public void Add(Plan plan) => PlanRepository.Add(plan);
 

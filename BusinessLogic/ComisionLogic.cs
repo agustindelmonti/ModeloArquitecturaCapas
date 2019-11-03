@@ -3,6 +3,7 @@ using Data.Repositories;
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic
 {
@@ -19,6 +20,11 @@ namespace BusinessLogic
 
         //CRUD
         public IEnumerable<Comision> GetAll() => ComisionRepository.GetAll();
+
+
+        public IEnumerable<Comision> FilterByNroComision(IEnumerable<Comision> comisiones, string nroComision) {
+            return comisiones.Where(c => c.Descripcion.StartsWith(nroComision));
+        }
 
         public Comision Find(int? id) => ComisionRepository.GetById(id);
 
