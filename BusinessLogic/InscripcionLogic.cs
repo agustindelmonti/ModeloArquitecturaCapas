@@ -25,7 +25,7 @@ namespace BusinessLogic
             return InscripcionRepository.GetInscripcionesWithCursoAndPersona();
         }
 
-        public object FindInscripcionesByPersona(Persona persona) {
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersona(Persona persona) {
             return InscripcionRepository.GetInscripcionesByPersona(persona);
         }
 
