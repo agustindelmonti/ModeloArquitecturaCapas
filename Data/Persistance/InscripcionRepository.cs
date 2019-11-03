@@ -28,5 +28,9 @@ namespace Data.Persistance
             return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == personaID).ToList();
                                   
         }
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
+            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == personaID);
+        }
     }
 }

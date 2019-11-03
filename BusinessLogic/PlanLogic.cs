@@ -33,5 +33,6 @@ namespace BusinessLogic
         }
 
         public void Add(Plan plan) => PlanRepository.Add(plan);
+
     }
 }

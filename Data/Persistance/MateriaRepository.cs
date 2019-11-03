@@ -23,5 +23,8 @@ namespace Data.Persistance
             return db.Materias.Include(m => m.Plan);
         }
 
+        public IEnumerable<Materia> FindMateriasByPlanID(int planID) {
+            return db.Materias.Where(m => m.Plan.PlanID == planID);
+        }
     }
 }
