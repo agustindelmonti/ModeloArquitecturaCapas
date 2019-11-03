@@ -4,29 +4,30 @@ using Data.Repositories;
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Utils.Exceptions;
 
-namespace BusinessLogic
-{
-    public class UsuarioLogic
-    {
+namespace BusinessLogic {
+    public class UsuarioLogic {
         public IUsuarioRepository UsuarioRepository { get; set; }
         private readonly AcademiaContext Context;
 
-        public UsuarioLogic()
-        {
+        public UsuarioLogic() {
             Context = new AcademiaContext();
-            UsuarioRepository= new UsuarioRepository(Context);
+            UsuarioRepository = new UsuarioRepository(Context);
         }
 
-        public Usuario AuthCredentials(Usuario usuario)
-        {
+        public Usuario AuthCredentials(Usuario usuario) {
             Usuario usuarioBuscar = UsuarioRepository.FindByUsernameAndPassword(usuario.NombreUsuario, usuario.Clave);
-            if (usuarioBuscar is null)
-            {
+            if (usuarioBuscar is null) {
                 throw new UserAuthenticationException("Usuario y/o contraseña incorrecta");
             }
             return usuarioBuscar;
-         
+
+        }
+
+        public IEnumerable<Usuario> FilterByNombreUsuario(IEnumerable<Usuario> usuarios, string nombreUsuario) {
+            return usuarios.Where(u => u.NombreUsuario.ToLower().Contains(nombreUsuario.ToLower()));
         }
 
         //CRUD

@@ -16,9 +16,15 @@ namespace Web.Controllers
         EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Especialidad
-        public ActionResult Index()
+        public ActionResult Index(string descripcion)
         {
-            return View(EspecialidadLogic.GetAll());
+            IEnumerable<Especialidad>  especialidades = EspecialidadLogic.GetAll();
+
+            if (!String.IsNullOrEmpty(descripcion)) {
+                especialidades = EspecialidadLogic.FilterByDescripcion(especialidades, descripcion);
+            }
+
+            return View(especialidades);
         }
 
         // GET: Especialidad/Details/5

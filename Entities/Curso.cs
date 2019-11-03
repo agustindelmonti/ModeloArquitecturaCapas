@@ -9,7 +9,6 @@ namespace Entities {
     public class Curso  {
         // Attributes
         public int CursoID { get; set; }
-        [Display(Name = "Número de comisión")]
         public int AnioCalendario { get; set; }
         public int Cupo { get; set; }
 

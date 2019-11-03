@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
+using BusinessLogic.Authorization;
 using Entities;
 
 namespace Web.Controllers
@@ -17,9 +18,15 @@ namespace Web.Controllers
         EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Plan
-        public ActionResult Index()
+        public ActionResult Index(string descripcion)
         {
             IEnumerable<Plan> planes = PlanLogic.GetAll();
+
+
+            if (!String.IsNullOrEmpty(descripcion)) {
+                planes = PlanLogic.FilterByDescripcion(planes, descripcion);
+            }
+
             return View(planes);
         }
 
