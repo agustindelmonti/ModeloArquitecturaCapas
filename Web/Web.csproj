@@ -156,6 +156,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\academia-icon.png" />
+    <Content Include="Images\fachada_utn.jpg" />
+    <Content Include="Images\PageError.gif" />
+    <Content Include="Images\Search.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
