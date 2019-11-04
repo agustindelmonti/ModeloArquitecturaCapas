@@ -2,9 +2,14 @@
 
 @{
     ViewBag.Title = "AlumnosCurso";
+    bool edicion = false;
 }
 <br>
 <h2>Alumnos del curso</h2>
+
+<div>        
+    <input type="submit" class="button btn btn-warning" value="Calificar" onclick="edicion=true">
+</div>
 
 <table class="table">
     <tr>
@@ -17,11 +22,16 @@
         <th>
             @Html.DisplayNameFor(model => model.Persona.Apellido)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Condicion)
+        </th>
     </tr>
 
     @foreach (var item in Model)
-        {
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Persona.Legajo)
@@ -32,6 +42,31 @@
         <td>
             @Html.DisplayFor(modelItem => item.Persona.Apellido)
         </td>
-    </tr>
+        @if (edicion)
+        {
+            <td>
+                @Html.EditorFor(modelItem => item.Nota, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
         }
+        else
+        {
+            if (item.Nota == null)
+            {
+                <td>
+                    -
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nota)
+                </td>
+            }
+        }
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Condicion)
+        </td>
+    </tr>
+    }
 </table>

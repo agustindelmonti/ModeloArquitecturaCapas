@@ -7,7 +7,7 @@ using Entities;
 
 
 namespace Data {
-    public class AcademiaInitializer : System.Data.Entity.DropCreateDatabaseAlways<AcademiaContext> {
+    public class AcademiaInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<AcademiaContext> {
         protected override void Seed(AcademiaContext context) {
 
             var especialidades = new List<Especialidad> {

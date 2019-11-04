@@ -15,6 +15,8 @@ namespace Web.Controllers
         UsuarioLogic usuarioLogic = new UsuarioLogic();
         InscripcionLogic inscripcionLogic = new InscripcionLogic();
 
+        IEnumerable<AlumnoInscripcion> alumnosCurso;
+
         // GET: Docente
         public ActionResult Index()
         {
@@ -35,11 +37,12 @@ namespace Web.Controllers
             else {
                 int cursoID = Convert.ToInt32(id);
                 int docenteID = persona.PersonaID;
-                IEnumerable<AlumnoInscripcion> alumnosCurso = inscripcionLogic.FindInscripcionesByCursoIDAndPersonaID(cursoID, docenteID);
+                alumnosCurso = inscripcionLogic.FindInscripcionesByCursoIDAndPersonaID(cursoID, docenteID);
 
                 return View("AlumnosCurso", alumnosCurso);
-            }
-            
+            } 
         }
+
+
     }
 }
