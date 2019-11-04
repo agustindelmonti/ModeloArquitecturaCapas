@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class AlumnoInscripcion : BusinessEntity {
+    public class AlumnoInscripcion {
         // Attributes
         public int AlumnoInscripcionID { get; set; }
 
@@ -15,7 +15,7 @@ namespace Entities {
         public Estado Condicion { get; set; }
 
         [Range(1,10)]
-        public int Nota { get; set; }
+        public int? Nota { get; set; }
 
         // Foreign Keys
         public int PersonaID { get; set; }
@@ -28,7 +28,7 @@ namespace Entities {
         public virtual Curso Curso { get; set; }
 
         public enum Estado {
-            Inscrito, Cursando, Regular, Aprobado, Libre
+            Cursando, Regular, Aprobado, Libre
         }
     }
 }

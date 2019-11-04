@@ -12,6 +12,7 @@ using Entities;
 
 namespace Web.Controllers
 {
+    [CustomAuthorize(Roles = "No Docente")]
     public class PlanController : Controller
     {
         PlanLogic PlanLogic = new PlanLogic();

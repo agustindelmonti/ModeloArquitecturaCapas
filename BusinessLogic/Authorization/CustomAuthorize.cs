@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace BusinessLogic.Authorization {
     public class CustomAuthorize : AuthorizeAttribute {
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext) {
-            filterContext.Result = new RedirectResult("/Error/Unauthorized");
+            filterContext.Result = new RedirectResult("/Oops/404");
         }
 
         public override void OnAuthorization(AuthorizationContext filterContext) {

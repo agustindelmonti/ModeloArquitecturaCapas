@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class Comision : BusinessEntity {
+    public class Comision {
         // Attributes
         public int ComisionID { get; set; }
         [Required, Display(Name = "Número de comisión")]

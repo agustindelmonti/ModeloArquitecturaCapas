@@ -33,6 +33,12 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -70,10 +76,8 @@
     <Compile Include="Authorization\CustomAuthorize.cs" />
     <Compile Include="EspecialidadLogic.cs" />
     <Compile Include="InscripcionLogic.cs" />
-    <Compile Include="ModuloUsuarioLogic.cs" />
     <Compile Include="PersonaLogic.cs" />
     <Compile Include="DocenteCursoLogic.cs" />
-    <Compile Include="ModuloLogic.cs" />
     <Compile Include="UsuarioLogic.cs" />
     <Compile Include="PlanLogic.cs" />
     <Compile Include="ComisionLogic.cs" />
@@ -81,22 +85,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{4d313603-297d-4609-9b6e-28352053b0a2}</Project>
       <Name>Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{1F3C2221-D7A7-4C45-929E-6E2302EEEDB5}</Project>
+      <Project>{1f3c2221-d7a7-4c45-929e-6e2302eeedb5}</Project>
       <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
-      <Project>{76847876-51d4-4b28-832d-1a999e60f0fc}</Project>
+      <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
       <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

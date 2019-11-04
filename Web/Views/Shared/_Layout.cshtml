@@ -9,31 +9,52 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container" style="display: flex;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img width="50px" height="50px" src="~/Images/academia-icon.png"/>
+                <img width="50px" height="50px" src="~/Images/academia-icon.png" />
                 @Html.ActionLink("Academia", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @using (Html.BeginForm("Logout", "Account", FormMethod.Post)) {
-                        @Html.AntiForgeryToken()
-                        <li><input type="submit" value="Logout"></li>
-                    }
-                </ul>
-                
+                @if (User.IsInRole("Docente"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Inicio", "Index", "Docente")</li>
+                        <li>@Html.ActionLink("Mis Cursos", "MisCursos", "Docente")</li>
+                        <li>@Html.ActionLink("Perfil", "Perfil", "Home")</li>
+                    </ul>
+                }
+                @if (User.IsInRole("No Docente"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Cursos", "About", "Home")</li>
+                        <li>@Html.ActionLink("Comisiones", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Cursos", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Especialidades", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Perfil", "Perfil", "Home")</li>
+                    </ul>
+                }
+                @if (User.IsInRole("Alumno"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Inicio", "Index", "Alumno")</li>
+                        <li>@Html.ActionLink("Inscribirse", "Inscripcion", "Alumno")</li>
+                        <li>@Html.ActionLink("Estado Academico", "EstadoAcademico", "Alumno")</li>
+                        <li>@Html.ActionLink("Perfil", "Perfil", "Home")</li>
+                    </ul>
+                }
+            </div>
+            <div style="margin-top:10px;margin-left:500px;">
                 @using (Html.BeginForm("Logout", "Account", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                    <li><input type="submit" class = "button btn btn-warning" value="Salir"></li>
+                    <input type="submit" class="button btn btn-warning" value="Salir">
                 }
             </div>
         </div>
@@ -42,7 +63,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Sistema Academia</p>
         </footer>
     </div>
 

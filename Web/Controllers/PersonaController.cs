@@ -12,7 +12,7 @@ using Entities;
 
 namespace Web.Controllers
 {
-    [CustomAuthorize(Roles="Alumno")]
+    [CustomAuthorize(Roles="No Docente")]
     public class PersonaController : Controller
     {
         PersonaLogic PersonaLogic = new PersonaLogic();
@@ -28,7 +28,7 @@ namespace Web.Controllers
             }
 
             if (!String.IsNullOrEmpty(rol)) {
-                personas = PersonaLogic.FilterByRol(personas, rol);
+                personas = PersonaLogic.FilterByRole(personas, rol);
             }
 
             ViewBag.Rol = new SelectList(Persona.Roles);
