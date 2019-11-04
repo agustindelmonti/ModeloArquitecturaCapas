@@ -13,7 +13,7 @@ using Microsoft.Reporting.WinForms;
 
 namespace Escritorio
 {
-    public partial class ReporteCursos : Form
+    public partial class ReporteCursos : UserControl
     {
         public ReporteCursos()
         {

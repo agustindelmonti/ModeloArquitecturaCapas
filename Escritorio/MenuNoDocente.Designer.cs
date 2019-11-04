@@ -32,7 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inscrpcionAlumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +43,7 @@
             this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.verCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +75,8 @@
             // cursosToolStripMenuItem1
             // 
             this.cursosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearCursoToolStripMenuItem,
+            this.verCursosToolStripMenuItem,
+            this.reporteToolStripMenuItem,
             this.inscrpcionAlumnoToolStripMenuItem,
             this.asignarProfesorToolStripMenuItem});
             this.cursosToolStripMenuItem1.Name = "cursosToolStripMenuItem1";
@@ -82,12 +84,12 @@
             this.cursosToolStripMenuItem1.Text = "Cursos";
             this.cursosToolStripMenuItem1.Click += new System.EventHandler(this.cursosToolStripMenuItem1_Click);
             // 
-            // crearCursoToolStripMenuItem
+            // reporteToolStripMenuItem
             // 
-            this.crearCursoToolStripMenuItem.Name = "crearCursoToolStripMenuItem";
-            this.crearCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.crearCursoToolStripMenuItem.Text = "Crear curso";
-            this.crearCursoToolStripMenuItem.Click += new System.EventHandler(this.crearCursoToolStripMenuItem_Click);
+            this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
+            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporteToolStripMenuItem.Text = "Reporte";
+            this.reporteToolStripMenuItem.Click += new System.EventHandler(this.reporteToolStripMenuItem_Click);
             // 
             // inscrpcionAlumnoToolStripMenuItem
             // 
@@ -157,6 +159,13 @@
             this.panel1.Size = new System.Drawing.Size(784, 451);
             this.panel1.TabIndex = 1;
             // 
+            // verCursosToolStripMenuItem
+            // 
+            this.verCursosToolStripMenuItem.Name = "verCursosToolStripMenuItem";
+            this.verCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verCursosToolStripMenuItem.Text = "Ver Cursos";
+            this.verCursosToolStripMenuItem.Click += new System.EventHandler(this.verCursosToolStripMenuItem_Click);
+            // 
             // MenuNoDocente
             // 
             this.BackColor = System.Drawing.Color.Lavender;
@@ -183,7 +192,6 @@
         private System.Windows.Forms.ToolStripMenuItem principalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem inscrpcionAlumnoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem crearCursoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
@@ -193,5 +201,7 @@
         private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verCursosToolStripMenuItem;
     }
 }

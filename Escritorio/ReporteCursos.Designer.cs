@@ -47,19 +47,20 @@
             this.informeCurso.LocalReport.DataSources.Add(reportDataSource1);
             this.informeCurso.LocalReport.ReportEmbeddedResource = "Escritorio.InformeCursos.rdlc";
             this.informeCurso.Location = new System.Drawing.Point(0, 0);
+            this.informeCurso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.informeCurso.Name = "informeCurso";
             this.informeCurso.ServerReport.BearerToken = null;
-            this.informeCurso.Size = new System.Drawing.Size(800, 450);
+            this.informeCurso.Size = new System.Drawing.Size(780, 451);
             this.informeCurso.TabIndex = 0;
             // 
             // ReporteCursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.informeCurso);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReporteCursos";
-            this.Text = "ReporteCursos";
+            this.Size = new System.Drawing.Size(780, 451);
             this.Load += new System.EventHandler(this.ReporteCursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CursoBindingSource)).EndInit();
             this.ResumeLayout(false);

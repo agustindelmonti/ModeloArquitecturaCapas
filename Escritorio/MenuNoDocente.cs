@@ -79,6 +79,17 @@ namespace Escritorio
 
         private void cursosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ReporteCursos());
+        }
+
+        private void verCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             panel1.Controls.Clear();
             panel1.Controls.Add(new ListadoCursos());
         }

@@ -25,25 +25,6 @@ namespace Escritorio
             panel1.Controls.Add(new Principal(UsuarioAutenticado));
         }
 
-
-        private void Usuarios_Click(object sender, EventArgs e)
-        {
-            //Usuarios u = new Usuarios();
-            //u.ShowDialog();
-        }
-
-        private void btnPlanes_Click(object sender, EventArgs e)
-        {
-            //Plan p = new Plan();
-            //p.ShowDialog();
-        }
-
-        private void btnEspecialidades_Click(object sender, EventArgs e)
-        {
-            //UI.Desktop.Especialidad esp = new UI.Desktop.Especialidad();
-            //esp.ShowDialog();
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             
@@ -59,5 +40,11 @@ namespace Escritorio
         {
             this.Close();
         }
+
+        private void misCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
