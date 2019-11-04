@@ -95,7 +95,7 @@ namespace Data {
             var inscripciones = new List<AlumnoInscripcion> {
                 new AlumnoInscripcion {Condicion = AlumnoInscripcion.Estado.Cursando, PersonaID = 1, CursoID = 1},
                 new AlumnoInscripcion {Condicion = AlumnoInscripcion.Estado.Cursando, PersonaID = 1, CursoID = 2},
-                new AlumnoInscripcion {Condicion = AlumnoInscripcion.Estado.Aprobado, PersonaID = 1, CursoID = 3}
+                //new AlumnoInscripcion {Condicion = AlumnoInscripcion.Estado.Aprobado, PersonaID = 1, CursoID = 3}
             };
             inscripciones.ForEach(a => context.AlumnoInscripciones.Add(a));
             context.SaveChanges();

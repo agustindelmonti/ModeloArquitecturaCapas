@@ -56,6 +56,10 @@ namespace Web.Controllers
 
             IEnumerable<Curso> cursosHabilitadosInscripcion = cursoLogic.FindCursosHabilitadosByPersonaID(persona.PersonaID);
 
+            if (cursosHabilitadosInscripcion.Count() == 0) {
+                ViewBag.ErrorMessage = "Sin Cursos";
+            }
+
             return View(cursosHabilitadosInscripcion);
         }
         

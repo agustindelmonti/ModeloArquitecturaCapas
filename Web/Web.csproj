@@ -138,8 +138,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
-    <Compile Include="Controllers\ModuloController.cs" />
-    <Compile Include="Controllers\ModuloUsuarioController.cs" />
     <Compile Include="Controllers\NoDocenteController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\PlanController.cs" />
@@ -232,8 +230,6 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
-    <Content Include="Views\Alumno\EstadoAcademico.cshtml" />
-    <Content Include="Views\Alumno\Index.cshtml" />
     <Content Include="Views\Alumno\MisCursos.cshtml" />
     <Content Include="Views\Alumno\Inscripcion.cshtml" />
     <Content Include="Views\Docente\Index.cshtml" />
@@ -242,6 +238,7 @@
     <Content Include="Views\Alumno\EstadoAcademico.cshtml" />
     <Content Include="Views\Alumno\Index.cshtml" />
     <Content Include="Views\NoDocente\Index.cshtml" />
+    <Content Include="Views\Alumno\_SinCursos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

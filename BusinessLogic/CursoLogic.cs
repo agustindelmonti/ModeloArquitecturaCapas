@@ -57,7 +57,7 @@ namespace BusinessLogic
 
             IEnumerable<Curso> cursosNoInscriptos = cursosPlan.Except(cursosInscriptos);
 
-            return cursosNoInscriptos.Where(c => c.AlumnosInscripciones.Count() < c.Cupo);
+            return cursosNoInscriptos.Where(c => c.AlumnosInscripciones.Count() < c.Cupo).ToList();
         }
 
         public void Add(Curso curso) => CursoRepository.Add(curso);

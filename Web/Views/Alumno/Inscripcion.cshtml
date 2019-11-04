@@ -7,32 +7,37 @@
 <h2>Inscripcion</h2>
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Materia.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comision)
-        </th>
-        <th></th>
-    </tr>
+    @if (Model.Count() != 0) {
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comision.Descripcion)
+            </th>
+            <th></th>
+        </tr>
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Materia.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comision)
-        </td>
-        <td>
-            @Html.BeginForm("Inscribirse", "Alumno", FormMethod.Post){
-                @Html.HiddenFor(modelItem => item.CursoID);
-                <input type="submit" class="btn btn-warning" value="Inscribir" />
-                <p>@ViewBag.InscripcionErrorMessage</p>
-            }
-        </td>
-    </tr>
+        foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comision.Descripcion)
+            </td>
+            <td>
+                @Html.BeginForm("Inscribirse", "Alumno", FormMethod.Post){
+                    @Html.HiddenFor(modelItem => item.CursoID);
+                    <input type="submit" class="btn btn-warning" value="Inscribir" />
+                    <p>@ViewBag.InscripcionErrorMessage</p>
+                }
+            </td>
+        </tr>
+        }
+    }
+    else {
+        <h2>@ViewBag.ErrorMessage</h2>
     }
 </table>

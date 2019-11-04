@@ -43,7 +43,7 @@ namespace Data.Repositories
         }
 
         public IEnumerable<Curso> FindCursosFromPlanByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.Materia.Plan.Personas.Where(p => p.PersonaID == personaID).FirstOrDefault() != null);
+            return db.Cursos.Where(c => c.Materia.Plan.Personas.Where(p => p.PersonaID == personaID).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision);
         }
 
         public IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID) {
