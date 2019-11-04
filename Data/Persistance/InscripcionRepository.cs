@@ -30,7 +30,7 @@ namespace Data.Persistance
         }
 
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
-            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == personaID);
+            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == personaID).Include(M => M.Curso).ToList();
         }
     }
 }

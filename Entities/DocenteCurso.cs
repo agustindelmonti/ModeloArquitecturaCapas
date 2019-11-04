@@ -15,7 +15,7 @@ namespace Entities {
 
         // Foreign Keys
         public int CursoID { get; set; }
-        public int DocenteID { get; set; }
+        public int PersonaID { get; set; }
 
 
         // Navegation Properties

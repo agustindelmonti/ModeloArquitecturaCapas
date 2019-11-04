@@ -7,7 +7,7 @@ using Entities;
 
 
 namespace Data {
-    public class AcademiaInitializer : System.Data.Entity.DropCreateDatabaseAlways<AcademiaContext> {
+    public class AcademiaInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<AcademiaContext> {
         protected override void Seed(AcademiaContext context) {
 
             var especialidades = new List<Especialidad> {
@@ -33,9 +33,9 @@ namespace Data {
                 new Persona { Nombre = "Lucas", Apellido = "Randisi", Direccion = "Valle 1234", Email = "lucasrandisi@gmail.com", Telefono = "34144444", FechaNacimiento = DateTime.ParseExact("09-10-1997", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 44464, Role = "Alumno", PlanID = 1 },
                 new Persona { Nombre = "Juan", Apellido = "Alberto", Direccion = "Mendoza 5590", Email = "juanalberto@gmail.com", Telefono = "1617486", FechaNacimiento = DateTime.ParseExact("28-02-1998", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 45895, Role = "Alumno",PlanID = 1 },
                 new Persona { Nombre = "Maria", Apellido = "Del Carmen", Direccion = "Zeballos 220", Email = "mari_nob_78@gmail.com", Telefono = "6262256", FechaNacimiento = DateTime.ParseExact("15-07-1997", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 44236, Role = "Alumno", PlanID = 1 },
-                new Persona { Nombre = "Julia", Apellido = "Pellegrini", Direccion = "Crespo 2000", Email = "medicenjuli@gmail.com", Telefono = "3365652", FechaNacimiento = DateTime.ParseExact("12-12-1963", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 45895, Role = "Docente", PlanID = 2 },
-                new Persona { Nombre = "Roman", Apellido = "Castillo", Direccion = "Pte Roca 411", Email = "llegoRomanElPrece@gmail.com", Telefono = "4684961", FechaNacimiento = DateTime.ParseExact("07-09-1971", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 45895, Role = "Docente", PlanID = 2 },
-                new Persona { Nombre = "Matt", Apellido = "Enme P. Orfavor", Direccion = "Av Siempre Viva 222", Email = "Matt.enme@gmail.com", Telefono = "4684961", FechaNacimiento = DateTime.ParseExact("01-01-1970", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 45222, Role = "No Docente", PlanID = 2 }
+                new Persona { Nombre = "Julia", Apellido = "Pellegrini", Direccion = "Crespo 2000", Email = "medicenjuli@gmail.com", Telefono = "3365652", FechaNacimiento = DateTime.ParseExact("12-12-1963", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 45895, Role = "Docente"},
+                new Persona { Nombre = "Roman", Apellido = "Castillo", Direccion = "Pte Roca 411", Email = "llegoRomanElPrece@gmail.com", Telefono = "4684961", FechaNacimiento = DateTime.ParseExact("07-09-1971", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 45895, Role = "Docente"},
+                new Persona { Nombre = "Matt", Apellido = "Enme P. Orfavor", Direccion = "Av Siempre Viva 222", Email = "Matt.enme@gmail.com", Telefono = "4684961", FechaNacimiento = DateTime.ParseExact("01-01-1970", "dd-MM-yyyy",System.Globalization.CultureInfo.InvariantCulture), Legajo = 45222, Role = "No Docente"}
             };
 
             personas.ForEach(p => context.Personas.Add(p));
@@ -59,10 +59,10 @@ namespace Data {
                 new Materia {Descripcion = "MATERIA 1", HsSemanales = 3, HsTotales = 33, PlanID = 1},
                 new Materia {Descripcion = "MATERIA 2", HsSemanales = 3, HsTotales = 33, PlanID = 1},
                 new Materia {Descripcion = "MATERIA 3", HsSemanales = 3, HsTotales = 33, PlanID = 1},
-                new Materia {Descripcion = "MATERIA 4", HsSemanales = 3, HsTotales = 33, PlanID = 1},
-                new Materia {Descripcion = "MATERIA 5", HsSemanales = 3, HsTotales = 33, PlanID = 1},
-                new Materia {Descripcion = "MATERIA 6", HsSemanales = 4, HsTotales = 44, PlanID = 1},
-                new Materia {Descripcion = "MATERIA 72", HsSemanales = 3, HsTotales = 33, PlanID = 1}
+                new Materia {Descripcion = "MATERIA 4", HsSemanales = 3, HsTotales = 33, PlanID = 2},
+                new Materia {Descripcion = "MATERIA 5", HsSemanales = 3, HsTotales = 33, PlanID = 2},
+                new Materia {Descripcion = "MATERIA 6", HsSemanales = 4, HsTotales = 44, PlanID = 2},
+                new Materia {Descripcion = "MATERIA 72", HsSemanales = 3, HsTotales = 33, PlanID = 2}
             };
 
             materias.ForEach(m => context.Materias.Add(m));

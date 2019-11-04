@@ -24,6 +24,8 @@ namespace Data {
         // Creación de tablas con nombres en singular
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
     }
 }
