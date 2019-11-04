@@ -69,10 +69,13 @@ namespace Escritorio
             // 
             // dgvComisiones
             // 
+            this.dgvComisiones.AllowUserToAddRows = false;
+            this.dgvComisiones.AllowUserToDeleteRows = false;
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(0, 0);
             this.dgvComisiones.Name = "dgvComisiones";
+            this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.RowHeadersVisible = false;
             this.dgvComisiones.Size = new System.Drawing.Size(547, 419);
             this.dgvComisiones.TabIndex = 0;
