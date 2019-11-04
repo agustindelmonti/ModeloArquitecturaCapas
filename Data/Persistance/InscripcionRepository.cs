@@ -34,7 +34,10 @@ namespace Data.Persistance
         }
 
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID, int personaID) {
-            return db.AlumnoInscripciones.Where(i => i.CursoID == cursoID && i.PersonaID == personaID);
-        }
+            return db.AlumnoInscripciones.Where(i => i.CursoID == cursoID && i.PersonaID == personaID).Include(c => c.Persona);}//este no iria por ahora
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID){
+                return db.AlumnoInscripciones.Where(i => i.CursoID == cursoID).Include(c => c.Persona);}
+
     }
 }

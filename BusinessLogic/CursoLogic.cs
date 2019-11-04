@@ -34,6 +34,12 @@ namespace BusinessLogic
             return CursoRepository.FindCursosActualesDocenteByPersonaID(personaID);
         }
 
+        public IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID)
+        {
+            return CursoRepository.FindCursosActualesAlumnoByPersonaID(personaID);
+        }
+
+
         public IEnumerable<Curso> FilterByNombreMateria(IEnumerable<Curso> cursos, string materia) {
             return cursos.Where(c => c.Materia.Descripcion.ToLower().Contains(materia.ToLower()));
         }

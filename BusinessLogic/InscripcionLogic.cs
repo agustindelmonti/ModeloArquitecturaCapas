@@ -37,9 +37,14 @@ namespace BusinessLogic
 
         public void Remove(int id) => InscripcionRepository.Delete(id);
 
-
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
             return InscripcionRepository.FindInscripcionesByPersonaID(personaID);
         }
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID)
+        {
+            return InscripcionRepository.FindInscripcionesByCursoID(cursoID);
+        }
+        
     }
 }

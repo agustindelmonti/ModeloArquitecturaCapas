@@ -17,5 +17,10 @@ namespace Data.Repositories
         IEnumerable<Curso> FindCursosInscriptosByPersonaID(int personaID);
 
         IEnumerable<Curso> FindCursosFromPlanByPersonaID(int personaID);
+
+        IEnumerable<Curso> FindCursosActualesDocenteByPersonaID(int personaID);
+
+        IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID);
+        
     }
 }

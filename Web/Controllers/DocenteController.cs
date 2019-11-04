@@ -34,9 +34,9 @@ namespace Web.Controllers
             }
             else {
                 int cursoID = Convert.ToInt32(id);
-                IEnumerable<AlumnoInscripcion> alumnosCurso = inscripcionLogic.FindInscripcionesByCursoIDAndPersonaID(cursoID, persona.PersonaID);
+                IEnumerable<AlumnoInscripcion> alumnosCurso = inscripcionLogic.FindInscripcionesByCursoID(cursoID);
 
-                return View("AlumnosCurso");
+                return View("AlumnosCurso", alumnosCurso);
             }
             
         }

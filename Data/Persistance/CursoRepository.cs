@@ -39,7 +39,7 @@ namespace Data.Repositories
         }
 
         public IEnumerable<Curso> FindCursosActualesDocenteByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.DocentesDelCurso.Where(d => d.PersonaID == personaID).FirstOrDefault() != null);
+            return db.Cursos.Where(c => c.DocentesDelCurso.Where(d => d.PersonaID == personaID).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision);
         }
 
         public IEnumerable<Curso> FindCursosFromPlanByPersonaID(int personaID) {
@@ -48,6 +48,11 @@ namespace Data.Repositories
 
         public IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID) {
             return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision);
+        }
+
+        public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID)
+        {
+            throw new NotImplementedException();
         }
     }
 }
