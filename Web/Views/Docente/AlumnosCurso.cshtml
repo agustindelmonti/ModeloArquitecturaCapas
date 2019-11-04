@@ -2,71 +2,77 @@
 
 @{
     ViewBag.Title = "AlumnosCurso";
-    bool edicion = false;
 }
 <br>
 <h2>Alumnos del curso</h2>
 
-<div>        
-    <input type="submit" class="button btn btn-warning" value="Calificar" onclick="edicion=true">
+@using (Html.BeginForm("Calificar", "Docente", FormMethod.Post)) {
+<div>
+    @if (ViewBag.EditMode == false) {
+        @Html.ActionLink("Calificar", "MisCursos", "Docente", new { editar = true }, null)
+    }
+    else {
+        @Html.ActionLink("Calificar", "MisCursos", "Docente", new { editar = false }, null)
+    }
+    <input type="submit" class="button btn btn-warning" value="Calificar">
 </div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Persona.Legajo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Persona.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Persona.Apellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nota)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Condicion)
-        </th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.Legajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condicion)
+            </th>
+        </tr>
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Persona.Legajo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Persona.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Persona.Apellido)
-        </td>
-        @if (edicion)
-        {
-            <td>
-                @Html.EditorFor(modelItem => item.Nota, new { htmlAttributes = new { @class = "form-control" } })
-            </td>
-        }
-        else
-        {
-            if (item.Nota == null)
-            {
-                <td>
-                    -
-                </td>
-            }
-            else
-            {
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nota)
-                </td>
-            }
-        }
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Condicion)
-        </td>
-    </tr>
-    }
-</table>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Persona.Legajo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Persona.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Persona.Apellido)
+                </td>
+                @if (ViewBag.EditMode == true) {
+                    <td>
+                        @Html.EditorFor(Model => item.Nota, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+                    Html.HiddenFor(Model => item.AlumnoInscripcionID);
+                }
+                else {
+                    if (item.Nota == null) {
+                        <td>
+                            <p>--</p>
+                        </td>
+                    }
+                    else {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nota)
+                        </td>
+                    }
+                }
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Condicion)
+                </td>
+            </tr>
+        }
+    </table>
+}
+    

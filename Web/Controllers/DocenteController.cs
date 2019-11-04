@@ -18,14 +18,15 @@ namespace Web.Controllers
         IEnumerable<AlumnoInscripcion> alumnosCurso;
 
         // GET: Docente
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             return View();
         }
 
-        public ActionResult MisCursos(string id) {
+        public ActionResult MisCursos(string id, bool editar = false) {
 
             int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
+
+            ViewBag.EditMode = editar;
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
 
@@ -40,9 +41,14 @@ namespace Web.Controllers
                 alumnosCurso = inscripcionLogic.FindInscripcionesByCursoIDAndPersonaID(cursoID, docenteID);
 
                 return View("AlumnosCurso", alumnosCurso);
-            } 
+            }
         }
 
+
+        [HttpPost]
+        public ActionResult Calificar([Bind(Include = "AlumnoInscripcionID,Nota")] IEnumerable<Entities.AlumnoInscripcion> inscripciones) {
+            return View("MisCursos");
+        }
 
     }
 }
