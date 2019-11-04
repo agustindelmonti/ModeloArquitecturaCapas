@@ -61,16 +61,38 @@ namespace Data {
             materias.ForEach(m => context.Materias.Add(m));
             context.SaveChanges();
 
+
+            var comisiones = new List<Comision> {
+                new Comision {Descripcion = "302", AnioEspecialidad = 3, PlanID = 1},
+                new Comision {Descripcion = "404", AnioEspecialidad = 4, PlanID = 1},
+                new Comision {Descripcion = "201", AnioEspecialidad = 2, PlanID = 2}
+            };
+
+            comisiones.ForEach(c => context.Comisiones.Add(c));
+            context.SaveChanges();
+
             var cursos = new List<Curso> {
-                new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 1},
-                new Curso {AnioCalendario = 2016, Cupo = 50, MateriaID = 2}
+                new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 1, ComisionID = 1, },
+                new Curso {AnioCalendario = 2016, Cupo = 50, MateriaID = 2, ComisionID = 2  }
             };
 
             cursos.ForEach(c => context.Cursos.Add(c));
             context.SaveChanges();
 
 
+            var inscripciones = new List<AlumnoInscripcion> {
+                new AlumnoInscripcion { PersonaID = 1, CursoID = 1, Condicion = AlumnoInscripcion.Estado.Cursando }
+            };
 
+            inscripciones.ForEach(i => context.AlumnoInscripciones.Add(i));
+            context.SaveChanges();
+
+            var docentesCursos = new List<DocenteCurso> {
+                new DocenteCurso { PersonaID = 4, CursoID = 1}
+            };
+
+            docentesCursos.ForEach(d => context.DocenteCursos.Add(d));
+            context.SaveChanges();
 
         }
     }

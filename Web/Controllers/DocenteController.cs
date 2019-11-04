@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using BusinessLogic.Authorization;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Web.Controllers
 {
+    [CustomAuthorize(Roles = "Docente")]
     public class DocenteController : Controller {
         CursoLogic cursoLogic = new CursoLogic();
         UsuarioLogic usuarioLogic = new UsuarioLogic();

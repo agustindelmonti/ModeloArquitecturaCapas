@@ -12,7 +12,7 @@ using Entities;
 
 namespace Web.Controllers
 {
-    [CustomAuthorize(Roles="Alumno")]
+    [CustomAuthorize(Roles="No Docente")]
     public class PersonaController : Controller
     {
         PersonaLogic PersonaLogic = new PersonaLogic();

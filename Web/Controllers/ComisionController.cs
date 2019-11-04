@@ -7,10 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
+using BusinessLogic.Authorization;
 using Entities;
 
 namespace Web.Controllers
 {
+    [CustomAuthorize(Roles = "No Docente")]
     public class ComisionController : Controller
     {
         ComisionLogic ComisionLogic = new ComisionLogic();

@@ -47,7 +47,7 @@ namespace Data.Repositories
         }
 
         public IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null);
+            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision);
         }
     }
 }

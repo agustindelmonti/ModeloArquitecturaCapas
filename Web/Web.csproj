@@ -246,6 +246,8 @@
     <Content Include="Views\Docente\Index.cshtml" />
     <Content Include="Views\Docente\MisCursos.cshtml" />
     <Content Include="Views\Docente\AlumnosCurso.cshtml" />
+    <Content Include="Views\Alumno\EstadoAcademico.cshtml" />
+    <Content Include="Views\Alumno\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

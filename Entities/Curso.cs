@@ -14,6 +14,7 @@ namespace Entities {
 
         // Foreign Keys
         public int MateriaID { get; set; }
+        public int ComisionID { get; set; }
 
         // Navegation Properties
         public virtual Comision Comision { get; set; }
