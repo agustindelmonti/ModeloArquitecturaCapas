@@ -252,7 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
-      <Project>{E5333D3D-C73D-4A30-BBAC-2879CEF3333F}</Project>
+      <Project>{e5333d3d-c73d-4a30-bbac-2879cef3333f}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
@@ -260,7 +260,7 @@
       <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
-      <Project>{76847876-51d4-4b28-832d-1a999e60f0fc}</Project>
+      <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
       <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>

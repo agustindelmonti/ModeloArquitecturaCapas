@@ -85,23 +85,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{4d313603-297d-4609-9b6e-28352053b0a2}</Project>
       <Name>Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{1F3C2221-D7A7-4C45-929E-6E2302EEEDB5}</Project>
+      <Project>{1f3c2221-d7a7-4c45-929e-6e2302eeedb5}</Project>
       <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
-      <Project>{76847876-51d4-4b28-832d-1a999e60f0fc}</Project>
+      <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
       <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

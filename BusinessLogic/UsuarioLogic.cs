@@ -39,6 +39,11 @@ namespace BusinessLogic
          
         }
 
+        public Persona GetPersonaByUserID(int userID)
+        {
+            throw new NotImplementedException();
+        }
+
         //CRUD
         public IEnumerable<Usuario> GetAll() => UsuarioRepository.GetAll();
 

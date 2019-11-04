@@ -74,7 +74,6 @@
     <Compile Include="Repositories\IMateriaRepository.cs" />
     <Compile Include="Repositories\IPersonaRepository.cs" />
     <Compile Include="Repositories\IDocenteCursoRepository.cs" />
-    <Compile Include="Repositories\IModuloRepository.cs" />
     <Compile Include="Repositories\IPlanRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUsuarioRepository.cs" />
