@@ -21,13 +21,12 @@ namespace UserControlsDesktop
 
         public string Descripcion {
             get => String.Concat(maskComision.Text[1], maskComision.Text[2]);
-            set => Descripcion = value;
         }
         public string NroComision {
-            set => maskComision.Text = Anio + Descripcion;
+            set => maskComision.Text = value;
         }
         public Plan Plan { get => (Plan) cbPlan.SelectedItem; set => cbPlan.SelectedItem = value; }
-        public int Anio { get => int.Parse(maskComision.Text[0].ToString()); set => Anio = value;  }
+        public int Anio { get => int.Parse(maskComision.Text[0].ToString());}
 
         public Comision ObtenerDatos()
         {
@@ -74,9 +73,8 @@ namespace UserControlsDesktop
             if (Modo == ModoForm.Consulta || Modo == ModoForm.Modificacion)
             {
                 maskComision.Enabled = false;
-                Anio = e.AnioEspecialidad;
+                NroComision = String.Concat(e.AnioEspecialidad.ToString(),e.Descripcion);
                 Plan = e.Plan;
-                Descripcion = e.Descripcion;
             }
             if (Modo == ModoForm.Consulta)
             {

@@ -4,6 +4,7 @@ using Data.Repositories;
 using Entities;
 using System;
 using System.Collections.Generic;
+using Utils.Exceptions;
 
 namespace BusinessLogic
 {

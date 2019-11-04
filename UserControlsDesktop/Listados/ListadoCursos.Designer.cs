@@ -76,6 +76,7 @@ namespace Escritorio
             this.dgvCursos.RowHeadersVisible = false;
             this.dgvCursos.Size = new System.Drawing.Size(547, 419);
             this.dgvCursos.TabIndex = 0;
+            this.dgvCursos.Click += new System.EventHandler(this.dgvMaterias_Click);
             // 
             // tsEspecialidades
             // 

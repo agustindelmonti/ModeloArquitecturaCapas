@@ -25,6 +25,8 @@ namespace Entities {
         [Required, EnumDataType(typeof(Rol))]
         public Rol TipoPersona { get; set; }
 
+        public string Role { get; set; }
+
 
         // Foreign Key
         public int ? PlanID { get; set; }           // Nullable to avoid circular cascade
@@ -39,5 +41,11 @@ namespace Entities {
         public enum Rol {
             Alumno, Docente, No_Docente
         }
+
+        //Roles de acceso 
+        public static string[] Roles =
+        {
+            "Alumno", "Docente", "No Docente"
+        };
     }
 }

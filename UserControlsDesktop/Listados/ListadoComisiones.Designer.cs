@@ -32,6 +32,7 @@ namespace Escritorio
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoComisiones));
             this.tcEspecialidades = new System.Windows.Forms.ToolStripContainer();
+            this.dgvComisiones = new System.Windows.Forms.DataGridView();
             this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -39,12 +40,11 @@ namespace Escritorio
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvComisiones = new System.Windows.Forms.DataGridView();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
-            this.tsEspecialidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
+            this.tsEspecialidades.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcEspecialidades
@@ -66,6 +66,17 @@ namespace Escritorio
             // tcEspecialidades.TopToolStripPanel
             // 
             this.tcEspecialidades.TopToolStripPanel.Controls.Add(this.tsEspecialidades);
+            // 
+            // dgvComisiones
+            // 
+            this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvComisiones.Location = new System.Drawing.Point(0, 0);
+            this.dgvComisiones.Name = "dgvComisiones";
+            this.dgvComisiones.RowHeadersVisible = false;
+            this.dgvComisiones.Size = new System.Drawing.Size(547, 419);
+            this.dgvComisiones.TabIndex = 0;
+            this.dgvComisiones.Click += new System.EventHandler(this.dgvMaterias_Click);
             // 
             // tsEspecialidades
             // 
@@ -140,16 +151,6 @@ namespace Escritorio
             this.panel1.Size = new System.Drawing.Size(236, 451);
             this.panel1.TabIndex = 6;
             // 
-            // dgvComisiones
-            // 
-            this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvComisiones.Location = new System.Drawing.Point(0, 0);
-            this.dgvComisiones.Name = "dgvComisiones";
-            this.dgvComisiones.RowHeadersVisible = false;
-            this.dgvComisiones.Size = new System.Drawing.Size(547, 419);
-            this.dgvComisiones.TabIndex = 0;
-            // 
             // ListadoComisiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,9 +166,9 @@ namespace Escritorio
             this.tcEspecialidades.TopToolStripPanel.PerformLayout();
             this.tcEspecialidades.ResumeLayout(false);
             this.tcEspecialidades.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
             this.tsEspecialidades.ResumeLayout(false);
             this.tsEspecialidades.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
             this.ResumeLayout(false);
 
         }

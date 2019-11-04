@@ -32,8 +32,8 @@ namespace BusinessLogic
             return personas.Where(p => p.Legajo.ToString().StartsWith(legajo));
         }
 
-        public IEnumerable<Persona> FilterByRol(IEnumerable<Persona> personas, string rol) {
-            return personas.Where(p => p.Rol == rol);
+        public IEnumerable<Persona> FilterByRole(IEnumerable<Persona> personas, string role) {
+            return personas.Where(p => p.Role == role);
         }
 
         public void Delete(int id) => PersonaRepository.Delete(id);

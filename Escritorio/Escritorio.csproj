@@ -118,6 +118,9 @@
     <EmbeddedResource Include="MenuAlumno.resx">
       <DependentUpon>MenuAlumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuDocente.resx">
+      <DependentUpon>MenuDocente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuNoDocente.resx">
       <DependentUpon>MenuNoDocente.cs</DependentUpon>
     </EmbeddedResource>
