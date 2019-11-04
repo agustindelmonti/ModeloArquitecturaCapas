@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AlumnoInscripcionController.cs" />
     <Compile Include="Controllers\ComisionController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\DocenteCursoController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EspecialidadController.cs" />
@@ -240,6 +241,11 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Alumno\MisCursos.cshtml" />
+    <Content Include="Views\Alumno\Inscripcion.cshtml" />
+    <Content Include="Views\Docente\Index.cshtml" />
+    <Content Include="Views\Docente\MisCursos.cshtml" />
+    <Content Include="Views\Docente\AlumnosCurso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -35,15 +35,15 @@ namespace Data.Repositories
         }
 
         public IEnumerable<Curso> FindCursosInscriptosByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(a => a.Persona.PersonaID == personaID) != null);
+            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(a => a.Persona.PersonaID == personaID).FirstOrDefault() != null);
         }
 
         public IEnumerable<Curso> FindCursosFromPlanByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.Materia.Plan.Personas.Where(p => p.PersonaID == personaID) != null);
+            return db.Cursos.Where(c => c.Materia.Plan.Personas.Where(p => p.PersonaID == personaID).FirstOrDefault() != null);
         }
 
         public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando) != null);
+            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null);
         }
     }
 }

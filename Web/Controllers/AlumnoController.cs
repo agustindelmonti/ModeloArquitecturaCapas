@@ -36,6 +36,7 @@ namespace Web.Controllers
 
         
         public ActionResult MisCursos() {
+
             int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
@@ -43,6 +44,7 @@ namespace Web.Controllers
             IEnumerable<Curso> cursosActuales = cursoLogic.FindCursosActualesByPersonaID(persona.PersonaID);
 
             return View(cursosActuales);
+
         }
 
         public ActionResult Inscripcion() {
@@ -55,7 +57,15 @@ namespace Web.Controllers
 
             return View(cursosHabilitadosInscripcion);
         }
+        /*
+        [HttpPost]
+        public ActionResult Inscripcion([Bind) {
+            int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
 
+            Persona persona = usuarioLogic.GetPersonaByUserID(userID);
+
+        }
+        */
 
         
     }

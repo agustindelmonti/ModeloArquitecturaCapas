@@ -33,7 +33,7 @@ namespace BusinessLogic
         }
 
         public IEnumerable<Persona> FilterByRol(IEnumerable<Persona> personas, string rol) {
-            return personas.Where(p => p.Rol == rol);
+            return personas.Where(p => p.Role == rol);
         }
 
         public void Delete(int id) => PersonaRepository.Delete(id);

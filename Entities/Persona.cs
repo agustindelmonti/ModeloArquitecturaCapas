@@ -24,7 +24,7 @@ namespace Entities {
         public DateTime FechaNacimiento { get; set; }
         public int Legajo { get; set; }
         [Required, RolRange]
-        public string Rol { get; set; }
+        public string Role { get; set; }
 
 
         // Foreign Key

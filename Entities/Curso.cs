@@ -16,6 +16,7 @@ namespace Entities {
         public int MateriaID { get; set; }
 
         // Navegation Properties
+        public virtual Comision Comision { get; set; }
         public virtual Materia Materia { get; set; }
         public virtual ICollection<DocenteCurso> DocentesDelCurso { get; set; }
         public virtual ICollection<AlumnoInscripcion> AlumnosInscripciones { get; set; }
