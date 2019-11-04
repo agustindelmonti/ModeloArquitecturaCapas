@@ -40,6 +40,10 @@ namespace Escritorio
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlanId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
@@ -69,10 +73,18 @@ namespace Escritorio
             // 
             // dgvComisiones
             // 
+            this.dgvComisiones.AllowUserToAddRows = false;
+            this.dgvComisiones.AllowUserToDeleteRows = false;
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Descripcion,
+            this.Año,
+            this.PlanId});
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(0, 0);
             this.dgvComisiones.Name = "dgvComisiones";
+            this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.RowHeadersVisible = false;
             this.dgvComisiones.Size = new System.Drawing.Size(547, 419);
             this.dgvComisiones.TabIndex = 0;
@@ -151,6 +163,38 @@ namespace Escritorio
             this.panel1.Size = new System.Drawing.Size(236, 451);
             this.panel1.TabIndex = 6;
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ComisionID";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 140;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 140;
+            // 
+            // Año
+            // 
+            this.Año.DataPropertyName = "AnioEspecialidad";
+            this.Año.HeaderText = "Año";
+            this.Año.Name = "Año";
+            this.Año.ReadOnly = true;
+            this.Año.Width = 140;
+            // 
+            // PlanId
+            // 
+            this.PlanId.DataPropertyName = "PlanID";
+            this.PlanId.HeaderText = "PlanID";
+            this.PlanId.Name = "PlanId";
+            this.PlanId.ReadOnly = true;
+            this.PlanId.Width = 140;
+            // 
             // ListadoComisiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +228,9 @@ namespace Escritorio
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvComisiones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Año;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlanId;
     }
 }

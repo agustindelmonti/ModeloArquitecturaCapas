@@ -40,6 +40,11 @@ namespace Escritorio
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MateriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ComisionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
@@ -69,10 +74,19 @@ namespace Escritorio
             // 
             // dgvCursos
             // 
+            this.dgvCursos.AllowUserToAddRows = false;
+            this.dgvCursos.AllowUserToDeleteRows = false;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Año,
+            this.Cupo,
+            this.MateriaId,
+            this.ComisionId});
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(0, 0);
             this.dgvCursos.Name = "dgvCursos";
+            this.dgvCursos.ReadOnly = true;
             this.dgvCursos.RowHeadersVisible = false;
             this.dgvCursos.Size = new System.Drawing.Size(547, 419);
             this.dgvCursos.TabIndex = 0;
@@ -151,6 +165,42 @@ namespace Escritorio
             this.panel1.Size = new System.Drawing.Size(236, 451);
             this.panel1.TabIndex = 6;
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "CursoID";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 150;
+            // 
+            // Año
+            // 
+            this.Año.DataPropertyName = "AnioCalendario";
+            this.Año.HeaderText = "Año";
+            this.Año.Name = "Año";
+            this.Año.ReadOnly = true;
+            // 
+            // Cupo
+            // 
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.Name = "Cupo";
+            this.Cupo.ReadOnly = true;
+            // 
+            // MateriaId
+            // 
+            this.MateriaId.DataPropertyName = "MateriaID";
+            this.MateriaId.HeaderText = "MateriaId";
+            this.MateriaId.Name = "MateriaId";
+            this.MateriaId.ReadOnly = true;
+            // 
+            // ComisionId
+            // 
+            this.ComisionId.DataPropertyName = "ComisionID";
+            this.ComisionId.HeaderText = "ComisionId";
+            this.ComisionId.Name = "ComisionId";
+            this.ComisionId.ReadOnly = true;
+            // 
             // ListadoCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +234,10 @@ namespace Escritorio
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvCursos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Año;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MateriaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ComisionId;
     }
 }

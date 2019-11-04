@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CursosProfesor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CursosProfesor.Designer.cs">
+      <DependentUpon>CursosProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Detalles\ComisionDetalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CursosProfesor.resx">
+      <DependentUpon>CursosProfesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Detalles\ComisionDetalle.resx">
       <DependentUpon>ComisionDetalle.cs</DependentUpon>
     </EmbeddedResource>

@@ -62,8 +62,7 @@ namespace Escritorio
 
         private void planesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
-            panel1.Controls.Add(new ListadoPlanes());
+           
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,8 +78,31 @@ namespace Escritorio
 
         private void cursosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ReporteCursos());
+        }
+
+        private void verCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             panel1.Controls.Clear();
             panel1.Controls.Add(new ListadoCursos());
+        }
+
+        private void verPlanesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ListadoPlanes());
+        }
+
+        private void reporteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ReportePlan());
         }
     }
 }

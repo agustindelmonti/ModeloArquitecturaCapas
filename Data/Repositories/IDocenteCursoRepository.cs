@@ -6,5 +6,6 @@ namespace Data.Repositories
     public interface IDocenteCursoRepository : IRepository<DocenteCurso>
     {
         IEnumerable<DocenteCurso> GetAll();
+        IEnumerable<DocenteCurso> GetAllCursosByDocente(Persona persona);
     }
 }

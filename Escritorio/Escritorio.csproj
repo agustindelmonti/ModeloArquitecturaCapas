@@ -105,10 +105,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteCursos.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ReporteCursos.Designer.cs">
       <DependentUpon>ReporteCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportePlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportePlan.designer.cs">
+      <DependentUpon>ReportePlan.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="InformeCursos.rdlc" />
@@ -136,6 +142,10 @@
     <EmbeddedResource Include="ReporteCursos.resx">
       <DependentUpon>ReporteCursos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportePlan.resx">
+      <DependentUpon>ReportePlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="InformePlanes.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BusinessLogic.CursoLogic.datasource" />
     <None Include="Properties\DataSources\BusinessLogic.EspecialidadLogic.datasource" />

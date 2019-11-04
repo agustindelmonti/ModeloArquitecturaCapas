@@ -9,24 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BusinessLogic;
-using Microsoft.Reporting.WinForms;
 
 namespace Escritorio
 {
-    public partial class ReporteCursos : UserControl
+    public partial class ReportePlan : UserControl
     {
-        public ReporteCursos()
+        public ReportePlan()
         {
             InitializeComponent();
-            
         }
 
-        private void ReporteCursos_Load(object sender, EventArgs e)
+        private void ReportePlan_Load(object sender, EventArgs e)
         {
-            CursoLogic cur = new CursoLogic();
-            CursoBindingSource.DataSource = cur.GetAll();
-            this.informeCurso.RefreshReport();
+            PlanLogic pla = new PlanLogic();
+            PlanBindingSource.DataSource = pla.GetAll();
+            this.reportViewer1.RefreshReport();
         }
-
     }
 }

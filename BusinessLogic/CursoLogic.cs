@@ -21,6 +21,13 @@ namespace BusinessLogic
 
         public IEnumerable<Persona> GetDocentesCurso(Curso curso) => CursoRepository.GetDocentesCurso(curso);
 
+        public IEnumerable<DocenteCurso> GetAllCursosActualesByProfesor(Persona persona)
+        {
+            IEnumerable<DocenteCurso> CursosDocente = Context.DocenteCursoRepository.GetAllCursosByDocente(persona);
+
+            return CursosDocente.Where(c => c.Curso.AnioCalendario == DateTime.Now.Year).ToList();
+        }
+
         //CRUD
         public IEnumerable<Curso> GetAll() => CursoRepository.GetAll();
 
