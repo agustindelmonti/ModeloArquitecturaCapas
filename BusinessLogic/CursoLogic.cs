@@ -30,8 +30,34 @@ namespace BusinessLogic
             return cursos.Where(c => c.AnioCalendario.ToString().StartsWith(año));
         }
 
+        public IEnumerable<Curso> FindCursosActualesDocenteByPersonaID(int personaID) {
+            return CursoRepository.FindCursosActualesDocenteByPersonaID(personaID);
+        }
+
+        public IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID)
+        {
+            return CursoRepository.FindCursosActualesAlumnoByPersonaID(personaID);
+        }
+
+
         public IEnumerable<Curso> FilterByNombreMateria(IEnumerable<Curso> cursos, string materia) {
             return cursos.Where(c => c.Materia.Descripcion.ToLower().Contains(materia.ToLower()));
+        }
+
+        public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID)
+        {
+            return CursoRepository.FindCursosActualesByPersonaID(personaID);
+        }
+
+        public IEnumerable<Curso> FindCursosHabilitadosByPersonaID(int personaID)
+        {
+
+            IEnumerable<Curso> cursosInscriptos = CursoRepository.FindCursosInscriptosByPersonaID(personaID);
+            IEnumerable<Curso> cursosPlan = CursoRepository.FindCursosFromPlanByPersonaID(personaID);
+
+            IEnumerable<Curso> cursosNoInscriptos = cursosPlan.Except(cursosInscriptos);
+
+            return cursosNoInscriptos.Where(c => c.AlumnosInscripciones.Count() < c.Cupo);
         }
 
         public void Add(Curso curso) => CursoRepository.Add(curso);

@@ -25,5 +25,11 @@ namespace Data.Repositories
         public Usuario FindByUsernameAndPassword(string nombreUsuario, string clave) {
             return db.Usuarios.Where(u => u.NombreUsuario == nombreUsuario && u.Clave == clave).FirstOrDefault();
         }
+
+        public Persona GetPersonaByUserID(int userID) {
+            return db.Usuarios.Where(u => u.UsuarioID == userID)
+                              .Select(u => u.Persona)
+                              .FirstOrDefault();
+        }
     }
 }

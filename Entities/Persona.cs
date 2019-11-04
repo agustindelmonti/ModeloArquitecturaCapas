@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class Persona : BusinessEntity {   
+    public class Persona  {   
         // Atribute
         public int PersonaID { get; set; }
         [Required, StringLength(20)]
@@ -17,14 +17,14 @@ namespace Entities {
         public string Direccion { get; set; }
         [Required, EmailAddress]
         public string Email { get; set; }
-        [StringLength(20)]
+        [Required, StringLength(20)]
         public string Telefono { get; set; }
         [DataType(DataType.Date), Display(Name = "Fecha de Nacimiento")]
         public DateTime? FechaNacimiento { get; set; }
         public int Legajo { get; set; }
         [Required, EnumDataType(typeof(Rol))]
         public Rol TipoPersona { get; set; }
-
+        [Required, Validations.RolRange]
         public string Role { get; set; }
 
 

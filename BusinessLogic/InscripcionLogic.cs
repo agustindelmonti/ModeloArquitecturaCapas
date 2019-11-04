@@ -31,6 +31,20 @@ namespace BusinessLogic
 
         public void Update(AlumnoInscripcion inscripcion) => InscripcionRepository.Update(inscripcion);
 
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID, int personaID) {
+            return InscripcionRepository.FindInscripcionesByCursoIDAndPersonaID(cursoID, personaID);
+        }
+
         public void Remove(int id) => InscripcionRepository.Delete(id);
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
+            return InscripcionRepository.FindInscripcionesByPersonaID(personaID);
+        }
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID)
+        {
+            return InscripcionRepository.FindInscripcionesByCursoID(cursoID);
+        }
+        
     }
 }

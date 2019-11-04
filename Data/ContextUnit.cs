@@ -34,8 +34,6 @@ namespace Data
         public IEspecialidadRepository EspecialidadRepository { get; private set; }
         public IInscripcionRepository InscripcionRepository { get; private set; }
         public IMateriaRepository MateriaRepository { get; private set; }
-        public IModuloRepository ModuloRepository { get; private set; }
-        public IModuloUsuarioRepository ModuloUsuarioRepository { get; private set; }
         public IPersonaRepository PersonaRepository { get; private set; }
         public IPlanRepository PlanRepository { get; private set; }
         public IUsuarioRepository UsuarioRepository { get; private set; }
@@ -50,8 +48,6 @@ namespace Data
             EspecialidadRepository = new EspecialidadRepository(_context);
             InscripcionRepository = new InscripcionRepository(_context);
             MateriaRepository = new MateriaRepository(_context);
-            ModuloRepository = new ModuloRepository(_context);
-            ModuloUsuarioRepository = new ModuloUsuarioRepository(_context);
             PersonaRepository = new PersonaRepository(_context);
             PlanRepository = new PlanRepository(_context);
             UsuarioRepository = new UsuarioRepository(_context);

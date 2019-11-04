@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Entities.AlumnoInscripcion>
+
+@{
+    ViewBag.Title = "EstadoAcademico";
+}
+<br>
+<h2>EstadoAcademico</h2>
+
+
+
+<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso.Materia.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condicion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th></th>
+        </tr>
+
+@foreach (var item in Model){
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso.Materia.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Condicion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nota)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AlumnoInscripcionID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AlumnoInscripcionID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AlumnoInscripcionID })
+                </td>
+            </tr>
+}
+</table>

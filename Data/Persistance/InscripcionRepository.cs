@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System;
 
 namespace Data.Persistance
 {
@@ -22,5 +23,21 @@ namespace Data.Persistance
         {
             return db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Persona).ToList();
         }
+
+        public IEnumerable<AlumnoInscripcion> GetInscripcionesByPersonaID(int personaID) {
+            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == personaID).ToList();
+                                  
+        }
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
+            return db.AlumnoInscripciones.Where(i => i.PersonaID == personaID).Include(i => i.Curso.Materia);
+        }
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID, int personaID) {
+            return db.AlumnoInscripciones.Where(i => i.CursoID == cursoID && i.PersonaID == personaID).Include(c => c.Persona);}//este no iria por ahora
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID){
+                return db.AlumnoInscripciones.Where(i => i.CursoID == cursoID).Include(c => c.Persona);}
+
     }
 }
