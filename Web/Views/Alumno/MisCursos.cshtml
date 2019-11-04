@@ -1,7 +1,36 @@
-﻿
+﻿@model IEnumerable<Entities.Curso>
+
 @{
-    ViewBag.Title = "Usuario";
+    ViewBag.Title = "Mis Cursos";
 }
 
-<h2>Usuario</h2>
+<h2>MisCursos</h2>
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Materia.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comision.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comision)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CursoID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CursoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CursoID })
+            </td>
+        </tr>
+    }
+</table>

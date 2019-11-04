@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class DocenteCurso : BusinessEntity {
+    public class DocenteCurso  {
         // Attributes
         public int DocenteCursoID { get; set; }
         [EnumDataType(typeof(TipoCargo))]

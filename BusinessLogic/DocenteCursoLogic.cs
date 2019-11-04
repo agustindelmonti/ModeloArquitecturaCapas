@@ -9,13 +9,13 @@ namespace BusinessLogic
 {
     public class DocenteCursoLogic
     {
-        public DocenteCursoRepository DocenteCursoRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IDocenteCursoRepository DocenteCursoRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public DocenteCursoLogic()
         {
-            Context = new AcademiaContext();
-            DocenteCursoRepository= new DocenteCursoRepository(Context);
+            Context = ContextUnit.Unit;
+            DocenteCursoRepository = Context.DocenteCursoRepository;
         }
 
         //CRUD

@@ -10,5 +10,6 @@ namespace Data.Repositories
     public interface IComisionRepository : IRepository<Comision>
     {
         IEnumerable<Comision> GetAll();
+        List<Comision> GetAllByPlan(Plan plan);
     }
 }

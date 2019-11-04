@@ -11,13 +11,13 @@ namespace BusinessLogic
 {
     public class EspecialidadLogic
     {
-        public EspecialidadRepository EspecialidadRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IEspecialidadRepository EspecialidadRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public EspecialidadLogic()
         {
-            Context = new AcademiaContext();
-            EspecialidadRepository = new EspecialidadRepository(Context);
+            Context = ContextUnit.Unit;
+            EspecialidadRepository = Context.EspecialidadRepository;
         }
 
         //CRUD
@@ -34,5 +34,7 @@ namespace BusinessLogic
         public void Update(Especialidad especialidad) => EspecialidadRepository.Update(especialidad);
 
         public void Remove(int id) => EspecialidadRepository.Delete(id);
+
+        public void DeleteRange(List<Especialidad> especialidades) => EspecialidadRepository.DeleteRange(especialidades);
     }
 }

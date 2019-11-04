@@ -41,7 +41,7 @@ namespace Web.Controllers
                         DateTime.Now,                 // Start Date
                         DateTime.Now.AddMinutes(20),  // Expiration
                         false,                        // Persist
-                        u.Persona.Role,               // Rol
+                        u.Persona.Role,                // Rol
                         "/");                         // Cookie path
                     
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));

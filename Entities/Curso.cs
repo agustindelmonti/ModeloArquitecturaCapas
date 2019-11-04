@@ -6,9 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class Curso : BusinessEntity {
+    public class Curso  {
         // Attributes
         public int CursoID { get; set; }
+        [Display(Name = "Año")]
         public int AnioCalendario { get; set; }
         public int Cupo { get; set; }
 
