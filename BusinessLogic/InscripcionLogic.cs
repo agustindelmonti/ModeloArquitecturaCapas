@@ -42,10 +42,9 @@ namespace BusinessLogic {
 
         public void InscribirAlumno(int personaID, int cursoID) {
             AlumnoInscripcion alumnoInscripcion = new AlumnoInscripcion();
-            alumnoInscripcion.CursoID = cursoID;
-            alumnoInscripcion.PersonaID = personaID;
+            alumnoInscripcion.Curso = Context.CursoRepository.GetOne(cursoID);
+            alumnoInscripcion.Persona = Context.PersonaRepository.GetById(personaID); 
             alumnoInscripcion.Condicion = AlumnoInscripcion.Estado.Cursando;
-
             InscripcionRepository.Add(alumnoInscripcion);
         }
 

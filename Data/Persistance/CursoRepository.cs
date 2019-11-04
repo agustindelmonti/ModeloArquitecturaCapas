@@ -21,8 +21,7 @@ namespace Data.Repositories
         {
             return db.Cursos.Include(c => c.Materia).ToList();
         }
-
-        public Curso Find(int? id) => db.Cursos.Find(id);
+        public Curso GetOne(int id) => db.Cursos.Where(c => c.CursoID == id).SingleOrDefault();
 
         public IEnumerable<Persona> GetDocentesCurso(Curso curso)
         {
@@ -39,15 +38,15 @@ namespace Data.Repositories
         }
 
         public IEnumerable<Curso> FindCursosActualesDocenteByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.DocentesDelCurso.Where(d => d.PersonaID == personaID).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision);
+            return db.Cursos.Where(c => c.DocentesDelCurso.Where(d => d.PersonaID == personaID).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision).ToList();
         }
 
         public IEnumerable<Curso> FindCursosFromPlanByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.Materia.Plan.Personas.Where(p => p.PersonaID == personaID).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision);
+            return db.Cursos.Where(c => c.Materia.Plan.Personas.Where(p => p.PersonaID == personaID).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision).ToList();
         }
 
         public IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID) {
-            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision);
+            return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision).ToList();
         }
 
         public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID)

@@ -28,16 +28,17 @@
                 @Html.DisplayFor(modelItem => item.Comision.Descripcion)
             </td>
             <td>
-                @Html.BeginForm("Inscribirse", "Alumno", FormMethod.Post){
-                    @Html.HiddenFor(modelItem => item.CursoID);
+                @using (Html.BeginForm("Confirmar", "Alumno", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="CursoID" value="@item.CursoID" />
                     <input type="submit" class="btn btn-warning" value="Inscribir" />
-                    <p>@ViewBag.InscripcionErrorMessage</p>
                 }
             </td>
         </tr>
         }
     }
     else {
-        <h2>@ViewBag.ErrorMessage</h2>
+        <h2> @ViewBag.ErrorMessage </h2>
     }
 </table>
