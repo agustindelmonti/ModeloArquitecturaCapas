@@ -9,6 +9,7 @@ namespace Entities {
     public class Curso : BusinessEntity {
         // Attributes
         public int CursoID { get; set; }
+        [Display(Name = "Año")]
         public int AnioCalendario { get; set; }
         public int Cupo { get; set; }
 
@@ -16,6 +17,7 @@ namespace Entities {
         public int MateriaID { get; set; }
 
         // Navegation Properties
+        public virtual Comision Comision { get; set; }
         public virtual Materia Materia { get; set; }
         public virtual ICollection<DocenteCurso> DocentesDelCurso { get; set; }
         public virtual ICollection<AlumnoInscripcion> AlumnosInscripciones { get; set; }

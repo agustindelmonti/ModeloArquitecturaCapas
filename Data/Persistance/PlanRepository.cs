@@ -21,5 +21,14 @@ namespace Data.Repositories
         {
             return db.Planes.Include(p => p.Especialidad).ToList();
         }
+
+        public List<Plan> GetAllByEspecialidad(Especialidad especialidad)
+        {
+            return db.Planes
+                .Where(p => p.Especialidad.EspecialidadID == especialidad.EspecialidadID)
+                .Include(p => p.Comisiones)
+                .Include(p => p.Materias)
+                .ToList();
+        }
     }
 }
