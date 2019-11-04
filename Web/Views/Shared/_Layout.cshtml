@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Inicio", "Index", "Docente")</li>
                         <li>@Html.ActionLink("Mis Cursos", "MisCursos", "Docente")</li>
-                        <li>@Html.ActionLink("Perfil", "Perfil", "Docente")</li>
+                        <li>@Html.ActionLink("Perfil", "Perfil", "Home")</li>
                     </ul>
                 }
                 @if (User.IsInRole("No Docente"))
@@ -37,6 +37,7 @@
                         <li>@Html.ActionLink("Comisiones", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Cursos", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Especialidades", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Perfil", "Perfil", "Home")</li>
                     </ul>
                 }
                 @if (User.IsInRole("Alumno"))
@@ -45,7 +46,7 @@
                         <li>@Html.ActionLink("Inicio", "Index", "Alumno")</li>
                         <li>@Html.ActionLink("Inscribirse", "Inscripcion", "Alumno")</li>
                         <li>@Html.ActionLink("Estado Academico", "EstadoAcademico", "Alumno")</li>
-                        <li>@Html.ActionLink("Perfil", "Perfil", "Alumno")</li>
+                        <li>@Html.ActionLink("Perfil", "Perfil", "Home")</li>
                     </ul>
                 }
             </div>
