@@ -12,13 +12,13 @@ namespace BusinessLogic
 {
     public class InscripcionLogic
     {
-        public InscripcionRepository InscripcionRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IInscripcionRepository InscripcionRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public InscripcionLogic()
         {
-            Context = new AcademiaContext();
-            InscripcionRepository = new InscripcionRepository(Context);
+            Context = ContextUnit.Unit;
+            InscripcionRepository = Context.InscripcionRepository;
         }
 
         public IEnumerable<AlumnoInscripcion> GetInscripcionesWithCursoAndPersona() {

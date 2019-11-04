@@ -1,5 +1,4 @@
-﻿using Entities.Validations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,13 +17,15 @@ namespace Entities {
         public string Direccion { get; set; }
         [Required, EmailAddress]
         public string Email { get; set; }
-        [Required, StringLength(20)]
+        [StringLength(20)]
         public string Telefono { get; set; }
-        [Required, DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true), Display(Name = "Fecha de Nacimiento")]
-        public DateTime FechaNacimiento { get; set; }
+        [DataType(DataType.Date), Display(Name = "Fecha de Nacimiento")]
+        public DateTime? FechaNacimiento { get; set; }
         public int Legajo { get; set; }
-        [Required, RolRange]
-        public string Rol { get; set; }
+        [Required, EnumDataType(typeof(Rol))]
+        public Rol TipoPersona { get; set; }
+
+        public string Role { get; set; }
 
 
         // Foreign Key
@@ -35,8 +36,16 @@ namespace Entities {
         public virtual Plan Plan { get; set; }
         public virtual ICollection<AlumnoInscripcion> AlumnoInscripciones { get; set; }
         public virtual ICollection<DocenteCurso> CursosDelDocente { get; set; }
+        
+     
+        public enum Rol {
+            Alumno, Docente, No_Docente
+        }
 
-
-        public static string[] Roles = { "Alumno", "Docente", "No Docente" };
+        //Roles de acceso 
+        public static string[] Roles =
+        {
+            "Alumno", "Docente", "No Docente"
+        };
     }
 }

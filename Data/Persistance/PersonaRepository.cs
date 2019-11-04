@@ -27,5 +27,10 @@ namespace Data.Repositories
                               .Select(p => p.Plan)
                               .FirstOrDefault();
         }
+
+        public Persona GetByLegajo(int legajo)
+        {
+            return db.Personas.Where(p => p.Legajo == legajo).FirstOrDefault();
+        }
     }
 }

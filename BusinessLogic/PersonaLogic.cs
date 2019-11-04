@@ -10,13 +10,13 @@ namespace BusinessLogic
 {
     public class PersonaLogic
     {
-        public PersonaRepository PersonaRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IPersonaRepository PersonaRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public PersonaLogic()
         {
-            Context = new AcademiaContext();
-            PersonaRepository= new PersonaRepository(Context);
+            Context = ContextUnit.Unit;
+            PersonaRepository = Context.PersonaRepository;
         }
 
         //CRUD
@@ -32,10 +32,14 @@ namespace BusinessLogic
             return personas.Where(p => p.Legajo.ToString().StartsWith(legajo));
         }
 
-        public IEnumerable<Persona> FilterByRol(IEnumerable<Persona> personas, string rol) {
-            return personas.Where(p => p.Rol == rol);
+        public IEnumerable<Persona> FilterByRole(IEnumerable<Persona> personas, string role) {
+            return personas.Where(p => p.Role == role);
         }
 
         public void Delete(int id) => PersonaRepository.Delete(id);
+
+        public Persona GetByLegajo(int legajo) => PersonaRepository.GetByLegajo(legajo);
+
+        public void DeleteRange(List<Persona> personas) => PersonaRepository.DeleteRange(personas);
     }
 }

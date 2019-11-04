@@ -1,5 +1,6 @@
 ﻿using Data;
 using Data.Persistance;
+using Data.Repositories;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,13 @@ namespace BusinessLogic
 {
     public class MateriaLogic
     {
-        public MateriaRepository MateriaRepository { get; set; }
-        private readonly AcademiaContext Context;
+        public IMateriaRepository MateriaRepository { get; set; }
+        private readonly ContextUnit Context;
 
         public MateriaLogic()
         {
-            Context = new AcademiaContext();
-            MateriaRepository= new MateriaRepository(Context);
+            Context = ContextUnit.Unit;
+            MateriaRepository = Context.MateriaRepository;
         }
 
         //CRUD
@@ -33,8 +34,8 @@ namespace BusinessLogic
 
         public void Delete(int id) => MateriaRepository.Delete(id);
 
-        public IEnumerable<Materia> FindMateriasByPlanID(int planID) {
-            return MateriaRepository.FindMateriasByPlanID(planID);
-        }
+        public void DeleteRange(List<Materia> materias) => MateriaRepository.DeleteRange(materias);
+
+        public List<Materia> GetAllByPlan(Plan plan) => MateriaRepository.GetAllByPlan(plan);
     }
 }
