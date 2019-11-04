@@ -15,7 +15,6 @@ namespace Web.Controllers
         InscripcionLogic inscripcionLogic = new InscripcionLogic();
         UsuarioLogic usuarioLogic = new UsuarioLogic();
         CursoLogic cursoLogic = new CursoLogic();
-        MateriaLogic materiaLogic = new MateriaLogic();
 
         // GET: Alumno
         public ActionResult Index()
@@ -42,7 +41,7 @@ namespace Web.Controllers
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
 
-            IEnumerable<Curso> cursosActuales = cursoLogic.FindCursosActualesByPersonaID(persona.PersonaID);
+            IEnumerable<Curso> cursosActuales = cursoLogic.FindCursosActualesAlumnoByPersonaID(persona.PersonaID);
 
             return View(cursosActuales);
 
