@@ -21,5 +21,13 @@ namespace Data.Repositories
         {
             return db.DocenteCursos.Include(d => d.Curso).ToList();
         }
+
+        public IEnumerable<DocenteCurso> GetAllCursosByDocente(Persona persona)
+        {
+            return db.DocenteCursos
+                .Where(c => c.DocenteID == persona.PersonaID)
+                .Include(c => c.Curso)
+                .ToList();
+        }
     }
 }
