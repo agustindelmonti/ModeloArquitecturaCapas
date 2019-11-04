@@ -239,6 +239,7 @@
     <Content Include="Views\Alumno\Index.cshtml" />
     <Content Include="Views\NoDocente\Index.cshtml" />
     <Content Include="Views\Alumno\_SinCursos.cshtml" />
+    <Content Include="Views\Home\Perfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
