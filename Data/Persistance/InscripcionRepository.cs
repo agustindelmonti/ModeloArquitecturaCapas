@@ -36,5 +36,20 @@ namespace Data.Persistance {
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID) {
             return db.AlumnoInscripciones.Where(i => i.CursoID == cursoID).Include(c => c.Persona);
         }
+
+        public void AsignarNotas(AlumnoInscripcion inscripcion) {
+            AlumnoInscripcion insc = db.AlumnoInscripciones.Where(i => i.AlumnoInscripcionID == inscripcion.AlumnoInscripcionID).FirstOrDefault();
+            insc.Nota = inscripcion.Nota;
+
+            if(insc.Nota < 6) {
+                insc.Condicion = AlumnoInscripcion.Estado.Libre;
+            }
+            else if (insc.Nota >= 6 && insc.Nota <=8) {
+                insc.Condicion = AlumnoInscripcion.Estado.Regular;
+            }
+            else {
+                insc.Condicion = AlumnoInscripcion.Estado.Aprobado;
+            }
+        }
     }
 }

@@ -46,8 +46,10 @@ namespace Web.Controllers
 
 
         [HttpPost]
-        public ActionResult Calificar([Bind(Include = "AlumnoInscripcionID,Nota")] IEnumerable<Entities.AlumnoInscripcion> inscripciones) {
-            return View("MisCursos");
+        public ActionResult Calificar([Bind(Include = "AlumnoInscripcionID,Nota")] IEnumerable<AlumnoInscripcion> inscripciones) {
+            inscripcionLogic.AsignarNotas(inscripciones);
+
+            return RedirectToAction("MisCursos");
         }
 
     }

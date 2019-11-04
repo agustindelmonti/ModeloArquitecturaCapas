@@ -48,6 +48,12 @@ namespace BusinessLogic {
             InscripcionRepository.Add(alumnoInscripcion);
         }
 
+        public void AsignarNotas(IEnumerable<AlumnoInscripcion> inscripciones) {
+            foreach(AlumnoInscripcion inscripcion in inscripciones) {
+                InscripcionRepository.AsignarNotas(inscripcion);
+            }
+        }
+
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID)
         {
             return InscripcionRepository.FindInscripcionesByCursoID(cursoID);

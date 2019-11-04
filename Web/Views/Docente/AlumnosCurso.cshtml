@@ -9,7 +9,7 @@
 @using (Html.BeginForm("Calificar", "Docente", FormMethod.Post)) {
 <div>
     @if (ViewBag.EditMode == false) {
-        @Html.ActionLink("Calificar", "MisCursos", "Docente", new { editar = true }, null)
+        @Html.ActionLink("Edit Mode", "MisCursos", "Docente", new { editar = true }, null)
     }
     else {
         @Html.ActionLink("Calificar", "MisCursos", "Docente", new { editar = false }, null)
@@ -38,40 +38,45 @@
 
 
 
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Persona.Legajo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Persona.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Persona.Apellido)
-                </td>
-                @if (ViewBag.EditMode == true) {
-                    <td>
-                        @Html.EditorFor(Model => item.Nota, new { htmlAttributes = new { @class = "form-control" } })
-                    </td>
-                    Html.HiddenFor(Model => item.AlumnoInscripcionID);
-                }
-                else {
-                    if (item.Nota == null) {
-                        <td>
-                            <p>--</p>
-                        </td>
-                    }
-                    else {
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nota)
-                        </td>
-                    }
-                }
+        @for (int i = 0; i < Model.Count(); i++) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ToList()[i].Persona.Legajo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ToList()[i].Persona.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ToList()[i].Persona.Apellido)
+        </td>
+        @if (ViewBag.EditMode == true) {
+    <td>
+        @Html.EditorFor(Model => Model.ToList()[i].Nota, new { htmlAttributes = new { @class = "form-control" } })
+       
 
+    </td>
+            
+        }
+        else {
+            if (Model.ToList()[i].Nota == null) {
                 <td>
-                    @Html.DisplayFor(modelItem => item.Condicion)
+                    <p>--</p>
                 </td>
-            </tr>
+            }
+            else {
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ToList()[i].Nota)
+                </td>
+            }
+        }
+
+        <td>
+            @Html.DisplayFor(modelItem => Model.ToList()[i].Condicion)
+        </td>
+        <td>
+            @Html.EditorFor(Model => Model.ToList()[i].AlumnoInscripcionID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </td>
+    </tr>
         }
     </table>
 }
