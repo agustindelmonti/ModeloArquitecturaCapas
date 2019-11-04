@@ -25,10 +25,6 @@ namespace BusinessLogic
             return InscripcionRepository.GetInscripcionesWithCursoAndPersona();
         }
 
-        public object FindInscripcionesByPersona(Persona persona) {
-            return InscripcionRepository.GetInscripcionesByPersona(persona);
-        }
-
         public AlumnoInscripcion Find(int? id) => InscripcionRepository.GetById(id);
 
         public void Add(AlumnoInscripcion inscripcion) => InscripcionRepository.Add(inscripcion);
@@ -36,5 +32,10 @@ namespace BusinessLogic
         public void Update(AlumnoInscripcion inscripcion) => InscripcionRepository.Update(inscripcion);
 
         public void Remove(int id) => InscripcionRepository.Delete(id);
+
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
+            return InscripcionRepository.FindInscripcionesByPersonaID(personaID);
+        }
     }
 }

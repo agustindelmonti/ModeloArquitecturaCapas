@@ -37,6 +37,22 @@ namespace BusinessLogic
 
         public void Update(Curso curso) => CursoRepository.Update(curso);
 
+
+        public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID) {
+            return CursoRepository.FindCursosActualesByPersonaID(personaID);
+        }
+
         public void Delete(int id) => CursoRepository.Delete(id);
+
+        
+        public IEnumerable<Curso> FindCursosHabilitadosByPersonaID(int personaID) {
+            
+            IEnumerable<Curso> cursosInscriptos = CursoRepository.FindCursosInscriptosByPersonaID(personaID);//cursos en los que esta inscripto
+            IEnumerable<Curso> cursosPlan = CursoRepository.FindCursosFromPlanByPersonaID(personaID);//cursos del plan
+
+            IEnumerable<Curso> cursosNoInscriptos = cursosPlan.Except(cursosInscriptos);//cursos del plan - cursos inscripto
+            
+            return cursosNoInscriptos.Where(c => c.AlumnosInscripciones.Count() < c.Cupo);
+        }
     }
 }

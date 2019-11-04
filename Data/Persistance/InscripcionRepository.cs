@@ -24,9 +24,13 @@ namespace Data.Persistance
             return db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Persona).ToList();
         }
 
-        public object GetInscripcionesByPersona(Persona persona) {
-            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == persona.PersonaID);
+        public IEnumerable<AlumnoInscripcion> GetInscripcionesByPersonaID(int personaID) {
+            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == personaID).ToList();
                                   
+        }
+
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
+            return db.AlumnoInscripciones.Where(i => i.Persona.PersonaID == personaID);
         }
     }
 }

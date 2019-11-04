@@ -7,20 +7,6 @@
 <h2>EstadoAcademico</h2>
 
 
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
-
-
-
-@*@using (Html.BeginForm("Index", "Alumno", FormMethod.Get))
-    {
-        <p>
-            Nombre: @Html.TextBox("descripcion") <br />
-            <input type="submit" value="Filter" />
-        </p>
-}*@
-
 
 <table class="table">
         <tr>
@@ -39,7 +25,7 @@
 @foreach (var item in Model){
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Curso.MateriaID)
+                    @Html.DisplayFor(modelItem => item.Curso.Materia.Descripcion)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Condicion)

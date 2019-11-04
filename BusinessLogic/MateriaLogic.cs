@@ -32,5 +32,9 @@ namespace BusinessLogic
         public void Update(Materia materia) => MateriaRepository.Update(materia);
 
         public void Delete(int id) => MateriaRepository.Delete(id);
+
+        public IEnumerable<Materia> FindMateriasByPlanID(int planID) {
+            return MateriaRepository.FindMateriasByPlanID(planID);
+        }
     }
 }

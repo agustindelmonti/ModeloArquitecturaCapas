@@ -19,6 +19,7 @@ namespace Entities {
         public virtual Materia Materia { get; set; }
         public virtual ICollection<DocenteCurso> DocentesDelCurso { get; set; }
         public virtual ICollection<AlumnoInscripcion> AlumnosInscripciones { get; set; }
+        public virtual Comision Comision { get; set; }
 
     }
 }

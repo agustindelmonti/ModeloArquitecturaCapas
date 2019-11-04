@@ -14,6 +14,8 @@ namespace Web.Controllers
 
         InscripcionLogic inscripcionLogic = new InscripcionLogic();
         UsuarioLogic usuarioLogic = new UsuarioLogic();
+        CursoLogic cursoLogic = new CursoLogic();
+        MateriaLogic materiaLogic = new MateriaLogic();
 
         // GET: Alumno
         public ActionResult Index()
@@ -27,10 +29,36 @@ namespace Web.Controllers
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
 
-            var materiasEstado = inscripcionLogic.FindInscripcionesByPersona(persona);
+            IEnumerable<AlumnoInscripcion> inscripcionesEstado = inscripcionLogic.FindInscripcionesByPersonaID(persona.PersonaID);
 
-            return View(materiasEstado);
+            return View(inscripcionesEstado);
 
         }
+
+        
+        public ActionResult MisCursos() {
+            int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
+
+            Persona persona = usuarioLogic.GetPersonaByUserID(userID);
+
+            IEnumerable<Curso> cursosActuales = cursoLogic.FindCursosActualesByPersonaID(persona.PersonaID);
+
+            return View(cursosActuales);
+        }
+
+
+        public ActionResult Inscripcion() {
+            int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
+
+            Persona persona = usuarioLogic.GetPersonaByUserID(userID);
+
+
+            IEnumerable<Curso> cursosHabilitadosInscripcion = cursoLogic.FindCursosHabilitadosByPersonaID(persona.PersonaID);
+
+            return View(cursosHabilitadosInscripcion);
+        }
+
+
+        
     }
 }

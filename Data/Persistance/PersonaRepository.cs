@@ -22,5 +22,10 @@ namespace Data.Repositories
             return db.Personas.Include(p => p.Plan).ToList();
         }
 
+        public Plan GetPlanFromPersona(int personaID) {
+            return db.Personas.Where(p => p.PersonaID == personaID)
+                              .Select(p => p.Plan)
+                              .FirstOrDefault();
+        }
     }
 }

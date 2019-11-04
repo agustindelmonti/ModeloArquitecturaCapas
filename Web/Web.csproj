@@ -230,6 +230,8 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Alumno\EstadoAcademico.cshtml" />
     <Content Include="Views\Alumno\Index.cshtml" />
+    <Content Include="Views\Alumno\MisCursos.cshtml" />
+    <Content Include="Views\Alumno\Inscripcion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
