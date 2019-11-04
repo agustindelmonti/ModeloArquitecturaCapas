@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic
-{
+namespace BusinessLogic {
     public class InscripcionLogic
     {
         public IInscripcionRepository InscripcionRepository { get; set; }
@@ -31,14 +30,23 @@ namespace BusinessLogic
 
         public void Update(AlumnoInscripcion inscripcion) => InscripcionRepository.Update(inscripcion);
 
-        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID, int personaID) {
-            return InscripcionRepository.FindInscripcionesByCursoIDAndPersonaID(cursoID, personaID);
+        public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID, int docenteID) {
+            return InscripcionRepository.FindInscripcionesByCursoIDAndPersonaID(cursoID, docenteID);
         }
 
         public void Remove(int id) => InscripcionRepository.Delete(id);
 
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
             return InscripcionRepository.FindInscripcionesByPersonaID(personaID);
+        }
+
+        public void InscribirAlumno(int personaID, int cursoID) {
+            AlumnoInscripcion alumnoInscripcion = new AlumnoInscripcion();
+            alumnoInscripcion.CursoID = cursoID;
+            alumnoInscripcion.PersonaID = personaID;
+            alumnoInscripcion.Condicion = AlumnoInscripcion.Estado.Cursando;
+
+            InscripcionRepository.Add(alumnoInscripcion);
         }
 
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID)
@@ -48,3 +56,4 @@ namespace BusinessLogic
         
     }
 }
+

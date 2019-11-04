@@ -28,7 +28,7 @@ namespace Entities {
         public virtual Curso Curso { get; set; }
 
         public enum Estado {
-            Inscrito, Cursando, Regular, Aprobado, Libre
+            Cursando, Regular, Aprobado, Libre
         }
     }
 }

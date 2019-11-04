@@ -58,15 +58,19 @@ namespace Web.Controllers
 
             return View(cursosHabilitadosInscripcion);
         }
-        /*
+        
+
         [HttpPost]
-        public ActionResult Inscripcion([Bind) {
+        public ActionResult Inscripcion(int cursoID) {
             int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
 
+            inscripcionLogic.InscribirAlumno(persona.PersonaID, cursoID);
+
+            return Redirect("InscripcionConfirmada");
         }
-        */
+        
 
         
     }

@@ -26,9 +26,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.Comision)
         </td>
-        @*<td>
-            @Html.ActionLink("Inscribirse", "Edit", new { id = item.CursoID })
-        </td>*@
+        <td>
+            @Html.BeginForm("Inscribirse", "Alumno", FormMethod.Post){
+                @Html.HiddenFor(modelItem => item.CursoID);
+                <input type="submit" class="btn btn-warning" value="Inscribir" />
+                <p>@ViewBag.InscripcionErrorMessage</p>
+            }
+        </td>
     </tr>
     }
 </table>

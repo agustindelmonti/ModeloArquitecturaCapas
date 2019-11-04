@@ -9,7 +9,7 @@ namespace Entities {
     public class Materia  {
         // Attributes
         public int MateriaID { get; set; }
-        [Required, StringLength(20), Display(Name = "Nombre")]
+        [Required, StringLength(20), Display(Name = "Materia")]
         public string Descripcion { get; set; }
         public int HsSemanales { get; set; }
         public int HsTotales { get; set; }
