@@ -87,10 +87,10 @@ namespace UserControlsDesktop
             {
                 AnioCalendario = CursoActual.AnioCalendario;
                 Cupo = CursoActual.Cupo;
-                Materia = CursoActual.Materia;
-                Comision = CursoActual.Comision;
-                Plan = Comision.Plan;
-                Especialidad = Plan.Especialidad;
+                if(CursoActual.Materia != null) Materia = CursoActual.Materia;
+                if (CursoActual.Comision != null) Comision = CursoActual.Comision;
+                if (Comision.Plan != null) Plan = Comision.Plan;
+                if (Plan.Especialidad != null) Especialidad = Plan.Especialidad;
             }
             if (Modo == ModoForm.Consulta)
             {
