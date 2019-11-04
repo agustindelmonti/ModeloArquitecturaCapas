@@ -41,12 +41,10 @@ namespace Escritorio
             this.btnAceptar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnioCalendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MateriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ComisionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
@@ -81,12 +79,10 @@ namespace Escritorio
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.AnioCalendario,
-            this.Materia,
+            this.Año,
             this.Cupo,
-            this.Comision,
-            this.Especialidad,
-            this.Plan});
+            this.MateriaId,
+            this.ComisionId});
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(0, 0);
             this.dgvCursos.Name = "dgvCursos";
@@ -173,26 +169,16 @@ namespace Escritorio
             // 
             this.Id.DataPropertyName = "CursoID";
             this.Id.HeaderText = "Id";
-            this.Id.MaxInputLength = 5;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 50;
+            this.Id.Width = 150;
             // 
-            // AnioCalendario
+            // Año
             // 
-            this.AnioCalendario.DataPropertyName = "AnioCalendario";
-            this.AnioCalendario.HeaderText = "Año ";
-            this.AnioCalendario.MaxInputLength = 4;
-            this.AnioCalendario.Name = "AnioCalendario";
-            this.AnioCalendario.ReadOnly = true;
-            this.AnioCalendario.Width = 40;
-            // 
-            // Materia
-            // 
-            this.Materia.DataPropertyName = "Materia.Descripcion";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.Name = "Materia";
-            this.Materia.ReadOnly = true;
+            this.Año.DataPropertyName = "AnioCalendario";
+            this.Año.HeaderText = "Año";
+            this.Año.Name = "Año";
+            this.Año.ReadOnly = true;
             // 
             // Cupo
             // 
@@ -200,25 +186,20 @@ namespace Escritorio
             this.Cupo.HeaderText = "Cupo";
             this.Cupo.Name = "Cupo";
             this.Cupo.ReadOnly = true;
-            this.Cupo.Width = 40;
             // 
-            // Comision
+            // MateriaId
             // 
-            this.Comision.HeaderText = "Comision";
-            this.Comision.Name = "Comision";
-            this.Comision.ReadOnly = true;
+            this.MateriaId.DataPropertyName = "MateriaID";
+            this.MateriaId.HeaderText = "MateriaId";
+            this.MateriaId.Name = "MateriaId";
+            this.MateriaId.ReadOnly = true;
             // 
-            // Especialidad
+            // ComisionId
             // 
-            this.Especialidad.HeaderText = "Especialidad";
-            this.Especialidad.Name = "Especialidad";
-            this.Especialidad.ReadOnly = true;
-            // 
-            // Plan
-            // 
-            this.Plan.HeaderText = "Plan";
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
+            this.ComisionId.DataPropertyName = "ComisionID";
+            this.ComisionId.HeaderText = "ComisionId";
+            this.ComisionId.Name = "ComisionId";
+            this.ComisionId.ReadOnly = true;
             // 
             // ListadoCursos
             // 
@@ -254,11 +235,9 @@ namespace Escritorio
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvCursos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AnioCalendario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Año;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MateriaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ComisionId;
     }
 }
