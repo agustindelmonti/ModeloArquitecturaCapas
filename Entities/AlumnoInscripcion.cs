@@ -15,7 +15,7 @@ namespace Entities {
         public Estado Condicion { get; set; }
 
         [Range(1,10)]
-        public int Nota { get; set; }
+        public int? Nota { get; set; }
 
         // Foreign Keys
         public int PersonaID { get; set; }

@@ -4,6 +4,7 @@ using Data.Repositories;
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Utils.Exceptions;
 
 namespace BusinessLogic
@@ -41,7 +42,12 @@ namespace BusinessLogic
 
         public Persona GetPersonaByUserID(int userID)
         {
-            throw new NotImplementedException();
+            return UsuarioRepository.GetPersonaByUserID(userID);
+        }
+
+        public IEnumerable<Usuario> FilterByNombreUsuario(IEnumerable<Usuario> usuarios, string nombreUsuario)
+        {
+            return usuarios.Where(u => u.NombreUsuario.ToLower().Contains(nombreUsuario.ToLower()));
         }
 
         //CRUD

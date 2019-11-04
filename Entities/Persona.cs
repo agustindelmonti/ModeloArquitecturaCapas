@@ -24,9 +24,7 @@ namespace Entities {
         public int Legajo { get; set; }
         [Required, EnumDataType(typeof(Rol))]
         public Rol TipoPersona { get; set; }
-
-        public string Role { get; set; }
-        [Required, RolRange]
+        [Required, Validations.RolRange]
         public string Role { get; set; }
 
 
