@@ -73,7 +73,7 @@ namespace Web.Controllers
 
             inscripcionLogic.InscribirAlumno(persona.PersonaID, curso.CursoID);
 
-            return Redirect("InscripcionConfirmada");
+            return RedirectToAction("Index");
         }
         
 

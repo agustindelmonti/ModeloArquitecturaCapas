@@ -13,6 +13,6 @@ namespace Data.Repositories
         IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID);
         IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID,int personaID);
         IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID);
-        public void AsignarNotas(AlumnoInscripcion inscripcion);
+        void AsignarNotas(AlumnoInscripcion inscripcion);
     }
 }
