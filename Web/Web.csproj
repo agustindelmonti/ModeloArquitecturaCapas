@@ -56,6 +56,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -160,6 +161,7 @@
     <Content Include="Images\fachada_utn.jpg" />
     <Content Include="Images\PageError.gif" />
     <Content Include="Images\Search.gif" />
+    <Content Include="Scripts\Api_Calls\endpoints.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -244,6 +246,7 @@
     <Content Include="Views\NoDocente\Index.cshtml" />
     <Content Include="Views\Alumno\_SinCursos.cshtml" />
     <Content Include="Views\Home\Perfil.cshtml" />
+    <Content Include="Views\Comision\_ComisionForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

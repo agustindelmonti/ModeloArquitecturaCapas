@@ -1,0 +1,49 @@
+﻿@model Entities.Comision
+
+@{
+    @Scripts.Render("~/Scripts/Api_Calls/endpoints.js")
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AnioEspecialidad, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AnioEspecialidad, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AnioEspecialidad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!-- DropDownList Especialidad-->
+    <div class="form-group">
+        <p class="control-label col-md-2">Especialidad</p>
+        <div class="col-md-10">
+            @Html.DropDownList("Especialidad", new SelectList(ViewBag.Especialidades, "EspecialidadId", "Descripcion"),
+                 htmlAttributes: new { @class = "form-control" , @id = "ddlespecialidad", @onchange = "javascript:GetPlanes(this.value);" })
+        </div>
+    </div>
+
+    <!-- DropDownList plan-->
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.PlanID, "Plan", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("PlanId", new SelectList(Enumerable.Empty<SelectListItem>(), "PlanID", "Descripcion"), htmlAttributes: new { @class = "form-control", @id = "ddlplanes" })
+            @Html.ValidationMessageFor(model => model.PlanID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
