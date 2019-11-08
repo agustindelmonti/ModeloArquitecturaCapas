@@ -83,7 +83,7 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", comision.PlanID);
+            ViewBag.Especialidades = EspecialidadLogic.GetAll();
             return View(comision);
         }
 
