@@ -11,17 +11,14 @@
 </p>
 
 
-
-
-@using (Html.BeginForm("Index", "Curso", FormMethod.Get)) {
+@using (Html.BeginForm("Index", "Curso", FormMethod.Get))
+{
     <p>
         Año: @Html.TextBox("año") <br />
         Materia: @Html.TextBox("materia") <br />
         <input type="submit" value="Filter" />
     </p>
 }
-
-
 
 <table class="table">
     <tr>
@@ -32,15 +29,16 @@
             @Html.DisplayNameFor(model => model.AnioCalendario)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cupo)
+            @Html.DisplayNameFor(model => model.Comision.Descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.State)
+            @Html.DisplayNameFor(model => model.Cupo)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Materia.Descripcion)
@@ -49,17 +47,17 @@
             @Html.DisplayFor(modelItem => item.AnioCalendario)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Comision.Descripcion)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Cupo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CursoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CursoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CursoID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.CursoID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CursoID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CursoID })
         </td>
     </tr>
-}
+    }
 
 </table>

@@ -11,40 +11,34 @@
 </p>
 
 
-@using (Html.BeginForm("Index", "Especialidad", FormMethod.Get)) {
+@using (Html.BeginForm("Index", "Especialidad", FormMethod.Get))
+{
     <p>
         Nombre: @Html.TextBox("descripcion") <br />
         <input type="submit" value="Filter" />
     </p>
 }
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
 
-
-    <table class="table">
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EspecialidadID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EspecialidadID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EspecialidadID })
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EspecialidadID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.EspecialidadID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.EspecialidadID })
-                </td>
-            </tr>
-        }
-
-    </table>
+</table>

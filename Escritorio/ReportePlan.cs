@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BusinessLogic;
+using Microsoft.Reporting.WinForms;
 
 namespace Escritorio
 {

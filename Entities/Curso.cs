@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class Curso : BusinessEntity {
+    public class Curso  {
         // Attributes
         public int CursoID { get; set; }
         [Display(Name = "Año")]
@@ -15,6 +15,7 @@ namespace Entities {
 
         // Foreign Keys
         public int MateriaID { get; set; }
+        public int ComisionID { get; set; }
 
         // Navegation Properties
         public virtual Comision Comision { get; set; }

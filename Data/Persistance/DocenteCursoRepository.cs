@@ -25,7 +25,7 @@ namespace Data.Repositories
         public IEnumerable<DocenteCurso> GetAllCursosByDocente(Persona persona)
         {
             return db.DocenteCursos
-                .Where(c => c.DocenteID == persona.PersonaID)
+                .Where(c => c.PersonaID == persona.PersonaID)
                 .Include(c => c.Curso)
                 .ToList();
         }

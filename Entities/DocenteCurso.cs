@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class DocenteCurso : BusinessEntity {
+    public class DocenteCurso  {
         // Attributes
         public int DocenteCursoID { get; set; }
         [EnumDataType(typeof(TipoCargo))]
@@ -15,7 +15,7 @@ namespace Entities {
 
         // Foreign Keys
         public int CursoID { get; set; }
-        public int DocenteID { get; set; }
+        public int PersonaID { get; set; }
 
 
         // Navegation Properties

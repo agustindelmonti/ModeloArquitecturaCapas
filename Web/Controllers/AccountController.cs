@@ -37,11 +37,11 @@ namespace Web.Controllers
                     
                     FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
                         1,                            // Version
-                        u.UsuarioID.ToString(),       
-                        DateTime.Now,                  
+                        u.UsuarioID.ToString(),       // Auth Ticket Name
+                        DateTime.Now,                 // Start Date
                         DateTime.Now.AddMinutes(20),  // Expiration
                         false,                        // Persist
-                        u.Persona.Rol,        // Rol
+                        u.Persona.Role,                // Rol
                         "/");                         // Cookie path
                     
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
@@ -52,7 +52,18 @@ namespace Web.Controllers
                         return Redirect(returnUrl);
                     }
                     else {
-                        return RedirectToAction("index", "home");
+                        if (u.Persona.Role == "Alumno") { 
+                            return RedirectToAction("index", "Alumno");
+                        }
+                        if (u.Persona.Role == "Docente") {
+                            return RedirectToAction("index", "Docente");
+                        }
+                        if (u.Persona.Role == "No Docente") {
+                            return RedirectToAction("index", "NoDocente");
+                        }
+                        else {
+                            return RedirectToAction("index", "Home");
+                        }
                     }
 
                 }

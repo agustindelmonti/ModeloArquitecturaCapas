@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities {
-    public class Plan : BusinessEntity {
+    public class Plan  {
         // Attributes
         public int PlanID { get; set; }
         [Required, StringLength(20)]

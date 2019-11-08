@@ -5,10 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using BusinessLogic;
+using BusinessLogic.Authorization;
 using Entities;
 
 namespace Web.Controllers
 {
+    [CustomAuthorize(Roles = "No Docente")]
     public class DocenteCursoController : Controller
     {
         DocenteCursoLogic DocenteLogic = new DocenteCursoLogic();
