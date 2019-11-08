@@ -125,5 +125,17 @@ namespace Web.Controllers
             PlanLogic.Delete(id);
             return RedirectToAction("Index");
         }
+
+        //Endpoints API para llamadas AJAX
+
+        //POST 
+        [HttpPost]
+        public ActionResult GetPlanesByEspecialidad(int especialidadid)
+        {
+            Especialidad especialidad = EspecialidadLogic.Find(especialidadid);
+            List<Plan> planesEspecialidad = PlanLogic.GetAllByEspecialidad(especialidad);
+            SelectList planes = new SelectList(planesEspecialidad, "PlanID", "Descripcion", 0);
+            return Json(planes);
+        }
     }
 }

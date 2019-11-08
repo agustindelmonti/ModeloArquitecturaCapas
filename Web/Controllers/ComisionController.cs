@@ -17,6 +17,7 @@ namespace Web.Controllers
     {
         ComisionLogic ComisionLogic = new ComisionLogic();
         PlanLogic PlanLogic = new PlanLogic();
+        EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Comision
         public ActionResult Index(string nroComision)
@@ -49,7 +50,7 @@ namespace Web.Controllers
         // GET: Comision/Create
         public ActionResult Create()
         {
-            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion");
+            ViewBag.Especialidades = EspecialidadLogic.GetAll();
             return View();
         }
 
