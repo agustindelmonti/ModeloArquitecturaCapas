@@ -8,67 +8,81 @@
 }
 
 <h2>Inscripcion a cursado</h2>
-@if (Model.Count() != 0)
+
+@if (Model.Count() == 0)
 {
-    foreach (var m in materias)
-    {
-    <div>
-        <h4 style="background-color: cadetblue; text-align: center; padding: 7px; color: white;">
-            @Html.DisplayFor(modelItem => m.Descripcion)
-        </h4>
-
-        <table class="table table-hover table-striped table-bordered" style="text-align: center;">
-            <thead>
-                <tr>
-                    <th class="col-md-1">Comision</th>
-                    <th class="col-md-2">Titular</th>
-                    <th class="col-md-2">Auxiliar</th>
-                    <th class="col-md-2">Ayudante</th>
-                    <th class="col-md-1"></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    if (item.Materia == m)
-                    {
-                        var titular = item.DocentesDelCurso.Where(p => p.Cargo == DocenteCurso.TipoCargo.Titular).SingleOrDefault();
-                        var auxiliar = item.DocentesDelCurso.SingleOrDefault(p => p.Cargo == DocenteCurso.TipoCargo.Auxiliar);
-                        var ayudante = item.DocentesDelCurso.SingleOrDefault(p => p.Cargo == DocenteCurso.TipoCargo.Ayudante);
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Comision.Descripcion)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => titular.Docente.Apellido)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => auxiliar.Docente.Apellido)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => ayudante.Docente.Apellido)
-                            </td>
-                            <td>
-                                @using (Html.BeginForm("Confirmar", "Alumno", FormMethod.Post))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    <input type="hidden" name="CursoID" value="@item.CursoID" />
-                                    <input type="submit" class="btn btn-warning" value="Inscribir" />
-                                }
-                            </td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
+    <div class="alert alert-danger" role="alert">
+        <strong>@TempData["ErrorMessage"]!</strong>
+        <div>
+            @Html.ActionLink("Volver a menu", "Index")
+        </div>
     </div>
-    }
 }
 else
 {
-    <h4 class="text-danger"> @ViewBag.ErrorMessage </h4>
-    <div>
-        @Html.ActionLink("Volver a menu", "Index")
+    <!--Alerta inscripcion hecha correctamente-->
+    if (TempData["SuccessMessage"] != null)
+    {
+    <div class="alert alert-success alert-dismissible show" role="alert">
+        <strong>@TempData["SuccessMessage"]!</strong> Ver inscripciones en @Html.ActionLink("estado academico", "EstadoAcademico") .
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+    }
+
+    foreach (var m in materias)
+    {
+        <div>
+            <h4 style="background-color: cadetblue; text-align: center; padding: 7px; color: white;">
+                @Html.DisplayFor(modelItem => m.Descripcion)
+            </h4>
+
+            <table class="table table-hover table-striped table-bordered" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th class="col-md-1">Comision</th>
+                        <th class="col-md-2">Titular</th>
+                        <th class="col-md-2">Auxiliar</th>
+                        <th class="col-md-2">Ayudante</th>
+                        <th class="col-md-1"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        if (item.Materia == m)
+                        {
+                            var titular = item.DocentesDelCurso.Where(p => p.Cargo == DocenteCurso.TipoCargo.Titular).SingleOrDefault();
+                            var auxiliar = item.DocentesDelCurso.SingleOrDefault(p => p.Cargo == DocenteCurso.TipoCargo.Auxiliar);
+                            var ayudante = item.DocentesDelCurso.SingleOrDefault(p => p.Cargo == DocenteCurso.TipoCargo.Ayudante);
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comision.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => titular.Docente.Apellido)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => auxiliar.Docente.Apellido)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => ayudante.Docente.Apellido)
+                                </td>
+                                <td>
+                                    @using (Html.BeginForm("Confirmar", "Alumno", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="CursoID" value="@item.CursoID" />
+                                        <input type="submit" class="btn btn-warning" value="Inscribir" />
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
 }

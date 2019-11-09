@@ -57,7 +57,7 @@ namespace Web.Controllers
             IEnumerable<Curso> cursosHabilitadosInscripcion = cursoLogic.FindCursosHabilitadosByPersonaID(persona.PersonaID);
 
             if (cursosHabilitadosInscripcion.Count() == 0) {
-                ViewBag.ErrorMessage = "No hay cursos en los que se pueda inscribir.";
+                TempData["ErrorMessage"] = "No hay cursos en los que se pueda inscribir";
             }
 
             return View(cursosHabilitadosInscripcion);
@@ -70,13 +70,17 @@ namespace Web.Controllers
             int userID = Convert.ToInt32(HttpContext.User.Identity.Name);
 
             Persona persona = usuarioLogic.GetPersonaByUserID(userID);
+            try
+            {
+                inscripcionLogic.InscribirAlumno(persona.PersonaID, curso.CursoID);
+                TempData["SuccessMessage"] = "Inscripcion realizada con exito";
+            }
+            catch(Exception e)
+            {
+                TempData["ErrorMessage"] = "Ha sucedido un error procesando la inscripcion";
+            }
 
-            inscripcionLogic.InscribirAlumno(persona.PersonaID, curso.CursoID);
-
-            return RedirectToAction("Index");
-        }
-        
-
-        
+            return RedirectToAction("Inscripcion");
+        }  
     }
 }
