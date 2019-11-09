@@ -3,15 +3,15 @@
 @{
     ViewBag.Title = "Perfil";
 }
-<br>
-<br>
+
 <h1>Perfil</h1>
 <br>
-<h4>Legajo: @Model.Legajo </h4>
-<br>
-<h4>Nombre: @Model.Nombre </h4>
-<br>
-<h4>Apellido: @Model.Apellido </h4>
-<br>
-<h4>Telefono: @Model.Telefono </h4>
-<br>
+<div style="display: flex; flex-direction: row">
+
+    <div style="display: flex; flex-direction: column">
+        <h4><span class="glyphicon glyphicon-user"></span> @Model.Nombre @Model.Apellido</h4>
+        <h4><span class="glyphicon glyphicon-education"></span> @Model.TipoPersona</h4>
+        <h4><span class="glyphicon glyphicon-barcode"></span> Legajo: @Model.Legajo</h4>
+        <h4><span class="glyphicon glyphicon-phone"></span> @Model.Telefono</h4>
+    </div>
+</div>
