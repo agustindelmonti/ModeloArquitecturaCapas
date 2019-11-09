@@ -5,92 +5,106 @@
 }
 <br>
 <h2>Alumnos del curso</h2>
-@Html.ActionLink("Volver a cursos", "MisCursos", "Docente")
 
-@using (Html.BeginForm("Calificar", "Docente", FormMethod.Post))
+@if (Model.Count() == 0)
 {
-    <div style="display: inline-flex; margin: 7px;">
-        @if (!ViewBag.EditMode)
-        {
-
-            <button class="button btn btn-warning" style="margin:2px">
-                <h7><span class="glyphicon glyphicon-edit"></span> @(Html.ActionLink("Calificar", "AlumnosCurso", "Docente", new { editar = true }, new { @style = "color:white;" }))</h7>
-            </button>
-        }
-        else
-        {
-            <div>
-                <button class="button btn btn-danger" style="margin:2px">
-                    <h7><span class="glyphicon glyphicon-remove"></span> @Html.ActionLink("Cancelar", "AlumnosCurso", "Docente", new { editar = false }, new { @style = "color:white;" })</h7>
-                </button>
-
-                <button type="submit" class="button btn btn-success" style="margin:2px">
-                    <h7><span class="glyphicon glyphicon-ok"></span> @Html.ActionLink("Aceptar", "Calificar", "Docente", new { editar = false }, new { @style = "color:white;" })</h7>
-                </button>
-                
-            </div>
-        }
+    <div class="alert alert-danger" role="alert">
+        <strong>No hay alumnos inscriptos</strong>
+        <div>
+            @Html.ActionLink("Volver a cursos", "MisCursos", "Docente")
+        </div>
     </div>
-
-    <table class="table table-hover table-striped table-bordered" style="text-align: center;">
-        <thead>
-            <tr>
-                <th th class="col-md-1">
-                    @Html.DisplayNameFor(model => model.Persona.Legajo)
-                </th>
-                <th class="col-md-3">Alumno</th>
-                <th class="col-md-1">
-                    @Html.DisplayNameFor(model => model.Nota)
-                </th>
-                <th class="col-md-2">
-                    @Html.DisplayNameFor(model => model.Condicion)
-                </th>
-                <th class="col-md-1"></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in Model.ToList())
+}
+else
+{
+    @Html.ActionLink("Volver a cursos", "MisCursos", "Docente")
+    using (Html.BeginForm("Calificar", "Docente", FormMethod.Post))
+    {
+        <div style="display: inline-flex; margin: 7px;">
+            @if (!ViewBag.EditMode)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Persona.Legajo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Persona.NombreApellido)
-                    </td>
-                    @if (ViewBag.EditMode)
-                    {
-                        <td>
-                            @Html.EditorFor(Model => item.Nota, new { htmlAttributes = new { @class = "form-control" } })
-                        </td>
+                <a href="@Url.Action("AlumnosCurso", "Docente", new { editar = true })" class="button btn btn-warning" style="margin:2px">
+                    <span class="glyphicon glyphicon-edit"></span> Calificar
+                </a>
+            }  
+            else
+            {
+                <div>
+                    <a href="@Url.Action("AlumnosCurso", "Docente", new { editar = false })" class="button btn btn-danger" style="margin:2px">
+                        <span class="glyphicon glyphicon-remove"></span> Cancelar
+                    </a>
+                    
+                    <button type="submit" class="button btn btn-success" style="margin:2px">
+                        <h7><span class="glyphicon glyphicon-ok"></span> Aceptar</h7>
+                    </button>
 
-                    }
-                    else
-                    {
-                        if (item.Nota == null)
+                </div>
+            }
+        </div>
+
+        <table class="table table-hover table-striped table-bordered" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.Persona.Legajo)
+                    </th>
+                    <th class="col-md-3">Alumno</th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.Nota)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Condicion)
+                    </th>
+                    <th class="col-md-2">
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.ToList())
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Persona.Legajo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Persona.NombreApellido)
+                        </td>
+                        @if (ViewBag.EditMode)
                         {
                             <td>
-                                <p>--</p>
+                                @Html.EditorFor(Model => item.Nota, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
+
                         }
                         else
                         {
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nota, new { htmlAttributes = new { @class = "form-control"} })
-                            </td>
+                            if (item.Nota == null)
+                            {
+                                <td>
+                                    <p>--</p>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nota, new { htmlAttributes = new { @class = "form-control" } })
+                                </td>
+                            }
                         }
-                    }
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Condicion)
-                    </td>
-                    <td>
-                        @Html.EditorFor(Model => item.AlumnoInscripcionID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                    </td>
-                </tr>
-            }
-        </tbody>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Condicion)
+                        </td>
+                        <td>
+                            @Html.EditorFor(modelItem => item.AlumnoInscripcionID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </td>
+                       
 
-    </table>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
 }

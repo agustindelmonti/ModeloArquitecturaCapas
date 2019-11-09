@@ -7,6 +7,28 @@
 <br>
 <h2>Mis Cursos</h2>
 
+<!--Alerta cambios hechos correctamente-->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible show" role="alert">
+        <strong>@TempData["SuccessMessage"]!</strong> Se han calificado a los alumnos correctamente.@Html.ActionLink("Volver a cursos", "MisCursos", "Docente").
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<!--Alerta ha sucedido un error-->
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible show" role="alert">
+        <strong>@TempData["ErrorMessage"]</strong> Por favor intentelo de nuevo.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <table class="table table-hover table-striped table-bordered" style="text-align: center;">
     <thead>
         <tr>
@@ -22,23 +44,23 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Materia.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comision.Plan.Especialidad.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnioCalendario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comision.Descripcion)
-            </td>
-            <td>
-                @Html.ActionLink("Ver Alumnos", "AlumnosCurso", new { id = item.CursoID })
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Materia.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comision.Plan.Especialidad.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnioCalendario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comision.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Alumnos", "AlumnosCurso", new { id = item.CursoID })
+                </td>
+            </tr>
         }
     </tbody>
 </table>
