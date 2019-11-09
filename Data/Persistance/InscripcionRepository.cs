@@ -16,6 +16,22 @@ namespace Data.Persistance {
             db = context;
         }
 
+
+        public IEnumerable<Materia> GetMateriasNoAptaInscripcion()
+        {
+            List<AlumnoInscripcion.Estado> estados = new List<AlumnoInscripcion.Estado>()
+            {
+                AlumnoInscripcion.Estado.Aprobado,
+                AlumnoInscripcion.Estado.Regular,
+                AlumnoInscripcion.Estado.Cursando
+            };
+            List<Materia> materias = db.AlumnoInscripciones
+                            .Where(i => estados.Contains(i.Condicion))
+                            .Select(i => i.Curso.Materia)
+                            .ToList();
+            return materias;
+        }
+
         public IEnumerable<AlumnoInscripcion> GetInscripcionesWithCursoAndPersona() {
             return db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Persona).ToList();
         }
