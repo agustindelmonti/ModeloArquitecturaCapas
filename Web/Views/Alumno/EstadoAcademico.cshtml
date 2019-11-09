@@ -4,35 +4,56 @@
     ViewBag.Title = "EstadoAcademico";
 }
 <br>
-<h2>EstadoAcademico</h2>
+<h2>Estado Academico</h2>
 
-
-
-<table class="table">
+<table class="table table-hover table-striped table-bordered" style="text-align: center;">
+    <thead>
         <tr>
-            <th>
+            <th class="col-md-2">
                 @Html.DisplayNameFor(model => model.Curso.Materia.Descripcion)
             </th>
-            <th>
+            <th class="col-md-2">
                 @Html.DisplayNameFor(model => model.Condicion)
             </th>
-            <th>
+            <th class="col-md-1">
                 @Html.DisplayNameFor(model => model.Nota)
             </th>
-            <th></th>
+            <th class="col-md-1">Comision</th>
+            <th class="col-md-1">Año</th>
+            <th class="col-md-1">Plan</th>
         </tr>
+    </thead>
 
-@foreach (var item in Model){
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Curso.Materia.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Condicion)
-                </td>
-                <td>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.Materia.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condicion)
+            </td>
+            <td>
+                @if (item.Nota == null)
+                {
+                    <p>Sin calificar</p>
+                }
+                else
+                {
                     @Html.DisplayFor(modelItem => item.Nota)
-                </td>
-            </tr>
-}
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.Comision.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.AnioCalendario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.Comision.Plan.Descripcion)
+            </td>
+        </tr>
+        }
+    </tbody>
 </table>
