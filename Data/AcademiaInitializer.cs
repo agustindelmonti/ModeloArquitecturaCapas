@@ -42,12 +42,12 @@ namespace Data {
             context.SaveChanges();
 
             var usuarios = new List<Usuario> {
-                new Usuario {NombreUsuario = "lucas144", Clave = "1234", Habilitado = true, CambioClave = false, PersonaID = 1},
-                new Usuario {NombreUsuario = "juanAlb", Clave = "soyalbert", Habilitado = true, CambioClave = false, PersonaID = 2},
-                new Usuario {NombreUsuario = "maridelc", Clave = "ninombre", Habilitado = true, CambioClave = false, PersonaID = 3},
-                new Usuario {NombreUsuario = "juliapell", Clave = "laseñora", Habilitado = true, CambioClave = false, PersonaID = 4},
-                new Usuario {NombreUsuario = "preceroman", Clave = "central", Habilitado = true, CambioClave = false, PersonaID = 5},
-                new Usuario {NombreUsuario = "matt_enme", Clave = "porfavor", Habilitado = true, CambioClave = false, PersonaID = 6}
+                new Usuario {NombreUsuario = "lucas144", Clave = "1234", Habilitado = true, CambioClave = false, UsuarioID = 1},
+                new Usuario {NombreUsuario = "juanAlb", Clave = "soyalbert", Habilitado = true, CambioClave = false, UsuarioID = 2},
+                new Usuario {NombreUsuario = "maridelc", Clave = "ninombre", Habilitado = true, CambioClave = false, UsuarioID = 3},
+                new Usuario {NombreUsuario = "juliapell", Clave = "laseñora", Habilitado = true, CambioClave = false, UsuarioID = 4},
+                new Usuario {NombreUsuario = "preceroman", Clave = "central", Habilitado = true, CambioClave = false, UsuarioID = 5},
+                new Usuario {NombreUsuario = "matt_enme", Clave = "porfavor", Habilitado = true, CambioClave = false, UsuarioID = 6}
             };
 
             usuarios.ForEach(u => context.Usuarios.Add(u));
