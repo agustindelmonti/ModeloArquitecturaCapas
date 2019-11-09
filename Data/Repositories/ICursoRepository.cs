@@ -23,5 +23,7 @@ namespace Data.Repositories
         IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID);
 
         Curso GetOne(int cursoID);
+
+        IEnumerable<Curso> FindCursosHabilitadosInscripcionAlumno(Persona alumno, IEnumerable<Materia> materias);
     }
 }

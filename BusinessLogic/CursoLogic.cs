@@ -56,15 +56,21 @@ namespace BusinessLogic
             return CursoRepository.FindCursosActualesByPersonaID(personaID);
         }
 
+        /** El metodo valida la siguientes situaciones:
+        *       - Año lectivo actual
+        *       - Cupo menor a la cantidad de inscriptos
+        *       - Es del plan del alumno
+        *       - No es una materia ya aprobada, regular o cursando
+        **/
         public IEnumerable<Curso> FindCursosHabilitadosByPersonaID(int personaID)
         {
+            Persona alumno = Context.PersonaRepository.GetById(personaID);
 
-            IEnumerable<Curso> cursosInscriptos = CursoRepository.FindCursosInscriptosByPersonaID(personaID);
-            IEnumerable<Curso> cursosPlan = CursoRepository.FindCursosFromPlanByPersonaID(personaID);
+            IEnumerable<Materia> materiasPlan = Context.MateriaRepository.GetAllByPlan(alumno.Plan);
+            IEnumerable<Materia> materiasNoAptaInscripcion = Context.InscripcionRepository.GetMateriasNoAptaInscripcion();
+            IEnumerable<Materia> materiasPlanFaltantes = materiasPlan.Except(materiasNoAptaInscripcion);
 
-            IEnumerable<Curso> cursosNoInscriptos = cursosPlan.Except(cursosInscriptos);
-
-            return cursosNoInscriptos.Where(c => c.AlumnosInscripciones.Count() < c.Cupo).ToList();
+            return CursoRepository.FindCursosHabilitadosInscripcionAlumno(alumno, materiasPlanFaltantes);
         }
 
         public void Add(Curso curso) => CursoRepository.Add(curso);

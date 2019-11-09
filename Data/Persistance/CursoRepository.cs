@@ -17,6 +17,18 @@ namespace Data.Repositories
             db = context;
         }
 
+        public IEnumerable<Curso> FindCursosHabilitadosInscripcionAlumno(Persona alumno, IEnumerable<Materia> materias)
+        {
+            return db.Cursos
+                .Where(c => c.Cupo > c.AlumnosInscripciones.Count())
+                .Where(c => c.Materia.PlanID == alumno.Plan.PlanID)
+                .Where(c => c.AnioCalendario == DateTime.Now.Year)
+                .OrderByDescending(c => c.ComisionID)
+                .AsEnumerable()
+                .Where(c => materias.Contains(c.Materia))
+                .ToList();
+        }
+
         public IEnumerable<Curso> GetAll()
         {
             return db.Cursos.Include(c => c.Materia).ToList();
