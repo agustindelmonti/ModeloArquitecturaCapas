@@ -65,7 +65,7 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.UsuarioID);
             return View(usuario);
         }
 
@@ -81,7 +81,7 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.UsuarioID);
             return View(usuario);
         }
 
@@ -97,7 +97,7 @@ namespace Web.Controllers
                 UsuarioLogic.Update(usuario);
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.UsuarioID);
             return View(usuario);
         }
 

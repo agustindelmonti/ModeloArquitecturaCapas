@@ -34,6 +34,7 @@ namespace Entities {
 
         // Navegation Properties
         public virtual Plan Plan { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public virtual ICollection<AlumnoInscripcion> AlumnoInscripciones { get; set; }
         public virtual ICollection<DocenteCurso> CursosDelDocente { get; set; }
         
