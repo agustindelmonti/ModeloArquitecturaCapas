@@ -44,10 +44,18 @@ namespace Web.Controllers
             return View("AlumnosCurso", alumnosCurso);
         }
 
-
         [HttpPost]
         public ActionResult Calificar([Bind(Include = "AlumnoInscripcionID,Nota")] IEnumerable<AlumnoInscripcion> inscripciones) {
-            inscripcionLogic.AsignarNotas(inscripciones);
+
+            try
+            {
+                inscripcionLogic.AsignarNotas(inscripciones);
+                TempData["SuccessMessage"] = "Cambios guardados";
+            }
+            catch(Exception e)
+            {
+                TempData["ErrorMessage"] = "Se ha producido un error al intentar guardar los datos.";
+            }
 
             return RedirectToAction("MisCursos");
         }
