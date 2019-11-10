@@ -47,6 +47,12 @@
     <Compile Include="Alumno\EstadoAcademico.Designer.cs">
       <DependentUpon>EstadoAcademico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alumno\Inscripcion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Alumno\Inscripcion.Designer.cs">
+      <DependentUpon>Inscripcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="CursosProfesor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +161,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Alumno\EstadoAcademico.resx">
       <DependentUpon>EstadoAcademico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alumno\Inscripcion.resx">
+      <DependentUpon>Inscripcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CursosProfesor.resx">
       <DependentUpon>CursosProfesor.cs</DependentUpon>

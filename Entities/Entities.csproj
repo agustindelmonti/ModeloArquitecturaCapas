@@ -57,6 +57,7 @@
     <Compile Include="Usuario.cs" />
     <Compile Include="Validations\RolRange.cs" />
     <Compile Include="ViewModels\EstadoMateria.cs" />
+    <Compile Include="ViewModels\CursoDisponible.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
