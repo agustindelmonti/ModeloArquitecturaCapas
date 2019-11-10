@@ -76,13 +76,14 @@
             // estadoAcademicoToolStripMenuItem
             // 
             this.estadoAcademicoToolStripMenuItem.Name = "estadoAcademicoToolStripMenuItem";
-            this.estadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.estadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estadoAcademicoToolStripMenuItem.Text = "Estado Academico";
+            this.estadoAcademicoToolStripMenuItem.Click += new System.EventHandler(this.estadoAcademicoToolStripMenuItem_Click);
             // 
             // misCursosToolStripMenuItem
             // 
             this.misCursosToolStripMenuItem.Name = "misCursosToolStripMenuItem";
-            this.misCursosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.misCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.misCursosToolStripMenuItem.Text = "Mis Cursos";
             // 
             // inscribirseToolStripMenuItem
@@ -97,13 +98,13 @@
             // materiaToolStripMenuItem
             // 
             this.materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
-            this.materiaToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.materiaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.materiaToolStripMenuItem.Text = "Cursado";
             // 
             // examenToolStripMenuItem
             // 
             this.examenToolStripMenuItem.Name = "examenToolStripMenuItem";
-            this.examenToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.examenToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.examenToolStripMenuItem.Text = "Examen [No Implementado]";
             // 
             // actualizarDatosToolStripMenuItem

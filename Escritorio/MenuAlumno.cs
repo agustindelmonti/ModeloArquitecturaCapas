@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using UserControlsDesktop;
+using UserControlsDesktop.Alumno;
 
 namespace Escritorio
 {
@@ -33,6 +34,11 @@ namespace Escritorio
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void estadoAcademicoToolStripMenuItem_Click(object sender, EventArgs e) {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new EstadoAcademico(UsuarioAutenticado));
         }
     }
 }
