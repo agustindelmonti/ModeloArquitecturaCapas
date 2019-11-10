@@ -11,7 +11,7 @@ namespace Entities {
         // Attributes
         [ForeignKey("Persona")]
         public int UsuarioID { get; set; }
-        [Required, StringLength(20)]
+        [Required, StringLength(20), Display(Name = "Nombre Usuario")]
         public string NombreUsuario { get; set; }
         [Required, StringLength(20), DataType(DataType.Password)]
         public string Clave { get; set; }

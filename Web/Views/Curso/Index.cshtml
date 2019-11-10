@@ -7,17 +7,32 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Curso")" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Nuevo
+    </a>
 </p>
 
 
 @using (Html.BeginForm("Index", "Curso", FormMethod.Get))
 {
-    <p>
-        Año: @Html.TextBox("año") <br />
-        Materia: @Html.TextBox("materia") <br />
-        <input type="submit" value="Filter" />
-    </p>
+    <div class="form-group">
+        <div style="display: flex; flex-direction: row">
+            <div style="margin: 0px 2px">
+                <label>Año</label>
+                @Html.TextBox("año", null, new { @class = "form-control", @placeholder = "Año" })
+            </div>
+            <div style="margin: 0px 2px">
+                <label>Materia</label>
+                <div style="display: flex; flex-direction: row">
+                    @Html.TextBox("materia", null, new { @class = "form-control", @placeholder = "Materia" })
+                    <button type="submit" class="btn btn-default" style="margin: 0px 4px">
+                        <span class="glyphicon glyphicon-search"></span> Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
 <table class="table">
@@ -39,25 +54,25 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Materia.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnioCalendario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comision.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cupo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CursoID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CursoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CursoID })
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioCalendario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comision.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cupo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.CursoID }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.CursoID }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.CursoID })
+            </td>
+        </tr>
     }
 
 </table>
