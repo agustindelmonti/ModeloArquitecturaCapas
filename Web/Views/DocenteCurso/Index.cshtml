@@ -3,11 +3,14 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<br />
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "DocenteCurso")" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Nuevo
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -35,9 +38,9 @@
             @Html.DisplayFor(modelItem => item.PersonaID)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DocenteCursoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DocenteCursoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DocenteCursoID })
+            @Html.ActionLink("Editar", "Edit", new { id = item.DocenteCursoID }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.DocenteCursoID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.DocenteCursoID })
         </td>
     </tr>
 }

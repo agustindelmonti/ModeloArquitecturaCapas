@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit</h2>
+<br />
+<h2>Editar comision</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Comision</h4>
     <hr />
 
     @Html.HiddenFor(model => model.ComisionID)
@@ -20,14 +19,16 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-ok"></span> Guardar
+            </button>
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index")
 </div>
 
 @section Scripts {
