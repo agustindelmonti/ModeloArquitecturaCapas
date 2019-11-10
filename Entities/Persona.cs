@@ -27,6 +27,7 @@ namespace Entities {
         [Required, Validations.RolRange]
         public string Role { get; set; }
 
+        public string NombreApellido { get => Nombre + " " + Apellido; }
 
         // Foreign Key
         public int ? PlanID { get; set; }           // Nullable to avoid circular cascade
@@ -37,8 +38,7 @@ namespace Entities {
         public virtual Usuario Usuario { get; set; }
         public virtual ICollection<AlumnoInscripcion> AlumnoInscripciones { get; set; }
         public virtual ICollection<DocenteCurso> CursosDelDocente { get; set; }
-        
-     
+
         public enum Rol {
             Alumno, Docente, No_Docente
         }

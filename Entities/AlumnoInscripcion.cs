@@ -30,5 +30,21 @@ namespace Entities {
         public enum Estado {
             Cursando, Regular, Aprobado, Libre
         }
+
+        public void Calificar()
+        {
+            if (Nota < 6)
+            {
+                Condicion = AlumnoInscripcion.Estado.Libre;
+            }
+            else if (Nota >= 6 && Nota <= 8)
+            {
+                Condicion = AlumnoInscripcion.Estado.Regular;
+            }
+            else
+            {
+                Condicion = AlumnoInscripcion.Estado.Aprobado;
+            }
+        } 
     }
 }
