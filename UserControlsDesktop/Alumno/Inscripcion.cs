@@ -24,20 +24,20 @@ namespace UserControlsDesktop.Alumno {
             user = UsuarioAutenticado;
             usuarioLogic = new UsuarioLogic();
             cursoLogic = new CursoLogic();
+            persona = usuarioLogic.GetPersonaByUserID(user.UsuarioID);
+
 
             dgvInscripcion.AutoGenerateColumns = false;
             CargarInscripcionesDisponibles();
         }
 
         public void CargarInscripcionesDisponibles() { 
-            persona = usuarioLogic.GetPersonaByUserID(user.UsuarioID);
-
             IEnumerable<Curso> cursosHabilitadosInscripcion = cursoLogic.FindCursosHabilitadosByPersonaID(persona.PersonaID);
 
-            List<CursoDisponible> cursosDisponibles = new List<CursoDisponible>();
+            List<CursoDisponible> cursosHabilitadosInscripcionList = new List<CursoDisponible>();
 
             foreach(Curso curso in cursosHabilitadosInscripcion) {
-                cursosDisponibles.Add(new CursoDisponible {
+                cursosHabilitadosInscripcionList.Add(new CursoDisponible {
                     Curso = curso,
                     NombreMateria = curso.Materia.Descripcion,
                     NroComision = curso.Comision.Descripcion,
@@ -47,8 +47,8 @@ namespace UserControlsDesktop.Alumno {
                 });
             }
 
-            cursosDisponibles = cursosDisponibles.OrderBy(c => c.NombreMateria).ToList();
-            dgvInscripcion.DataSource = cursosDisponibles;
+            cursosHabilitadosInscripcionList = cursosHabilitadosInscripcionList.OrderBy(c => c.NombreMateria).ToList();
+            dgvInscripcion.DataSource = cursosHabilitadosInscripcionList;
         }
 
         private void dgvInscripcion_CellContentClick(object sender, DataGridViewCellEventArgs e) {

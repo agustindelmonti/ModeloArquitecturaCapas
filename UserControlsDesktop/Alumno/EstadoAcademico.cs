@@ -14,8 +14,11 @@ using Entities.ViewModels;
 namespace UserControlsDesktop.Alumno {
     public partial class EstadoAcademico : UserControl {
         private Usuario user;
+        private Persona persona;
         private UsuarioLogic usuarioLogic;
         private InscripcionLogic inscripcionLogic;
+
+
 
         public EstadoAcademico(Usuario UsuarioAutenticado) {
             InitializeComponent();
@@ -23,6 +26,7 @@ namespace UserControlsDesktop.Alumno {
 
             usuarioLogic = new UsuarioLogic();
             inscripcionLogic = new InscripcionLogic();
+            persona = usuarioLogic.GetPersonaByUserID(user.UsuarioID);
 
             dgvEstadoAcademico.AutoGenerateColumns = false;
             cargarInscripciones();
@@ -30,13 +34,13 @@ namespace UserControlsDesktop.Alumno {
 
         
         private void cargarInscripciones() { 
-            Persona persona = usuarioLogic.GetPersonaByUserID(user.UsuarioID);
             List<AlumnoInscripcion> inscripciones = inscripcionLogic.FindInscripcionesByPersonaID(persona.PersonaID).ToList();
 
 
-            List<EstadoMateria> estadosMaterias = new List<EstadoMateria>();
+            List<EstadoMateria> estadosMateriasList = new List<EstadoMateria>();
+            
             foreach(AlumnoInscripcion inscripcion in inscripciones) {
-                estadosMaterias.Add(new EstadoMateria {
+                estadosMateriasList.Add(new EstadoMateria {
                     AñoEspecialidad = inscripcion.Curso.Comision.AnioEspecialidad,
                     NombreMateria = inscripcion.Curso.Materia.Descripcion,
                     Condicion = inscripcion.Condicion.ToString(),
@@ -48,7 +52,7 @@ namespace UserControlsDesktop.Alumno {
             }
 
 
-            dgvEstadoAcademico.DataSource = estadosMaterias;
+            dgvEstadoAcademico.DataSource = estadosMateriasList;
         }
 
     }

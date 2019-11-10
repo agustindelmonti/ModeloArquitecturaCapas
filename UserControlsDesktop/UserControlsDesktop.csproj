@@ -53,6 +53,12 @@
     <Compile Include="Alumno\Inscripcion.Designer.cs">
       <DependentUpon>Inscripcion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alumno\MisCursos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Alumno\MisCursos.Designer.cs">
+      <DependentUpon>MisCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="CursosProfesor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alumno\Inscripcion.resx">
       <DependentUpon>Inscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alumno\MisCursos.resx">
+      <DependentUpon>MisCursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CursosProfesor.resx">
       <DependentUpon>CursosProfesor.cs</DependentUpon>
