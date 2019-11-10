@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BusinessLogic;
-using Utils.Reflection;
 using Entities.ViewModels;
 
 namespace UserControlsDesktop.Alumno {
