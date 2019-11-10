@@ -50,7 +50,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Cargo,CursoID,DocenteID,State")] DocenteCurso docenteCurso)
+        public ActionResult Create([Bind(Include = "Cargo,CursoID,DocenteID")] DocenteCurso docenteCurso)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DocenteCursoID,Cargo,CursoID,DocenteID,State")] DocenteCurso docenteCurso)
+        public ActionResult Edit([Bind(Include = "DocenteCursoID,Cargo,CursoID,DocenteID")] DocenteCurso docenteCurso)
         {
             if (ModelState.IsValid)
             {

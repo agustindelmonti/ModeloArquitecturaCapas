@@ -55,7 +55,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Condicion,Nota,PersonaID,CursoID,State")] AlumnoInscripcion alumnoInscripcion)
+        public ActionResult Create([Bind(Include = "Condicion,Nota,PersonaID,CursoID")] AlumnoInscripcion alumnoInscripcion)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AlumnoInscripcionID,Condicion,Nota,PersonaID,CursoID,State")] AlumnoInscripcion alumnoInscripcion)
+        public ActionResult Edit([Bind(Include = "AlumnoInscripcionID,Condicion,Nota,PersonaID,CursoID")] AlumnoInscripcion alumnoInscripcion)
         {
             if (ModelState.IsValid)
             {
