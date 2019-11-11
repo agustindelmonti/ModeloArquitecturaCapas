@@ -31,6 +31,10 @@ namespace UserControlsDesktop.Alumno {
             CargarInscripcionesDisponibles();
         }
 
+        public Inscripcion() {
+            InitializeComponent();
+        }
+
         public void CargarInscripcionesDisponibles() { 
             IEnumerable<Curso> cursosHabilitadosInscripcion = cursoLogic.FindCursosHabilitadosByPersonaID(persona.PersonaID);
 

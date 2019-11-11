@@ -59,6 +59,12 @@
     <Compile Include="Alumno\MisCursos.Designer.cs">
       <DependentUpon>MisCursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuscarAlumno.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuscarAlumno.Designer.cs">
+      <DependentUpon>BuscarAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="CursosProfesor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alumno\MisCursos.resx">
       <DependentUpon>MisCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarAlumno.resx">
+      <DependentUpon>BuscarAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CursosProfesor.resx">
       <DependentUpon>CursosProfesor.cs</DependentUpon>

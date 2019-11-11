@@ -104,5 +104,11 @@ namespace Escritorio
             panel1.Controls.Clear();
             panel1.Controls.Add(new ReportePlanes());
         }
+
+        private void inscrpcionAlumnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new BuscarAlumno());
+        }
     }
 }
