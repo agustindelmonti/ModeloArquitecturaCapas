@@ -33,6 +33,10 @@ namespace Escritorio
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoComisiones));
             this.tcEspecialidades = new System.Windows.Forms.ToolStripContainer();
             this.dgvComisiones = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlanId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -40,10 +44,6 @@ namespace Escritorio
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PlanId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
@@ -90,6 +90,38 @@ namespace Escritorio
             this.dgvComisiones.TabIndex = 0;
             this.dgvComisiones.Click += new System.EventHandler(this.dgvMaterias_Click);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ComisionID";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 140;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 140;
+            // 
+            // Año
+            // 
+            this.Año.DataPropertyName = "AnioEspecialidad";
+            this.Año.HeaderText = "Año";
+            this.Año.Name = "Año";
+            this.Año.ReadOnly = true;
+            this.Año.Width = 140;
+            // 
+            // PlanId
+            // 
+            this.PlanId.DataPropertyName = "PlanID";
+            this.PlanId.HeaderText = "PlanID";
+            this.PlanId.Name = "PlanId";
+            this.PlanId.ReadOnly = true;
+            this.PlanId.Width = 140;
+            // 
             // tsEspecialidades
             // 
             this.tsEspecialidades.Dock = System.Windows.Forms.DockStyle.None;
@@ -102,7 +134,7 @@ namespace Escritorio
             this.tsEspecialidades.Location = new System.Drawing.Point(3, 0);
             this.tsEspecialidades.Name = "tsEspecialidades";
             this.tsEspecialidades.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsEspecialidades.Size = new System.Drawing.Size(201, 32);
+            this.tsEspecialidades.Size = new System.Drawing.Size(232, 32);
             this.tsEspecialidades.TabIndex = 0;
             // 
             // btnNuevo
@@ -141,6 +173,7 @@ namespace Escritorio
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 32);
             // 
@@ -162,38 +195,6 @@ namespace Escritorio
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(236, 451);
             this.panel1.TabIndex = 6;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "ComisionID";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 140;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 140;
-            // 
-            // Año
-            // 
-            this.Año.DataPropertyName = "AnioEspecialidad";
-            this.Año.HeaderText = "Año";
-            this.Año.Name = "Año";
-            this.Año.ReadOnly = true;
-            this.Año.Width = 140;
-            // 
-            // PlanId
-            // 
-            this.PlanId.DataPropertyName = "PlanID";
-            this.PlanId.HeaderText = "PlanID";
-            this.PlanId.Name = "PlanId";
-            this.PlanId.ReadOnly = true;
-            this.PlanId.Width = 140;
             // 
             // ListadoComisiones
             // 

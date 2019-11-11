@@ -59,12 +59,6 @@
     <Compile Include="Alumno\MisCursos.Designer.cs">
       <DependentUpon>MisCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="CursosProfesor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CursosProfesor.Designer.cs">
-      <DependentUpon>CursosProfesor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Detalles\ComisionDetalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,6 +76,18 @@
     </Compile>
     <Compile Include="Detalles\Detalle.Designer.cs">
       <DependentUpon>Detalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Docente\CursosDocente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Docente\CursosDocente.Designer.cs">
+      <DependentUpon>CursosDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoAlumnosCurso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoAlumnosCurso.Designer.cs">
+      <DependentUpon>ListadoAlumnosCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="Listados\ListadoCursos.cs">
       <SubType>UserControl</SubType>
@@ -162,6 +168,11 @@
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -174,9 +185,6 @@
     <EmbeddedResource Include="Alumno\MisCursos.resx">
       <DependentUpon>MisCursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CursosProfesor.resx">
-      <DependentUpon>CursosProfesor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Detalles\ComisionDetalle.resx">
       <DependentUpon>ComisionDetalle.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +193,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Detalles\Detalle.resx">
       <DependentUpon>Detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Docente\CursosDocente.resx">
+      <DependentUpon>CursosDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoAlumnosCurso.resx">
+      <DependentUpon>ListadoAlumnosCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\ListadoCursos.resx">
       <DependentUpon>ListadoCursos.cs</DependentUpon>
@@ -224,6 +238,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnosCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnosCurso.Designer.cs">
+      <DependentUpon>AlumnosCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
       <DependentUpon>ReportePlan.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="AlumnosCurso.resx">
+      <DependentUpon>AlumnosCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InformeCursos.rdlc" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

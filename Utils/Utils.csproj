@@ -44,10 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArgs\AlumnosCursoEventArgs.cs" />
     <Compile Include="Exceptions\InvalidInputException.cs" />
     <Compile Include="Exceptions\UserAuthenticationException.cs" />
     <Compile Include="ModoFormulario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{1F3C2221-D7A7-4C45-929E-6E2302EEEDB5}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
