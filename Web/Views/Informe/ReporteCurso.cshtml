@@ -1,0 +1,94 @@
+﻿@model Entities.Curso
+
+@{
+    ViewBag.Title = "Listado de Alumnos";
+    Layout = null;
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    var titular = Model.DocentesDelCurso.Where(p => p.Cargo == Entities.DocenteCurso.TipoCargo.Titular).SingleOrDefault();
+    var auxiliar = Model.DocentesDelCurso.SingleOrDefault(p => p.Cargo == Entities.DocenteCurso.TipoCargo.Auxiliar);
+    var ayudante = Model.DocentesDelCurso.SingleOrDefault(p => p.Cargo == Entities.DocenteCurso.TipoCargo.Ayudante);
+}
+<br>
+
+<h1>Listado de Alumnos</h1>
+
+@if (Model == null)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>No hay alumnos inscriptos</strong>
+    </div>
+}
+else
+{
+    <h2>Materia: @Model.Materia.Descripcion</h2>
+    <h2>Comsion: @Model.Comision.Descripcion</h2>
+    <h2>Especialidad: @Model.Materia.Plan.Especialidad.Descripcion</h2>
+    <h2>Año Calendario: @Model.AnioCalendario</h2>
+    <h2>Profesores</h2>
+
+    if (titular != null) {<h3>Titular: @titular.Docente.NombreApellido</h3>}
+    if (auxiliar != null) {<h3>Auxiliar: @auxiliar.Docente.NombreApellido</h3>}
+    if (auxiliar != null) {<h3>Ayudante: @ayudante.Docente.NombreApellido</h3>}
+
+    if (Model.AlumnosInscripciones.Count() == 0)
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>No hay alumnos inscriptos</strong>
+        </div>
+    }
+    else
+    {
+        <table class="table table-hover table-striped table-bordered" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th th class="col-md-1">
+                        Legajo
+                    </th>
+                    <th class="col-md-3">Alumno</th>
+                    <th class="col-md-1">
+                        Nota
+                    </th>
+                    <th class="col-md-2">
+                        Condicion
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.AlumnosInscripciones.Count(); i++)
+                {
+                    <tr>
+                        @Html.HiddenFor(Model => Model.AlumnosInscripciones.ToList()[i].AlumnoInscripcionID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.AlumnosInscripciones.ToList()[i].Persona.Legajo)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.AlumnosInscripciones.ToList()[i].Persona.NombreApellido)
+                        </td>
+
+                        @if (Model.AlumnosInscripciones.ToList()[i].Nota == null)
+                        {
+                            <td><p>--</p></td>
+                        }
+                        else
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.AlumnosInscripciones.ToList()[i].Nota, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                        }
+
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.AlumnosInscripciones.ToList()[i].Condicion)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+}
+
+

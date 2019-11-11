@@ -12,8 +12,6 @@ namespace Data.Repositories
 
         IEnumerable<Persona> GetAlumnosInscriptosCurso(Curso curso);
 
-        IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID);
-
         IEnumerable<Curso> FindCursosInscriptosByPersonaID(int personaID);
 
         IEnumerable<Curso> FindCursosFromPlanByPersonaID(int personaID);
@@ -22,6 +20,7 @@ namespace Data.Repositories
 
         IEnumerable<Curso> FindCursosActualesAlumnoByPersonaID(int personaID);
 
+        Curso FindByIdWithInscripciones(int cursoID);
         Curso GetOne(int cursoID);
 
         IEnumerable<Curso> FindCursosHabilitadosInscripcionAlumno(Persona alumno, IEnumerable<Materia> materias);

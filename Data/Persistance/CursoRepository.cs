@@ -61,9 +61,14 @@ namespace Data.Repositories
             return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision).ToList();
         }
 
-        public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID)
+        public Curso FindByIdWithInscripciones(int cursoID)
         {
-            throw new NotImplementedException();
+            return db.Cursos
+                .Where(c => c.CursoID == cursoID)
+                .Include(c => c.AlumnosInscripciones)
+                .Include(c => c.DocentesDelCurso)
+                .Include(c => c.Comision.Plan.Especialidad)
+                .FirstOrDefault();
         }
     }
 }

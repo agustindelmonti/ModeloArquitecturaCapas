@@ -21,6 +21,11 @@ namespace BusinessLogic
 
         public IEnumerable<Persona> GetDocentesCurso(Curso curso) => CursoRepository.GetDocentesCurso(curso);
 
+        public Curso FindByIdWithInscripciones(int cursoID)
+        {
+            return CursoRepository.FindByIdWithInscripciones(cursoID);
+        }
+
         public IEnumerable<DocenteCurso> GetAllCursosActualesByProfesor(Persona persona)
         {
             IEnumerable<DocenteCurso> CursosDocente = Context.DocenteCursoRepository.GetAllCursosByDocente(persona);
@@ -49,11 +54,6 @@ namespace BusinessLogic
 
         public IEnumerable<Curso> FilterByNombreMateria(IEnumerable<Curso> cursos, string materia) {
             return cursos.Where(c => c.Materia.Descripcion.ToLower().Contains(materia.ToLower()));
-        }
-
-        public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID)
-        {
-            return CursoRepository.FindCursosActualesByPersonaID(personaID);
         }
 
         /** El metodo valida la siguientes situaciones:
