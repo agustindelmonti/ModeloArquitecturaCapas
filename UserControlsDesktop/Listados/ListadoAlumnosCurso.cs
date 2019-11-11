@@ -82,7 +82,7 @@ namespace UserControlsDesktop.Listados {
             }
 
             inscripcionLogic.AsignarNotas(updateAlumnosInscripcion);
-            var a = 1;
+            MessageBox.Show("Notas Actualizadas", "Notas", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
