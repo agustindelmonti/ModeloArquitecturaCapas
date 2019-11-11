@@ -50,12 +50,15 @@
             this.dgvInscripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvInscripcion.Name = "dgvInscripcion";
             this.dgvInscripcion.ReadOnly = true;
+            this.dgvInscripcion.RowHeadersVisible = false;
+            this.dgvInscripcion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvInscripcion.Size = new System.Drawing.Size(969, 555);
             this.dgvInscripcion.TabIndex = 0;
             this.dgvInscripcion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInscripcion_CellContentClick);
             // 
             // Materia
             // 
+            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Materia.DataPropertyName = "NombreMateria";
             this.Materia.HeaderText = "Materia";
             this.Materia.Name = "Materia";
@@ -63,6 +66,7 @@
             // 
             // NroComision
             // 
+            this.NroComision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NroComision.DataPropertyName = "NroComision";
             this.NroComision.HeaderText = "Número de Comisión";
             this.NroComision.Name = "NroComision";
@@ -70,6 +74,7 @@
             // 
             // Titular
             // 
+            this.Titular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Titular.DataPropertyName = "Titular";
             this.Titular.HeaderText = "Titular";
             this.Titular.Name = "Titular";
@@ -77,6 +82,7 @@
             // 
             // Auxiliar
             // 
+            this.Auxiliar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Auxiliar.DataPropertyName = "Auxiliar";
             this.Auxiliar.HeaderText = "Auxiliar";
             this.Auxiliar.Name = "Auxiliar";
@@ -84,6 +90,7 @@
             // 
             // Ayudante
             // 
+            this.Ayudante.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Ayudante.DataPropertyName = "Ayudante";
             this.Ayudante.HeaderText = "Ayudante";
             this.Ayudante.Name = "Ayudante";

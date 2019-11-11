@@ -32,35 +32,43 @@
 <table class="table table-hover table-striped table-bordered" style="text-align: center;">
     <thead>
         <tr>
-            <th class="col-md-2">
+            <th class="col-md-4">
                 @Html.DisplayNameFor(model => model.Materia.Descripcion)
             </th>
             <th class="col-md-1">Especialidad</th>
             <th class="col-md-2">Año Calendario</th>
             <th class="col-md-1">Comsion</th>
             <th class="col-md-2"></th>
+            <th class="col-md-1"></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Materia.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comision.Plan.Especialidad.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AnioCalendario)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comision.Descripcion)
-                </td>
-                <td>
-                    @Html.ActionLink("Ver Alumnos", "AlumnosCurso", new { id = item.CursoID })
-                </td>
-            </tr>
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comision.Plan.Especialidad.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnioCalendario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comision.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Ver Alumnos", "AlumnosCurso", new { id = item.CursoID })
+            </td>
+            <td>
+                <a href="@Url.Action("Print", "Informe", new { curso = item.CursoID })">
+                    <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+                    Imprimir
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

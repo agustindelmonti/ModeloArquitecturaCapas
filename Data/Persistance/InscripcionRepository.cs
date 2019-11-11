@@ -17,7 +17,7 @@ namespace Data.Persistance {
         }
 
 
-        public IEnumerable<Materia> GetMateriasNoAptaInscripcion()
+        public IEnumerable<Materia> GetMateriasNoAptaInscripcion(Persona alumno)
         {
             List<AlumnoInscripcion.Estado> estados = new List<AlumnoInscripcion.Estado>()
             {
@@ -26,6 +26,7 @@ namespace Data.Persistance {
                 AlumnoInscripcion.Estado.Cursando
             };
             List<Materia> materias = db.AlumnoInscripciones
+                            .Where(i => i.PersonaID == alumno.PersonaID)
                             .Where(i => estados.Contains(i.Condicion))
                             .Select(i => i.Curso.Materia)
                             .ToList();

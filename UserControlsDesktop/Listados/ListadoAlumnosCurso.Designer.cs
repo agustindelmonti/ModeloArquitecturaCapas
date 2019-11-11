@@ -48,9 +48,10 @@
             this.Alumno,
             this.Nota,
             this.Condicion});
-            this.dgvAlumnosCurso.Location = new System.Drawing.Point(0, 33);
+            this.dgvAlumnosCurso.Location = new System.Drawing.Point(0, 41);
+            this.dgvAlumnosCurso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAlumnosCurso.Name = "dgvAlumnosCurso";
-            this.dgvAlumnosCurso.Size = new System.Drawing.Size(553, 329);
+            this.dgvAlumnosCurso.Size = new System.Drawing.Size(737, 405);
             this.dgvAlumnosCurso.TabIndex = 0;
             this.dgvAlumnosCurso.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAlumnosCurso_DataBindingComplete);
             // 
@@ -87,12 +88,13 @@
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnEditar,
             this.btnGuardarCambios});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(553, 29);
+            this.toolStrip1.Size = new System.Drawing.Size(737, 36);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -103,7 +105,7 @@
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(23, 26);
+            this.btnEditar.Size = new System.Drawing.Size(24, 33);
             this.btnEditar.Text = "toolStripButton1";
             this.btnEditar.ToolTipText = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -114,19 +116,20 @@
             this.btnGuardarCambios.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarCambios.Image")));
             this.btnGuardarCambios.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(103, 26);
+            this.btnGuardarCambios.Size = new System.Drawing.Size(128, 33);
             this.btnGuardarCambios.Text = "Guardar Cambios";
             this.btnGuardarCambios.Visible = false;
             this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
             // ListadoAlumnosCurso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgvAlumnosCurso);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ListadoAlumnosCurso";
-            this.Size = new System.Drawing.Size(553, 362);
+            this.Size = new System.Drawing.Size(737, 446);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnosCurso)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

@@ -87,7 +87,7 @@ namespace Escritorio
             this.PlanId});
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(0, 0);
-            this.dgvComisiones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvComisiones.Margin = new System.Windows.Forms.Padding(4);
             this.dgvComisiones.Name = "dgvComisiones";
             this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.RowHeadersVisible = false;
@@ -198,7 +198,7 @@ namespace Escritorio
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(725, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(315, 555);
             this.panel1.TabIndex = 6;
@@ -217,7 +217,7 @@ namespace Escritorio
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 140;
+            this.Descripcion.Width = 240;
             // 
             // Año
             // 
@@ -233,7 +233,7 @@ namespace Escritorio
             this.PlanId.HeaderText = "PlanID";
             this.PlanId.Name = "PlanId";
             this.PlanId.ReadOnly = true;
-            this.PlanId.Width = 140;
+            this.PlanId.Width = 160;
             // 
             // ListadoComisiones
             // 
