@@ -137,6 +137,18 @@
     <Compile Include="Listados\ListadoPlanes.Designer.cs">
       <DependentUpon>ListadoPlanes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listados\ListaMateriasPermitidas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListaMateriasPermitidas.Designer.cs">
+      <DependentUpon>ListaMateriasPermitidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Perfil.Designer.cs">
+      <DependentUpon>Perfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\ListadoPlanes.resx">
       <DependentUpon>ListadoPlanes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListaMateriasPermitidas.resx">
+      <DependentUpon>ListaMateriasPermitidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perfil.resx">
+      <DependentUpon>Perfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

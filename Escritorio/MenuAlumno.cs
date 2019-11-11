@@ -34,5 +34,17 @@ namespace Escritorio
         {
             this.Close();
         }
+
+        private void materiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new ListaMateriasPermitidas(UsuarioAutenticado));
+        }
+
+        private void actualizarDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new Perfil(UsuarioAutenticado));
+        }
     }
 }

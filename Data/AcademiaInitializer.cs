@@ -85,6 +85,9 @@ namespace Data {
                 new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 5, ComisionID = 3},
                 new Curso {AnioCalendario = 2016, Cupo = 50, MateriaID = 6, ComisionID = 1},
                 new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 7, ComisionID = 1},
+                new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 3, ComisionID = 3},
+                new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 3, ComisionID = 1},
+                new Curso {AnioCalendario = 2019, Cupo = 10, MateriaID = 3, ComisionID = 2},
             };
 
             cursos.ForEach(c => context.Cursos.Add(c));
