@@ -37,6 +37,19 @@ namespace UserControlsDesktop
 
         public Persona ObtenerDatos()
         {
+            string role;
+            if (Tipo == Persona.Rol.No_Docente)
+            {
+                role = "No Docente";
+            }
+            else if (Tipo == Persona.Rol.Docente)
+            {
+                role = "Docente";
+            }
+            else
+            {
+                role = "Alumno";
+            }
 
             switch (Modo)
             {
@@ -51,7 +64,8 @@ namespace UserControlsDesktop
                             Direccion = Direccion,
                             FechaNacimiento = Fecha,
                             Telefono = Telefono,
-                            TipoPersona = Tipo
+                            TipoPersona = Tipo,
+                            Role = role
                         }; 
                     }
                 case ModoForm.Modificacion:
@@ -64,6 +78,7 @@ namespace UserControlsDesktop
                         PersonaActual.FechaNacimiento = Fecha;
                         PersonaActual.Telefono = Telefono;
                         PersonaActual.TipoPersona= Tipo;
+                        PersonaActual.Role = role;
                         return PersonaActual;
                     }
                 default: throw new InvalidInputException("Complete todos los campos obligatorios");

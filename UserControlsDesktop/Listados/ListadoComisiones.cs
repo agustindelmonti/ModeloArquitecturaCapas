@@ -26,7 +26,7 @@ namespace Escritorio
             InitializeComponent();
 
             ComisionLogic = new ComisionLogic();
-            dgvComisiones.AutoGenerateColumns = true;
+            dgvComisiones.AutoGenerateColumns = false;
             dgvComisiones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvComisiones.MultiSelect = false;
             Modo = ModoForm.Consulta;

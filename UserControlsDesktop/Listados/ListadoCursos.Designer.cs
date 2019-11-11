@@ -45,6 +45,7 @@ namespace Escritorio
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MateriaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ComisionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
@@ -82,7 +83,8 @@ namespace Escritorio
             this.Año,
             this.Cupo,
             this.MateriaID,
-            this.ComisionID});
+            this.ComisionID,
+            this.Plan});
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(0, 0);
             this.dgvCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -174,7 +176,7 @@ namespace Escritorio
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 150;
+            this.Id.Width = 50;
             // 
             // Año
             // 
@@ -201,6 +203,12 @@ namespace Escritorio
             this.ComisionID.HeaderText = "Comision";
             this.ComisionID.Name = "ComisionID";
             this.ComisionID.ReadOnly = true;
+            // 
+            // Plan
+            // 
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
             // 
             // ListadoCursos
             // 
@@ -240,5 +248,6 @@ namespace Escritorio
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
         private System.Windows.Forms.DataGridViewTextBoxColumn MateriaID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ComisionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
     }
 }
