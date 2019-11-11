@@ -67,7 +67,7 @@ namespace BusinessLogic
             Persona alumno = Context.PersonaRepository.GetById(personaID);
 
             IEnumerable<Materia> materiasPlan = Context.MateriaRepository.GetAllByPlan(alumno.Plan);
-            IEnumerable<Materia> materiasNoAptaInscripcion = Context.InscripcionRepository.GetMateriasNoAptaInscripcion();
+            IEnumerable<Materia> materiasNoAptaInscripcion = Context.InscripcionRepository.GetMateriasNoAptaInscripcion(alumno);
             IEnumerable<Materia> materiasPlanFaltantes = materiasPlan.Except(materiasNoAptaInscripcion);
 
             return CursoRepository.FindCursosHabilitadosInscripcionAlumno(alumno, materiasPlanFaltantes);
