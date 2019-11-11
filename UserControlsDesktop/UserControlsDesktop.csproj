@@ -41,11 +41,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CursosProfesor.cs">
+    <Compile Include="Alumno\EstadoAcademico.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CursosProfesor.Designer.cs">
-      <DependentUpon>CursosProfesor.cs</DependentUpon>
+    <Compile Include="Alumno\EstadoAcademico.Designer.cs">
+      <DependentUpon>EstadoAcademico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alumno\Inscripcion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Alumno\Inscripcion.Designer.cs">
+      <DependentUpon>Inscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alumno\MisCursos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Alumno\MisCursos.Designer.cs">
+      <DependentUpon>MisCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarAlumno.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuscarAlumno.Designer.cs">
+      <DependentUpon>BuscarAlumno.cs</DependentUpon>
     </Compile>
     <Compile Include="Detalles\ComisionDetalle.cs">
       <SubType>UserControl</SubType>
@@ -64,6 +82,18 @@
     </Compile>
     <Compile Include="Detalles\Detalle.Designer.cs">
       <DependentUpon>Detalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Docente\CursosDocente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Docente\CursosDocente.Designer.cs">
+      <DependentUpon>CursosDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoAlumnosCurso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoAlumnosCurso.Designer.cs">
+      <DependentUpon>ListadoAlumnosCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="Listados\ListadoCursos.cs">
       <SubType>UserControl</SubType>
@@ -137,6 +167,12 @@
     <Compile Include="Listados\ListadoPlanes.Designer.cs">
       <DependentUpon>ListadoPlanes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Perfil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Perfil.Designer.cs">
+      <DependentUpon>Perfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,11 +180,25 @@
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CursosProfesor.resx">
-      <DependentUpon>CursosProfesor.cs</DependentUpon>
+    <EmbeddedResource Include="Alumno\EstadoAcademico.resx">
+      <DependentUpon>EstadoAcademico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alumno\Inscripcion.resx">
+      <DependentUpon>Inscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alumno\MisCursos.resx">
+      <DependentUpon>MisCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarAlumno.resx">
+      <DependentUpon>BuscarAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Detalles\ComisionDetalle.resx">
       <DependentUpon>ComisionDetalle.cs</DependentUpon>
@@ -158,6 +208,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Detalles\Detalle.resx">
       <DependentUpon>Detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Docente\CursosDocente.resx">
+      <DependentUpon>CursosDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoAlumnosCurso.resx">
+      <DependentUpon>ListadoAlumnosCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\ListadoCursos.resx">
       <DependentUpon>ListadoCursos.cs</DependentUpon>
@@ -195,21 +251,28 @@
     <EmbeddedResource Include="Listados\ListadoPlanes.resx">
       <DependentUpon>ListadoPlanes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Perfil.resx">
+      <DependentUpon>Perfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
-      <Project>{E5333D3D-C73D-4A30-BBAC-2879CEF3333F}</Project>
+      <Project>{e5333d3d-c73d-4a30-bbac-2879cef3333f}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{1F3C2221-D7A7-4C45-929E-6E2302EEEDB5}</Project>
+      <Project>{1f3c2221-d7a7-4c45-929e-6e2302eeedb5}</Project>
       <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
-      <Project>{CBD749DD-2F3E-4A8C-BCC4-FEE9AA6552FE}</Project>
+      <Project>{cbd749dd-2f3e-4a8c-bcc4-fee9aa6552fe}</Project>
       <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>

@@ -55,7 +55,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Descripcion,State")] Especialidad especialidad)
+        public ActionResult Create([Bind(Include = "Descripcion")] Especialidad especialidad)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EspecialidadID,Descripcion,State")] Especialidad especialidad)
+        public ActionResult Edit([Bind(Include = "EspecialidadID,Descripcion")] Especialidad especialidad)
         {
             if (ModelState.IsValid)
             {

@@ -14,5 +14,7 @@ namespace Data.Repositories
         IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID,int personaID);
         IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoID(int cursoID);
         void AsignarNotas(AlumnoInscripcion inscripcion);
+
+        IEnumerable<Materia> GetMateriasNoAptaInscripcion(Persona alumno);
     }
 }

@@ -19,14 +19,15 @@ namespace Entities {
         public string Email { get; set; }
         [Required, StringLength(20)]
         public string Telefono { get; set; }
-        [DataType(DataType.Date), Display(Name = "Fecha de Nacimiento")]
-        public DateTime? FechaNacimiento { get; set; }
+        [DataType(DataType.Date), Display(Name = "Fecha de Nacimiento"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaNacimiento { get; set; }
         public int Legajo { get; set; }
         [Required, EnumDataType(typeof(Rol))]
         public Rol TipoPersona { get; set; }
-        [Required, Validations.RolRange]
+        [Required, Validations.RolRange, Display(Name = "Rol")]
         public string Role { get; set; }
 
+        public string NombreApellido { get => Nombre + " " + Apellido; }
 
         // Foreign Key
         public int ? PlanID { get; set; }           // Nullable to avoid circular cascade
@@ -34,10 +35,10 @@ namespace Entities {
 
         // Navegation Properties
         public virtual Plan Plan { get; set; }
+        public virtual Usuario Usuario { get; set; }
         public virtual ICollection<AlumnoInscripcion> AlumnoInscripciones { get; set; }
         public virtual ICollection<DocenteCurso> CursosDelDocente { get; set; }
-        
-     
+
         public enum Rol {
             Alumno, Docente, No_Docente
         }

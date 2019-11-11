@@ -17,6 +17,7 @@ namespace Web.Controllers
     {
         CursoLogic CursoLogic = new CursoLogic();
         MateriaLogic MateriaLogic = new MateriaLogic();
+        ComisionLogic ComisionLogic = new ComisionLogic();
 
         // GET: Curso
         public ActionResult Index(string año, string materia)
@@ -54,6 +55,7 @@ namespace Web.Controllers
         public ActionResult Create()
         {
             ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion");
+            ViewBag.ComisionID = new SelectList(ComisionLogic.GetAll(), "ComisionID", "Descripcion");
             return View();
         }
 
@@ -62,7 +64,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AnioCalendario,Cupo,MateriaID,State")] Curso curso)
+        public ActionResult Create([Bind(Include = "AnioCalendario,Cupo,MateriaID,ComisionID")] Curso curso)
         {
             if (ModelState.IsValid)
             {
@@ -71,6 +73,7 @@ namespace Web.Controllers
             }
 
             ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion", curso.MateriaID);
+            ViewBag.ComisionID = new SelectList(ComisionLogic.GetAll(), "ComisionID", "Descripcion", curso.ComisionID);
             return View(curso);
         }
 
@@ -87,6 +90,7 @@ namespace Web.Controllers
                 return HttpNotFound();
             }
             ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion", curso.MateriaID);
+            ViewBag.ComisionID = new SelectList(ComisionLogic.GetAll(), "ComisionID", "Descripcion", curso.ComisionID);
             return View(curso);
         }
 
@@ -95,7 +99,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CursoID,AnioCalendario,Cupo,MateriaID,State")] Curso curso)
+        public ActionResult Edit([Bind(Include = "CursoID,AnioCalendario,Cupo,MateriaID, ComisionID")] Curso curso)
         {
             if (ModelState.IsValid)
             {
@@ -103,6 +107,7 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MateriaID = new SelectList(MateriaLogic.GetAll(), "MateriaID", "Descripcion", curso.MateriaID);
+            ViewBag.ComisionID = new SelectList(ComisionLogic.GetAll(), "ComisionID", "Descripcion", curso.ComisionID);
             return View(curso);
         }
 

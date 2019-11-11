@@ -58,7 +58,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Descripcion,EspecialidadID,State")] Plan plan)
+        public ActionResult Create([Bind(Include = "Descripcion,EspecialidadID")] Plan plan)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PlanID,Descripcion,EspecialidadID,State")] Plan plan)
+        public ActionResult Edit([Bind(Include = "PlanID,Descripcion,EspecialidadID")] Plan plan)
         {
             if (ModelState.IsValid)
             {
@@ -124,6 +124,18 @@ namespace Web.Controllers
         {
             PlanLogic.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        //Endpoints API para llamadas AJAX
+
+        //POST 
+        [HttpPost]
+        public ActionResult GetPlanesByEspecialidad(int especialidadid)
+        {
+            Especialidad especialidad = EspecialidadLogic.Find(especialidadid);
+            List<Plan> planesEspecialidad = PlanLogic.GetAllByEspecialidad(especialidad);
+            SelectList planes = new SelectList(planesEspecialidad, "PlanID", "Descripcion", 0);
+            return Json(planes);
         }
     }
 }

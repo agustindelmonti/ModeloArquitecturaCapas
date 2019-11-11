@@ -21,6 +21,11 @@ namespace BusinessLogic
 
         public IEnumerable<Persona> GetDocentesCurso(Curso curso) => CursoRepository.GetDocentesCurso(curso);
 
+        public Curso FindByIdWithInscripciones(int cursoID)
+        {
+            return CursoRepository.FindByIdWithInscripciones(cursoID);
+        }
+
         public IEnumerable<DocenteCurso> GetAllCursosActualesByProfesor(Persona persona)
         {
             IEnumerable<DocenteCurso> CursosDocente = Context.DocenteCursoRepository.GetAllCursosByDocente(persona);
@@ -51,20 +56,21 @@ namespace BusinessLogic
             return cursos.Where(c => c.Materia.Descripcion.ToLower().Contains(materia.ToLower()));
         }
 
-        public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID)
-        {
-            return CursoRepository.FindCursosActualesByPersonaID(personaID);
-        }
-
+        /** El metodo valida la siguientes situaciones:
+        *       - Año lectivo actual
+        *       - Cupo menor a la cantidad de inscriptos
+        *       - Es del plan del alumno
+        *       - No es una materia ya aprobada, regular o cursando
+        **/
         public IEnumerable<Curso> FindCursosHabilitadosByPersonaID(int personaID)
         {
+            Persona alumno = Context.PersonaRepository.GetById(personaID);
 
-            IEnumerable<Curso> cursosInscriptos = CursoRepository.FindCursosInscriptosByPersonaID(personaID);
-            IEnumerable<Curso> cursosPlan = CursoRepository.FindCursosFromPlanByPersonaID(personaID);
+            IEnumerable<Materia> materiasPlan = Context.MateriaRepository.GetAllByPlan(alumno.Plan);
+            IEnumerable<Materia> materiasNoAptaInscripcion = Context.InscripcionRepository.GetMateriasNoAptaInscripcion(alumno);
+            IEnumerable<Materia> materiasPlanFaltantes = materiasPlan.Except(materiasNoAptaInscripcion);
 
-            IEnumerable<Curso> cursosNoInscriptos = cursosPlan.Except(cursosInscriptos);
-
-            return cursosNoInscriptos.Where(c => c.AlumnosInscripciones.Count() < c.Cupo).ToList();
+            return CursoRepository.FindCursosHabilitadosInscripcionAlumno(alumno, materiasPlanFaltantes);
         }
 
         public void Add(Curso curso) => CursoRepository.Add(curso);

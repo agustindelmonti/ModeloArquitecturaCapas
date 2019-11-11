@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using UserControlsDesktop;
+using UserControlsDesktop.Alumno;
 
 namespace Escritorio
 {
@@ -34,5 +35,26 @@ namespace Escritorio
         {
             this.Close();
         }
-    }
+
+        private void estadoAcademicoToolStripMenuItem_Click(object sender, EventArgs e) {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new EstadoAcademico(UsuarioAutenticado));
+        }
+
+        private void materiaToolStripMenuItem_Click(object sender, EventArgs e) {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new Inscripcion(UsuarioAutenticado));
+        }
+
+        private void misCursosToolStripMenuItem_Click(object sender, EventArgs e) {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new MisCursos(UsuarioAutenticado));
+        }
+
+        private void actualizarDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new Perfil(UsuarioAutenticado));
+        }
+}
 }

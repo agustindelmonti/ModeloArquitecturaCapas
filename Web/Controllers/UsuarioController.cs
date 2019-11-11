@@ -57,7 +57,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NombreUsuario,Clave,Habilitado,CambioClave,PersonaID,State")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "NombreUsuario,Clave,Habilitado,CambioClave,PersonaID")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.UsuarioID);
             return View(usuario);
         }
 
@@ -81,7 +81,7 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.UsuarioID);
             return View(usuario);
         }
 
@@ -90,14 +90,14 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,CambioClave,PersonaID,State")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "UsuarioID,NombreUsuario,Clave,Habilitado,CambioClave,PersonaID")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
                 UsuarioLogic.Update(usuario);
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.PersonaID);
+            ViewBag.PersonaID = new SelectList(PersonaLogic.GetAll(), "PersonaID", "Nombre", usuario.UsuarioID);
             return View(usuario);
         }
 

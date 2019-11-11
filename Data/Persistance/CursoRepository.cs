@@ -17,6 +17,18 @@ namespace Data.Repositories
             db = context;
         }
 
+        public IEnumerable<Curso> FindCursosHabilitadosInscripcionAlumno(Persona alumno, IEnumerable<Materia> materias)
+        {
+            return db.Cursos
+                .Where(c => c.Cupo > c.AlumnosInscripciones.Count())
+                .Where(c => c.Materia.PlanID == alumno.Plan.PlanID)
+                .Where(c => c.AnioCalendario == DateTime.Now.Year)
+                .OrderByDescending(c => c.ComisionID)
+                .AsEnumerable()
+                .Where(c => materias.Contains(c.Materia))
+                .ToList();
+        }
+
         public IEnumerable<Curso> GetAll()
         {
             return db.Cursos.Include(c => c.Materia).ToList();
@@ -49,9 +61,14 @@ namespace Data.Repositories
             return db.Cursos.Where(c => c.AlumnosInscripciones.Where(i => i.Persona.PersonaID == personaID && i.Condicion == AlumnoInscripcion.Estado.Cursando).FirstOrDefault() != null).Include(c => c.Materia).Include(c => c.Comision).ToList();
         }
 
-        public IEnumerable<Curso> FindCursosActualesByPersonaID(int personaID)
+        public Curso FindByIdWithInscripciones(int cursoID)
         {
-            throw new NotImplementedException();
+            return db.Cursos
+                .Where(c => c.CursoID == cursoID)
+                .Include(c => c.AlumnosInscripciones)
+                .Include(c => c.DocentesDelCurso)
+                .Include(c => c.Comision.Plan.Especialidad)
+                .FirstOrDefault();
         }
     }
 }

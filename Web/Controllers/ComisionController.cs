@@ -17,6 +17,7 @@ namespace Web.Controllers
     {
         ComisionLogic ComisionLogic = new ComisionLogic();
         PlanLogic PlanLogic = new PlanLogic();
+        EspecialidadLogic EspecialidadLogic = new EspecialidadLogic();
 
         // GET: Comision
         public ActionResult Index(string nroComision)
@@ -49,7 +50,7 @@ namespace Web.Controllers
         // GET: Comision/Create
         public ActionResult Create()
         {
-            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion");
+            ViewBag.Especialidades = EspecialidadLogic.GetAll();
             return View();
         }
 
@@ -58,7 +59,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Descripcion,AnioEspecialidad,PlanID,State")] Comision comision)
+        public ActionResult Create([Bind(Include = "Descripcion,AnioEspecialidad,PlanID")] Comision comision)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +83,7 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", comision.PlanID);
+            ViewBag.Especialidades = EspecialidadLogic.GetAll();
             return View(comision);
         }
 
@@ -91,7 +92,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ComisionID,Descripcion,AnioEspecialidad,PlanID,State")] Comision comision)
+        public ActionResult Edit([Bind(Include = "ComisionID,Descripcion,AnioEspecialidad,PlanID")] Comision comision)
         {
             if (ModelState.IsValid)
             {

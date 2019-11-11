@@ -26,7 +26,7 @@ namespace Escritorio
             InitializeComponent();
 
             CursoLogic = new CursoLogic();
-            dgvCursos.AutoGenerateColumns = true;
+            dgvCursos.AutoGenerateColumns = false;
             dgvCursos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCursos.MultiSelect = false;
             Modo = ModoForm.Consulta;
@@ -210,6 +210,16 @@ namespace Escritorio
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void dgvCursos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in this.dgvCursos.Rows)
+            {
+                row.Cells["comisionID"].Value = ((Curso)row.DataBoundItem).Comision.Descripcion;
+                row.Cells["materiaID"].Value = ((Curso)row.DataBoundItem).Materia.Descripcion;
+                row.Cells["Plan"].Value = ((Curso)row.DataBoundItem).Materia.Plan.Descripcion;
+            }
         }
 
     }

@@ -16,6 +16,23 @@ namespace Data.Persistance {
             db = context;
         }
 
+
+        public IEnumerable<Materia> GetMateriasNoAptaInscripcion(Persona alumno)
+        {
+            List<AlumnoInscripcion.Estado> estados = new List<AlumnoInscripcion.Estado>()
+            {
+                AlumnoInscripcion.Estado.Aprobado,
+                AlumnoInscripcion.Estado.Regular,
+                AlumnoInscripcion.Estado.Cursando
+            };
+            List<Materia> materias = db.AlumnoInscripciones
+                            .Where(i => i.PersonaID == alumno.PersonaID)
+                            .Where(i => estados.Contains(i.Condicion))
+                            .Select(i => i.Curso.Materia)
+                            .ToList();
+            return materias;
+        }
+
         public IEnumerable<AlumnoInscripcion> GetInscripcionesWithCursoAndPersona() {
             return db.AlumnoInscripciones.Include(a => a.Curso).Include(a => a.Persona).ToList();
         }
@@ -26,7 +43,10 @@ namespace Data.Persistance {
         }
 
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByPersonaID(int personaID) {
-            return db.AlumnoInscripciones.Where(i => i.PersonaID == personaID).Include(i => i.Curso.Materia);
+            return db.AlumnoInscripciones
+                .Where(i => i.PersonaID == personaID)
+                .Include(i => i.Curso.Materia)
+                .Include(i => i.Curso.Comision.Plan);
         }
 
         public IEnumerable<AlumnoInscripcion> FindInscripcionesByCursoIDAndPersonaID(int cursoID, int docenteID) {
@@ -40,16 +60,7 @@ namespace Data.Persistance {
         public void AsignarNotas(AlumnoInscripcion inscripcion) {
             AlumnoInscripcion insc = db.AlumnoInscripciones.Where(i => i.AlumnoInscripcionID == inscripcion.AlumnoInscripcionID).FirstOrDefault();
             insc.Nota = inscripcion.Nota;
-
-            if(insc.Nota < 6) {
-                insc.Condicion = AlumnoInscripcion.Estado.Libre;
-            }
-            else if (insc.Nota >= 6 && insc.Nota <=8) {
-                insc.Condicion = AlumnoInscripcion.Estado.Regular;
-            }
-            else {
-                insc.Condicion = AlumnoInscripcion.Estado.Aprobado;
-            }
+            insc.Calificar();
         }
     }
 }

@@ -218,5 +218,13 @@ namespace Escritorio
             this.Dispose();
         }
 
+        private void dgvMaterias_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in this.dgvMaterias.Rows)
+            {
+                row.Cells["id_Plan"].Value = ((Materia)row.DataBoundItem).Plan.Descripcion;
+            }
+        }
+
     }
 }

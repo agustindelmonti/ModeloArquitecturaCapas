@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<br />
+<h2>Detalle persona</h2>
 
 <div>
-    <h4>Persona</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -82,17 +82,13 @@
             @Html.DisplayFor(model => model.Role)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonaID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "Persona", new { id = Model.PersonaID })" class="btn btn-primary">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        Editar
+    </a>
+     |
+    @Html.ActionLink("Volver", "Index")
 </p>
