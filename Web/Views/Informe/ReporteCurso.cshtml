@@ -10,8 +10,10 @@
     var ayudante = Model.DocentesDelCurso.SingleOrDefault(p => p.Cargo == Entities.DocenteCurso.TipoCargo.Ayudante);
 }
 <br>
+<h2 class="card-header white-text text-center py-4" style="background-color: darkred">
+    <strong style="color: white">Listado de Alumnos</strong>
+</h2>
 
-<h1>Listado de Alumnos</h1>
 
 @if (Model == null)
 {
@@ -21,16 +23,18 @@
 }
 else
 {
-    <h2>Materia: @Model.Materia.Descripcion</h2>
-    <h2>Comsion: @Model.Comision.Descripcion</h2>
-    <h2>Especialidad: @Model.Materia.Plan.Especialidad.Descripcion</h2>
-    <h2>Año Calendario: @Model.AnioCalendario</h2>
-    <h2>Profesores</h2>
 
-    if (titular != null) {<h3>Titular: @titular.Docente.NombreApellido</h3>}
-    if (auxiliar != null) {<h3>Auxiliar: @auxiliar.Docente.NombreApellido</h3>}
-    if (auxiliar != null) {<h3>Ayudante: @ayudante.Docente.NombreApellido</h3>}
+    <h3> Materia: @Model.Materia.Descripcion</h3>
+    <h3>Comsion: @Model.Comision.Descripcion</h3>
+    <h3>Especialidad: @Model.Materia.Plan.Especialidad.Descripcion</h3>
+    <h3>Año Calendario: @Model.AnioCalendario</h3>
+    <h3>Profesores</h3>
 
+    if (titular != null) {<h4>Titular: @titular.Docente.NombreApellido</h4>}
+    if (auxiliar != null) {<h4>Auxiliar: @auxiliar.Docente.NombreApellido</h4>}
+    if (auxiliar != null) {<h4>Ayudante: @ayudante.Docente.NombreApellido</h4>}
+
+    <br />
     if (Model.AlumnosInscripciones.Count() == 0)
     {
         <div class="alert alert-danger" role="alert">
