@@ -57,13 +57,13 @@ namespace Escritorio
             // tcEspecialidades.ContentPanel
             // 
             this.tcEspecialidades.ContentPanel.Controls.Add(this.dgvComisiones);
-            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(547, 419);
+            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(729, 523);
             this.tcEspecialidades.Dock = System.Windows.Forms.DockStyle.Left;
             this.tcEspecialidades.Location = new System.Drawing.Point(0, 0);
-            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcEspecialidades.Name = "tcEspecialidades";
-            this.tcEspecialidades.Size = new System.Drawing.Size(547, 451);
+            this.tcEspecialidades.Size = new System.Drawing.Size(729, 555);
             this.tcEspecialidades.TabIndex = 0;
             this.tcEspecialidades.Text = "toolStripContainer1";
             // 
@@ -83,11 +83,13 @@ namespace Escritorio
             this.PlanId});
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(0, 0);
+            this.dgvComisiones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvComisiones.Name = "dgvComisiones";
             this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.RowHeadersVisible = false;
-            this.dgvComisiones.Size = new System.Drawing.Size(547, 419);
+            this.dgvComisiones.Size = new System.Drawing.Size(729, 523);
             this.dgvComisiones.TabIndex = 0;
+            this.dgvComisiones.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvComisiones_DataBindingComplete);
             this.dgvComisiones.Click += new System.EventHandler(this.dgvMaterias_Click);
             // 
             // tsEspecialidades
@@ -147,10 +149,10 @@ namespace Escritorio
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(568, 416);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptar.Location = new System.Drawing.Point(757, 512);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(77, 24);
+            this.btnAceptar.Size = new System.Drawing.Size(103, 30);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -158,9 +160,10 @@ namespace Escritorio
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(544, 0);
+            this.panel1.Location = new System.Drawing.Point(725, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 451);
+            this.panel1.Size = new System.Drawing.Size(315, 555);
             this.panel1.TabIndex = 6;
             // 
             // Id
@@ -189,22 +192,21 @@ namespace Escritorio
             // 
             // PlanId
             // 
-            this.PlanId.DataPropertyName = "PlanID";
-            this.PlanId.HeaderText = "PlanID";
+            this.PlanId.HeaderText = "Plan";
             this.PlanId.Name = "PlanId";
             this.PlanId.ReadOnly = true;
             this.PlanId.Width = 140;
             // 
             // ListadoComisiones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcEspecialidades);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ListadoComisiones";
-            this.Size = new System.Drawing.Size(780, 451);
+            this.Size = new System.Drawing.Size(1040, 555);
             this.tcEspecialidades.ContentPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.PerformLayout();

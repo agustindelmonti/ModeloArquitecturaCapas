@@ -102,7 +102,7 @@ namespace Escritorio
         private void reporteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            panel1.Controls.Add(new ReportePlan());
+            panel1.Controls.Add(new ReportePlanes());
         }
     }
 }

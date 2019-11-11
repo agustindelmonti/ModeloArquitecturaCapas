@@ -58,13 +58,13 @@ namespace Escritorio
             // tcEspecialidades.ContentPanel
             // 
             this.tcEspecialidades.ContentPanel.Controls.Add(this.dgvMaterias);
-            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(547, 419);
+            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(729, 523);
             this.tcEspecialidades.Dock = System.Windows.Forms.DockStyle.Left;
             this.tcEspecialidades.Location = new System.Drawing.Point(0, 0);
-            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcEspecialidades.Name = "tcEspecialidades";
-            this.tcEspecialidades.Size = new System.Drawing.Size(547, 451);
+            this.tcEspecialidades.Size = new System.Drawing.Size(729, 555);
             this.tcEspecialidades.TabIndex = 0;
             this.tcEspecialidades.Text = "toolStripContainer1";
             // 
@@ -86,13 +86,14 @@ namespace Escritorio
             this.id_Plan});
             this.dgvMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterias.Location = new System.Drawing.Point(0, 0);
-            this.dgvMaterias.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMaterias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.ReadOnly = true;
             this.dgvMaterias.RowHeadersVisible = false;
             this.dgvMaterias.RowTemplate.Height = 24;
-            this.dgvMaterias.Size = new System.Drawing.Size(547, 419);
+            this.dgvMaterias.Size = new System.Drawing.Size(729, 523);
             this.dgvMaterias.TabIndex = 1;
+            this.dgvMaterias.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvMaterias_DataBindingComplete);
             this.dgvMaterias.Click += new System.EventHandler(this.dvgMaterias_Click);
             // 
             // tsEspecialidades
@@ -152,10 +153,10 @@ namespace Escritorio
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(568, 416);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptar.Location = new System.Drawing.Point(757, 512);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(77, 24);
+            this.btnAceptar.Size = new System.Drawing.Size(103, 30);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -163,9 +164,10 @@ namespace Escritorio
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(544, 0);
+            this.panel1.Location = new System.Drawing.Point(725, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 451);
+            this.panel1.Size = new System.Drawing.Size(315, 555);
             this.panel1.TabIndex = 6;
             // 
             // id
@@ -203,7 +205,6 @@ namespace Escritorio
             // 
             // id_Plan
             // 
-            this.id_Plan.DataPropertyName = "PlanID";
             this.id_Plan.FillWeight = 128.2931F;
             this.id_Plan.HeaderText = "Plan";
             this.id_Plan.Name = "id_Plan";
@@ -211,14 +212,14 @@ namespace Escritorio
             // 
             // ListadoMaterias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcEspecialidades);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ListadoMaterias";
-            this.Size = new System.Drawing.Size(780, 451);
+            this.Size = new System.Drawing.Size(1040, 555);
             this.tcEspecialidades.ContentPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.PerformLayout();

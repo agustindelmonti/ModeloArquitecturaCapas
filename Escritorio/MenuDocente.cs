@@ -47,5 +47,10 @@ namespace Escritorio
             panel1.Controls.Add(new CursosProfesor(UsuarioAutenticado));
         }
 
+        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(new Perfil(UsuarioAutenticado));
+        }
     }
 }

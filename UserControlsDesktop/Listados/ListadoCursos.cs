@@ -212,5 +212,14 @@ namespace Escritorio
             this.Dispose();
         }
 
+        private void dgvCursos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in this.dgvCursos.Rows)
+            {
+                row.Cells["comisionID"].Value = ((Curso)row.DataBoundItem).Comision.Descripcion;
+                row.Cells["materiaID"].Value = ((Curso)row.DataBoundItem).Materia.Descripcion;
+            }
+        }
+
     }
 }

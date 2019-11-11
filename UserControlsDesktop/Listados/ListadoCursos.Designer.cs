@@ -43,8 +43,8 @@ namespace Escritorio
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MateriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ComisionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MateriaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ComisionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
@@ -58,13 +58,13 @@ namespace Escritorio
             // tcEspecialidades.ContentPanel
             // 
             this.tcEspecialidades.ContentPanel.Controls.Add(this.dgvCursos);
-            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(547, 419);
+            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(729, 523);
             this.tcEspecialidades.Dock = System.Windows.Forms.DockStyle.Left;
             this.tcEspecialidades.Location = new System.Drawing.Point(0, 0);
-            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcEspecialidades.Name = "tcEspecialidades";
-            this.tcEspecialidades.Size = new System.Drawing.Size(547, 451);
+            this.tcEspecialidades.Size = new System.Drawing.Size(729, 555);
             this.tcEspecialidades.TabIndex = 0;
             this.tcEspecialidades.Text = "toolStripContainer1";
             // 
@@ -81,15 +81,17 @@ namespace Escritorio
             this.Id,
             this.Año,
             this.Cupo,
-            this.MateriaId,
-            this.ComisionId});
+            this.MateriaID,
+            this.ComisionID});
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(0, 0);
+            this.dgvCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCursos.Name = "dgvCursos";
             this.dgvCursos.ReadOnly = true;
             this.dgvCursos.RowHeadersVisible = false;
-            this.dgvCursos.Size = new System.Drawing.Size(547, 419);
+            this.dgvCursos.Size = new System.Drawing.Size(729, 523);
             this.dgvCursos.TabIndex = 0;
+            this.dgvCursos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvCursos_DataBindingComplete);
             this.dgvCursos.Click += new System.EventHandler(this.dgvMaterias_Click);
             // 
             // tsEspecialidades
@@ -149,10 +151,10 @@ namespace Escritorio
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(568, 416);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptar.Location = new System.Drawing.Point(757, 512);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(77, 24);
+            this.btnAceptar.Size = new System.Drawing.Size(103, 30);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -160,9 +162,10 @@ namespace Escritorio
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(544, 0);
+            this.panel1.Location = new System.Drawing.Point(725, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 451);
+            this.panel1.Size = new System.Drawing.Size(315, 555);
             this.panel1.TabIndex = 6;
             // 
             // Id
@@ -187,30 +190,28 @@ namespace Escritorio
             this.Cupo.Name = "Cupo";
             this.Cupo.ReadOnly = true;
             // 
-            // MateriaId
+            // MateriaID
             // 
-            this.MateriaId.DataPropertyName = "MateriaID";
-            this.MateriaId.HeaderText = "MateriaId";
-            this.MateriaId.Name = "MateriaId";
-            this.MateriaId.ReadOnly = true;
+            this.MateriaID.HeaderText = "Materia";
+            this.MateriaID.Name = "MateriaID";
+            this.MateriaID.ReadOnly = true;
             // 
-            // ComisionId
+            // ComisionID
             // 
-            this.ComisionId.DataPropertyName = "ComisionID";
-            this.ComisionId.HeaderText = "ComisionId";
-            this.ComisionId.Name = "ComisionId";
-            this.ComisionId.ReadOnly = true;
+            this.ComisionID.HeaderText = "Comision";
+            this.ComisionID.Name = "ComisionID";
+            this.ComisionID.ReadOnly = true;
             // 
             // ListadoCursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcEspecialidades);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ListadoCursos";
-            this.Size = new System.Drawing.Size(780, 451);
+            this.Size = new System.Drawing.Size(1040, 555);
             this.tcEspecialidades.ContentPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.PerformLayout();
@@ -237,7 +238,7 @@ namespace Escritorio
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Año;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MateriaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ComisionId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MateriaID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ComisionID;
     }
 }
