@@ -57,7 +57,7 @@ namespace Web.Controllers
 
             var personas = PersonaLogic.GetAll();
 
-            ViewBag.Rol = new SelectList(   
+            ViewBag.Role = new SelectList(   
                                         Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r})
                                         , "Text"
                                         , "Value" );
@@ -69,7 +69,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,Rol,PlanID,State")] Persona persona)
+        public ActionResult Create([Bind(Include = "Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,Role,PlanID,State")] Persona persona)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Web.Controllers
 
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", persona.PlanID);
 
-            ViewBag.Rol = new SelectList(
+            ViewBag.Role = new SelectList(
                                         Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r })
                                         , "Text"
                                         , "Value");
@@ -102,7 +102,7 @@ namespace Web.Controllers
             }
             
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", persona.PlanID);
-            ViewBag.Rol = new SelectList(
+            ViewBag.Role = new SelectList(
                                         Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r })
                                         , "Text"
                                         , "Value");
@@ -115,7 +115,7 @@ namespace Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,Rol,PlanID,State")] Persona persona)
+        public ActionResult Edit([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Email,Telefono,FechaNacimiento,Legajo,Role,PlanID,State")] Persona persona)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +124,7 @@ namespace Web.Controllers
             }
             ViewBag.PlanID = new SelectList(PlanLogic.GetAll(), "PlanID", "Descripcion", persona.PlanID);
 
-            ViewBag.Rol = new SelectList(
+            ViewBag.Role = new SelectList(
                                         Persona.Roles.Select(r => new SelectListItem { Text = r, Value = r })
                                         , "Text"
                                         , "Value");
