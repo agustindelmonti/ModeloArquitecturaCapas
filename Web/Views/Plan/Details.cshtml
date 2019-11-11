@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<br />
+<h2>Detalles plan</h2>
 
 <div>
-    <h4>Plan</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,6 +29,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PlanID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", "Usuario", new { id = Model.PlanID })" class="btn btn-primary">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        Editar
+    </a>
+     |
+    @Html.ActionLink("Volver", "Index")
 </p>
