@@ -37,8 +37,10 @@
             this.NroComision});
             this.dgvMisCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMisCursos.Location = new System.Drawing.Point(0, 0);
-            this.dgvMisCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvMisCursos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMisCursos.Name = "dgvMisCursos";
+            this.dgvMisCursos.RowHeadersVisible = false;
+            this.dgvMisCursos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMisCursos.Size = new System.Drawing.Size(969, 555);
             this.dgvMisCursos.TabIndex = 0;
             // 
@@ -47,19 +49,21 @@
             this.NombreMateria.DataPropertyName = "NombreMateria";
             this.NombreMateria.HeaderText = "Materia";
             this.NombreMateria.Name = "NombreMateria";
+            this.NombreMateria.Width = 240;
             // 
             // NroComision
             // 
             this.NroComision.DataPropertyName = "NroComision";
             this.NroComision.HeaderText = "Nro Comision";
             this.NroComision.Name = "NroComision";
+            this.NroComision.Width = 130;
             // 
             // MisCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvMisCursos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MisCursos";
             this.Size = new System.Drawing.Size(969, 555);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMisCursos)).EndInit();

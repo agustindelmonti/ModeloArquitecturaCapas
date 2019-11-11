@@ -87,7 +87,7 @@ namespace Escritorio
             this.Plan});
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(0, 0);
-            this.dgvCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCursos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCursos.Name = "dgvCursos";
             this.dgvCursos.ReadOnly = true;
             this.dgvCursos.RowHeadersVisible = false;
@@ -165,7 +165,7 @@ namespace Escritorio
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(725, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(315, 555);
             this.panel1.TabIndex = 6;
@@ -197,18 +197,21 @@ namespace Escritorio
             this.MateriaID.HeaderText = "Materia";
             this.MateriaID.Name = "MateriaID";
             this.MateriaID.ReadOnly = true;
+            this.MateriaID.Width = 240;
             // 
             // ComisionID
             // 
             this.ComisionID.HeaderText = "Comision";
             this.ComisionID.Name = "ComisionID";
             this.ComisionID.ReadOnly = true;
+            this.ComisionID.Width = 130;
             // 
             // Plan
             // 
             this.Plan.HeaderText = "Plan";
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;
+            this.Plan.Width = 140;
             // 
             // ListadoCursos
             // 
