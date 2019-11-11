@@ -212,5 +212,12 @@ namespace Escritorio
             this.Dispose();
         }
 
+        private void dgvPlanes_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach(DataGridViewRow row in this.dgvPlanes.Rows)
+            {
+                row.Cells["id_Especialidad"].Value = ((Plan)row.DataBoundItem).Especialidad.Descripcion;
+            }
+        }
     }
 }

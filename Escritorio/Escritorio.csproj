@@ -116,11 +116,11 @@
     <Compile Include="ReporteCursos.Designer.cs">
       <DependentUpon>ReporteCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportePlan.cs">
+    <Compile Include="ReportePlanes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ReportePlan.designer.cs">
-      <DependentUpon>ReportePlan.cs</DependentUpon>
+    <Compile Include="ReportePlanes.Designer.cs">
+      <DependentUpon>ReportePlanes.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="AlumnosCurso.resx">
@@ -151,10 +151,10 @@
     <EmbeddedResource Include="ReporteCursos.resx">
       <DependentUpon>ReporteCursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportePlan.resx">
-      <DependentUpon>ReportePlan.cs</DependentUpon>
+    <EmbeddedResource Include="ReportePlanes.resx">
+      <DependentUpon>ReportePlanes.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="InformePlanes.rdlc" />
+    <EmbeddedResource Include="InformePlanes.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BusinessLogic.CursoLogic.datasource" />
     <None Include="Properties\DataSources\BusinessLogic.EspecialidadLogic.datasource" />

@@ -33,9 +33,6 @@ namespace Escritorio
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListadoPlanes));
             this.tcEspecialidades = new System.Windows.Forms.ToolStripContainer();
             this.dgvPlanes = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -43,6 +40,9 @@ namespace Escritorio
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
@@ -56,13 +56,13 @@ namespace Escritorio
             // tcEspecialidades.ContentPanel
             // 
             this.tcEspecialidades.ContentPanel.Controls.Add(this.dgvPlanes);
-            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(547, 419);
+            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(729, 523);
             this.tcEspecialidades.Dock = System.Windows.Forms.DockStyle.Left;
             this.tcEspecialidades.Location = new System.Drawing.Point(0, 0);
-            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(2);
+            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcEspecialidades.Name = "tcEspecialidades";
-            this.tcEspecialidades.Size = new System.Drawing.Size(547, 451);
+            this.tcEspecialidades.Size = new System.Drawing.Size(729, 555);
             this.tcEspecialidades.TabIndex = 0;
             this.tcEspecialidades.Text = "toolStripContainer1";
             // 
@@ -82,38 +82,15 @@ namespace Escritorio
             this.id_Especialidad});
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlanes.Location = new System.Drawing.Point(0, 0);
-            this.dgvPlanes.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPlanes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPlanes.Name = "dgvPlanes";
             this.dgvPlanes.ReadOnly = true;
             this.dgvPlanes.RowHeadersVisible = false;
             this.dgvPlanes.RowTemplate.Height = 24;
-            this.dgvPlanes.Size = new System.Drawing.Size(547, 419);
+            this.dgvPlanes.Size = new System.Drawing.Size(729, 523);
             this.dgvPlanes.TabIndex = 1;
+            this.dgvPlanes.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPlanes_DataBindingComplete);
             this.dgvPlanes.Click += new System.EventHandler(this.dgvMaterias_Click);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "PlanID";
-            this.id.FillWeight = 30.45685F;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "Descripcion";
-            this.descripcion.FillWeight = 134.7716F;
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // id_Especialidad
-            // 
-            this.id_Especialidad.DataPropertyName = "EspecialidadID";
-            this.id_Especialidad.FillWeight = 134.7716F;
-            this.id_Especialidad.HeaderText = "Especialidad";
-            this.id_Especialidad.Name = "id_Especialidad";
-            this.id_Especialidad.ReadOnly = true;
             // 
             // tsEspecialidades
             // 
@@ -172,10 +149,10 @@ namespace Escritorio
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(568, 416);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAceptar.Location = new System.Drawing.Point(757, 512);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(77, 24);
+            this.btnAceptar.Size = new System.Drawing.Size(103, 30);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -183,21 +160,45 @@ namespace Escritorio
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(544, 0);
+            this.panel1.Location = new System.Drawing.Point(725, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 451);
+            this.panel1.Size = new System.Drawing.Size(315, 555);
             this.panel1.TabIndex = 6;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "PlanID";
+            this.id.FillWeight = 30.45685F;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "Descripcion";
+            this.descripcion.FillWeight = 134.7716F;
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // id_Especialidad
+            // 
+            this.id_Especialidad.FillWeight = 134.7716F;
+            this.id_Especialidad.HeaderText = "Especialidad";
+            this.id_Especialidad.Name = "id_Especialidad";
+            this.id_Especialidad.ReadOnly = true;
             // 
             // ListadoPlanes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcEspecialidades);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ListadoPlanes";
-            this.Size = new System.Drawing.Size(780, 451);
+            this.Size = new System.Drawing.Size(1040, 555);
             this.tcEspecialidades.ContentPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.ResumeLayout(false);
             this.tcEspecialidades.TopToolStripPanel.PerformLayout();

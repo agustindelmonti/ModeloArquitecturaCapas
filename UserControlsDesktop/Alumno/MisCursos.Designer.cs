@@ -37,8 +37,9 @@
             this.NroComision});
             this.dgvMisCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMisCursos.Location = new System.Drawing.Point(0, 0);
+            this.dgvMisCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMisCursos.Name = "dgvMisCursos";
-            this.dgvMisCursos.Size = new System.Drawing.Size(632, 330);
+            this.dgvMisCursos.Size = new System.Drawing.Size(969, 555);
             this.dgvMisCursos.TabIndex = 0;
             // 
             // NombreMateria
@@ -55,11 +56,12 @@
             // 
             // MisCursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvMisCursos);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MisCursos";
-            this.Size = new System.Drawing.Size(632, 330);
+            this.Size = new System.Drawing.Size(969, 555);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMisCursos)).EndInit();
             this.ResumeLayout(false);
 

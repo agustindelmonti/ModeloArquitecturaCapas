@@ -9,7 +9,7 @@ namespace Entities {
     public class Plan  {
         // Attributes
         public int PlanID { get; set; }
-        [Required, StringLength(20)]
+        [Required, StringLength(20), Display(Name = "Plan")]
         public string Descripcion { get; set; }
         
         // Foreign Keys

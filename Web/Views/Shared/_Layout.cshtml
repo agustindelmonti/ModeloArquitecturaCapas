@@ -27,13 +27,11 @@
                 <ul class="nav navbar-nav mr-auto">
                     @if (User.IsInRole("Docente"))
                     {
-                        <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Docente")</li>
                         <li class="nav-item">@Html.ActionLink("Mis Cursos", "MisCursos", "Docente")</li>
                         <li class="nav-item">@Html.ActionLink("Perfil", "Perfil", "Home")</li>
                     }
                     @if (User.IsInRole("No Docente"))
                     {
-                        <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home")</li>
 
                         <li class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +60,6 @@
                     }
                     @if (User.IsInRole("Alumno"))
                     {
-                        <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Alumno")</li>
                         <li class="nav-item">@Html.ActionLink("Inscribirse", "Inscripcion", "Alumno")</li>
                         <li class="nav-item">@Html.ActionLink("Estado Academico", "EstadoAcademico", "Alumno")</li>
                         <li class="nav-item">@Html.ActionLink("Perfil", "Perfil", "Home")</li>

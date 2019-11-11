@@ -47,9 +47,10 @@
             this.Inscribir});
             this.dgvInscripcion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInscripcion.Location = new System.Drawing.Point(0, 0);
+            this.dgvInscripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvInscripcion.Name = "dgvInscripcion";
             this.dgvInscripcion.ReadOnly = true;
-            this.dgvInscripcion.Size = new System.Drawing.Size(651, 349);
+            this.dgvInscripcion.Size = new System.Drawing.Size(969, 555);
             this.dgvInscripcion.TabIndex = 0;
             this.dgvInscripcion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInscripcion_CellContentClick);
             // 
@@ -98,11 +99,12 @@
             // 
             // Inscripcion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvInscripcion);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Inscripcion";
-            this.Size = new System.Drawing.Size(651, 349);
+            this.Size = new System.Drawing.Size(969, 555);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripcion)).EndInit();
             this.ResumeLayout(false);
 

@@ -52,18 +52,7 @@ namespace Web.Controllers
                         return Redirect(returnUrl);
                     }
                     else {
-                        if (u.Persona.Role == "Alumno") { 
-                            return RedirectToAction("index", "Alumno");
-                        }
-                        if (u.Persona.Role == "Docente") {
-                            return RedirectToAction("index", "Docente");
-                        }
-                        if (u.Persona.Role == "No Docente") {
-                            return RedirectToAction("index", "NoDocente");
-                        }
-                        else {
                             return RedirectToAction("index", "Home");
-                        }
                     }
 
                 }

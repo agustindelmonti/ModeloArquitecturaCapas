@@ -1,6 +1,6 @@
 ﻿namespace Escritorio
 {
-    partial class ReportePlan
+    partial class ReportePlanes
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.PlanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.informePlanes = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.PlanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,29 +39,28 @@
             // 
             this.PlanBindingSource.DataSource = typeof(Entities.Plan);
             // 
-            // reportViewer1
+            // informePlanes
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.informePlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSetPlanes";
             reportDataSource1.Value = this.PlanBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Escritorio.InformePlanes.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(780, 451);
-            this.reportViewer1.TabIndex = 0;
+            this.informePlanes.LocalReport.DataSources.Add(reportDataSource1);
+            this.informePlanes.LocalReport.ReportEmbeddedResource = "Escritorio.InformePlanes.rdlc";
+            this.informePlanes.Location = new System.Drawing.Point(0, 0);
+            this.informePlanes.Name = "informePlanes";
+            this.informePlanes.ServerReport.BearerToken = null;
+            this.informePlanes.Size = new System.Drawing.Size(1040, 555);
+            this.informePlanes.TabIndex = 0;
+            this.informePlanes.Load += new System.EventHandler(this.ReportePlanes_Load);
             // 
-            // ReportePlan
+            // ReportePlanes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.reportViewer1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "ReportePlan";
-            this.Size = new System.Drawing.Size(780, 451);
-            this.Load += new System.EventHandler(this.ReportePlan_Load);
+            this.Controls.Add(this.informePlanes);
+            this.Name = "ReportePlanes";
+            this.Size = new System.Drawing.Size(1040, 555);
+            this.Load += new System.EventHandler(this.ReportePlanes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PlanBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -69,7 +68,7 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer informePlanes;
         private System.Windows.Forms.BindingSource PlanBindingSource;
     }
 }
